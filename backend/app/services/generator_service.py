@@ -474,7 +474,7 @@ Output ONLY valid JSON in this exact format:
     }},
     "cover_letter_body": "string",
     "company_name": "{company_info.get('name', '[Company Name]')}",
-    "job_title": "{company_info.get('position', 'the position')}"
+    "job_title": "{company_info.get('position', '')}"
 }}"""
     
     def _create_update_prompt(self, cv_content: str, job_description: str) -> str:
@@ -573,7 +573,7 @@ Output ONLY valid JSON in this exact format:
     }},
     "cover_letter_body": "string",
     "company_name": "{company_info.get('name', '[Company Name]')}",
-    "job_title": "{company_info.get('position', 'the position')}"
+    "job_title": "{company_info.get('position', '')}"
 }}"""
     
     def _extract_company_info(self, job_description: str) -> Dict[str, str]:
@@ -581,7 +581,7 @@ Output ONLY valid JSON in this exact format:
         import re
         
         if not job_description:
-            return {"name": "[Company Name]", "position": "the position"}
+            return {"name": "[Company Name]", "position": ""}
         
         # Common patterns for company names
         company_patterns = [
@@ -601,7 +601,7 @@ Output ONLY valid JSON in this exact format:
         ]
         
         company_name = "[Company Name]"
-        position_title = "the position"
+        position_title = ""
         
         # Try to extract company name
         for pattern in company_patterns:
@@ -1105,7 +1105,7 @@ GENERAL SECTOR REQUIREMENTS:
             if "company_name" not in data:
                 data["company_name"] = "[Company Name]"
             if "job_title" not in data:
-                data["job_title"] = "the position"
+                data["job_title"] = ""
             
             return data
             
@@ -1211,7 +1211,7 @@ GENERAL SECTOR REQUIREMENTS:
             if "company_name" not in data:
                 data["company_name"] = "[Company Name]"
             if "job_title" not in data:
-                data["job_title"] = "the position"
+                data["job_title"] = ""
             
             # Clean placeholder text and clichés from cover letter body
             if "cover_letter_body" in data:

@@ -109,11 +109,18 @@ const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ data, onEdit, o
 
           {/* Letter Body */}
           <div className="space-y-3 sm:space-y-4 text-gray-700">
-            {data.cover_letter_body.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="text-justify leading-relaxed">
-                {paragraph.trim()}
-              </p>
-            ))}
+            {data.cover_letter_body.includes('<p>') && data.cover_letter_body.includes('</p>') ? (
+              <div 
+                className="text-justify leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: data.cover_letter_body }}
+              />
+            ) : (
+              data.cover_letter_body.split('\n\n').map((paragraph, index) => (
+                <p key={index} className="text-justify leading-relaxed">
+                  {paragraph.trim()}
+                </p>
+              ))
+            )}
           </div>
 
           {/* Closing */}

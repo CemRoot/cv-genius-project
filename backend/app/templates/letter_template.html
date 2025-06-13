@@ -65,6 +65,7 @@
             font-size: 10pt;
             color: #000000;
             line-height: 1.3;
+            white-space: pre-line;
         }
         
         .contact-info div {
@@ -84,10 +85,15 @@
             font-size: 10pt;
             color: #000000;
             line-height: 1.3;
+            white-space: pre-line;
         }
         
         .recipient div {
             margin-bottom: 2px;
+        }
+        
+        .position {
+            font-style: italic;
         }
         
         .salutation {
@@ -201,7 +207,9 @@
 
             <!-- Recipient -->
             <div class="recipient">
+                <div>Hiring Manager</div>
                 <div>{{ company_name or "[Company Name]" }}</div>
+                {% if job_title %}<div class="position">{{ job_title }}</div>{% endif %}
                 {% if include_company_address and company_address %}
                 {% for line in company_address.split('\n') %}
                     {% if line.strip() %}<div>{{ line.strip() }}</div>{% endif %}
@@ -222,103 +230,19 @@
 
             <!-- Letter Body -->
             <div class="letter-body">
-                {% set cleaned_body = cover_letter_body 
-                    | replace('Sincerely,', '') 
-                    | replace('Dear Hiring Manager,', '') 
-                    | replace('Dear Hiring Team,', '') 
-                    | replace('Dear ' + (company_name if company_name and company_name != '[Company Name]' else '') + ' Team,', '')
-                    | replace('Dear ' + (company_name if company_name and company_name != '[Company Name]' else '') + ' Hiring Team,', '')
-                    | replace('Dear Sir/Madam,', '')
-                    | replace('To Whom It May Concern,', '')
-                    | replace('Best regards,', '') 
-                    | replace('Kind regards,', '') 
-                    | replace('Yours faithfully,', '')
-                    | replace('Yours sincerely,', '')
-                    | replace('I am writing to apply', 'My experience makes me well-suited')
-                    | replace('I am writing to express my interest', 'My background aligns perfectly with')
-                    | replace('I would like to apply', 'I am excited to apply my skills')
-                    | replace('[Company Name]', company_name if company_name and company_name != '[Company Name]' else '')
-                    | replace('[Platform where you saw the advert]', '')
-                    | replace('[Job Title]', '')
-                    | replace('[Position]', '')
-                    | replace('—', '-')
-                    | replace('  ', ' ')
-                    | replace('   ', ' ')
-                %}
-                
                 <!-- Check if content already has HTML paragraph tags -->
-                {% if '<p>' in cleaned_body and '</p>' in cleaned_body %}
+                {% if '<p>' in cover_letter_body and '</p>' in cover_letter_body %}
                     <!-- Content already formatted with HTML tags -->
-                    {{ cleaned_body | safe }}
+                    {{ cover_letter_body | safe }}
                 {% else %}
                     <!-- Format as plain text paragraphs -->
-                    {% if '\n\n' in cleaned_body %}
-                        {% set paragraphs = cleaned_body.split('\n\n') %}
-                    {% else %}
-                        {% set paragraphs = cleaned_body.split('\n') %}
-                    {% endif %}
-                    
+                    {% set paragraphs = cover_letter_body.split('\n\n') %}
                     {% for paragraph in paragraphs %}
-                        {% set clean_paragraph = paragraph.strip() 
-                            | replace('\n', ' ') 
-                            | replace('  ', ' ')
-                            | replace('   ', ' ')
-                            | replace('....', '.')
-                            | replace('...', '.')
-                            | replace('..', '.')
-                        %}
-                        {% set paragraph_lower = clean_paragraph.lower() %}
-                        
-                        {% if clean_paragraph 
-                            and clean_paragraph|length > 10
-                            and not paragraph_lower.strip().startswith('sincerely')
-                            and not paragraph_lower.strip().startswith('best regards')
-                            and not paragraph_lower.strip().startswith('kind regards')
-                            and not paragraph_lower.strip().startswith('dear ')
-                            and not paragraph_lower.strip().startswith('yours faithfully')
-                            and not paragraph_lower.strip().startswith('yours sincerely')
-                            and not paragraph_lower.strip().startswith('to whom it may concern')
-                            and not paragraph_lower.strip().endswith('sincerely,')
-                            and not paragraph_lower.strip().endswith('best regards,')
-                            and not paragraph_lower.strip().endswith('kind regards,')
-                            and not paragraph_lower.strip().endswith('sincerely.')
-                            and not clean_paragraph.strip() == ''
-                        %}
+                        {% set clean_paragraph = paragraph.strip() %}
+                        {% if clean_paragraph and clean_paragraph|length > 5 %}
                             <p>{{ clean_paragraph }}</p>
                         {% endif %}
                     {% endfor %}
-                    
-                    <!-- Fallback: If no paragraphs are shown, show cleaned body directly -->
-                    {% set paragraph_count = 0 %}
-                    {% for paragraph in paragraphs %}
-                        {% set clean_paragraph = paragraph.strip() 
-                            | replace('\n', ' ') 
-                            | replace('  ', ' ')
-                            | replace('   ', ' ')
-                        %}
-                        {% set paragraph_lower = clean_paragraph.lower() %}
-                        {% if clean_paragraph 
-                            and clean_paragraph|length > 10
-                            and not paragraph_lower.strip().startswith('sincerely')
-                            and not paragraph_lower.strip().startswith('best regards')
-                            and not paragraph_lower.strip().startswith('kind regards')
-                            and not paragraph_lower.strip().startswith('dear ')
-                            and not paragraph_lower.strip().startswith('yours faithfully')
-                            and not paragraph_lower.strip().startswith('yours sincerely')
-                            and not paragraph_lower.strip().startswith('to whom it may concern')
-                            and not paragraph_lower.strip().endswith('sincerely,')
-                            and not paragraph_lower.strip().endswith('best regards,')
-                            and not paragraph_lower.strip().endswith('kind regards,')
-                            and not paragraph_lower.strip().endswith('sincerely.')
-                            and not clean_paragraph.strip() == ''
-                        %}
-                            {% set paragraph_count = paragraph_count + 1 %}
-                        {% endif %}
-                    {% endfor %}
-                    
-                    {% if paragraph_count == 0 and cleaned_body %}
-                        <p>{{ cleaned_body | replace('\n', ' ') | replace('  ', ' ') }}</p>
-                    {% endif %}
                 {% endif %}
             </div>
 
