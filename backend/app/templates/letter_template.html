@@ -207,7 +207,7 @@
             <!-- Recipient -->
             <div class="recipient">
                 <div>Hiring Manager</div>
-                <div>{{ company_name or "[Company Name]" }}</div>
+                <div style="font-weight: 500; color: #111827;">{{ company_name or "[Company Name]" }}</div>
                 {% if job_title %}<div class="position">{{ job_title }}</div>{% endif %}
                 {% if include_company_address and company_address %}
                 {% for line in company_address.split('\n') %}

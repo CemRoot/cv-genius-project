@@ -68,10 +68,10 @@ const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ data, onEdit, o
 
       {/* Preview Container */}
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div className="p-4 sm:p-6 md:p-8 lg:p-12" style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.6' }}>
+        <div style={{ padding: '20mm', fontFamily: 'Arial, sans-serif', lineHeight: '1.6' }}>
           
           {/* Header Section */}
-          <div className="mb-5 pb-5 border-b border-gray-300">
+          <div className="mb-5 pb-5 border-b" style={{ borderColor: '#d1d5db' }}>
             <div className="flex justify-between items-start">
               <div>
                 <h1 className="text-2xl font-semibold text-gray-900 mb-1 break-words" style={{ fontSize: '18pt' }}>
