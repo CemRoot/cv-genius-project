@@ -40,6 +40,7 @@ export const CoverLetterEditor: React.FC<CoverLetterEditorProps> = ({
   });
   const [isEditing, setIsEditing] = useState(false);
   const [showEditPrompt, setShowEditPrompt] = useState(false);
+  const [realTimePreview, setRealTimePreview] = useState(true);
 
   useEffect(() => {
     setEditableData(initialData);
@@ -86,8 +87,11 @@ export const CoverLetterEditor: React.FC<CoverLetterEditorProps> = ({
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-900">Cover Letter Preview & Editor</h2>
-        <div className="flex gap-3">
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900">Cover Letter Preview & Editor</h2>
+          <p className="text-sm text-gray-600 mt-1">🇮🇪 Optimized for Dublin/Ireland job market standards</p>
+        </div>
+        <div className="flex gap-3 flex-wrap">
           <Button
             variant="outline"
             onClick={onRegenerate}
@@ -104,6 +108,38 @@ export const CoverLetterEditor: React.FC<CoverLetterEditorProps> = ({
           >
             {isEditing ? 'Preview Mode' : 'Edit Mode'}
           </Button>
+          {isEditing && (
+            <Button
+              variant="outline"
+              onClick={() => setRealTimePreview(!realTimePreview)}
+              className={`${realTimePreview ? 'bg-green-50 border-green-300 text-green-700' : 'bg-gray-50'}`}
+            >
+              🔄 Real-time Preview
+            </Button>
+          )}
+        </div>
+      </div>
+
+      {/* Dublin Standards Notice */}
+      <div className="mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-lg">
+        <div className="flex items-start space-x-3">
+          <div className="flex-shrink-0">
+            <svg className="h-5 w-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+          </div>
+          <div className="flex-1">
+            <h3 className="text-sm font-medium text-emerald-800">Dublin Cover Letter Standards</h3>
+            <div className="mt-2 text-sm text-emerald-700">
+              <ul className="list-disc list-inside space-y-1">
+                <li>Maximum 1 page (A4 format)</li>
+                <li>Professional tone balancing British formality with American directness</li>
+                <li>Include specific company research and Dublin business context</li>
+                <li>Use quantifiable achievements with Irish phone format (+353)</li>
+                <li>Avoid clichés like "team player" - focus on concrete examples</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -148,28 +184,46 @@ export const CoverLetterEditor: React.FC<CoverLetterEditorProps> = ({
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-600 mb-1">Phone</label>
+                <label className="block text-sm font-medium text-gray-600 mb-1">
+                  Phone 
+                  <span className="text-xs text-blue-600 ml-1">(Dublin format: +353 87 123 4567)</span>
+                </label>
                 {isEditing ? (
-                  <input
-                    type="tel"
-                    value={editableData.personal_details.phone}
-                    onChange={(e) => handlePersonalDetailChange('phone', e.target.value)}
-                    className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
+                  <div>
+                    <input
+                      type="tel"
+                      value={editableData.personal_details.phone}
+                      onChange={(e) => handlePersonalDetailChange('phone', e.target.value)}
+                      placeholder="+353 87 123 4567"
+                      className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                    {editableData.personal_details.phone && !editableData.personal_details.phone.startsWith('+353') && (
+                      <p className="text-xs text-amber-600 mt-1">💡 Dublin tip: Use Irish format (+353) for better local appeal</p>
+                    )}
+                  </div>
                 ) : (
                   <p className="p-2 bg-white rounded border">{editableData.personal_details.phone}</p>
                 )}
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-600 mb-1">Location</label>
+                <label className="block text-sm font-medium text-gray-600 mb-1">
+                  Location 
+                  <span className="text-xs text-blue-600 ml-1">(e.g., Dublin 2, Ireland)</span>
+                </label>
                 {isEditing ? (
-                  <input
-                    type="text"
-                    value={editableData.personal_details.location}
-                    onChange={(e) => handlePersonalDetailChange('location', e.target.value)}
-                    className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
+                  <div>
+                    <input
+                      type="text"
+                      value={editableData.personal_details.location}
+                      onChange={(e) => handlePersonalDetailChange('location', e.target.value)}
+                      placeholder="Dublin 2, Ireland"
+                      className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                    {editableData.personal_details.location && !editableData.personal_details.location.toLowerCase().includes('dublin') && (
+                      <p className="text-xs text-amber-600 mt-1">💡 Dublin employers prefer Dublin addresses or mention "relocating to Dublin"</p>
+                    )}
+                  </div>
                 ) : (
                   <p className="p-2 bg-white rounded border">{editableData.personal_details.location}</p>
                 )}
@@ -266,15 +320,45 @@ export const CoverLetterEditor: React.FC<CoverLetterEditorProps> = ({
 
           {/* Cover Letter Body */}
           <div className="space-y-3">
-            <label className="block text-sm font-medium text-gray-600">Cover Letter Content</label>
+            <div className="flex items-center justify-between">
+              <label className="block text-sm font-medium text-gray-600">Cover Letter Content</label>
+              <span className="text-xs text-gray-500">
+                {editableData.cover_letter_body?.length || 0} characters
+              </span>
+            </div>
+            
+            {isEditing && (
+              <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm">
+                <h4 className="font-medium text-blue-800 mb-2">🇮🇪 Dublin Writing Tips</h4>
+                <div className="grid md:grid-cols-2 gap-2 text-blue-700 text-xs">
+                  <div>✅ Start with specific position & company research</div>
+                  <div>✅ Include quantifiable achievements</div>
+                  <div>✅ Mention Dublin business context</div>
+                  <div>✅ Balance humility with confidence</div>
+                  <div>❌ Avoid "To Whom It May Concern"</div>
+                  <div>❌ No salary expectations unless asked</div>
+                </div>
+              </div>
+            )}
+            
             {isEditing ? (
-              <textarea
-                value={editableData.cover_letter_body}
-                onChange={(e) => handleInputChange('cover_letter_body', e.target.value)}
-                rows={12}
-                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent font-sans text-sm leading-relaxed"
-                placeholder="Enter your cover letter content here..."
-              />
+              <div>
+                <textarea
+                  value={editableData.cover_letter_body}
+                  onChange={(e) => handleInputChange('cover_letter_body', e.target.value)}
+                  rows={12}
+                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent font-sans text-sm leading-relaxed"
+                  placeholder="Enter your cover letter content here..."
+                />
+                <div className="mt-2 flex justify-between text-xs text-gray-500">
+                  <span>
+                    {editableData.cover_letter_body?.length > 2000 && (
+                      <span className="text-amber-600">⚠️ Consider shortening for Dublin standard (aim for ~1500 chars)</span>
+                    )}
+                  </span>
+                  <span>Target: 1500-2000 characters for Dublin employers</span>
+                </div>
+              </div>
             ) : (
               <div className="p-3 bg-gray-50 rounded border min-h-[300px] cursor-pointer hover:bg-gray-100" onClick={handlePreviewClick}>
                 <div className="whitespace-pre-wrap font-sans text-sm leading-relaxed">
@@ -304,41 +388,49 @@ export const CoverLetterEditor: React.FC<CoverLetterEditorProps> = ({
 
         {/* Live Preview Panel */}
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-gray-800">Live Preview</h3>
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-semibold text-gray-800">Live Preview</h3>
+            {isEditing && realTimePreview && (
+              <div className="flex items-center gap-2 text-sm text-green-600">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                Real-time updates
+              </div>
+            )}
+          </div>
           
-          <div className="bg-white border border-gray-300 rounded-lg p-6 shadow-sm min-h-[600px] font-serif text-sm leading-relaxed">
+          <div className={`bg-white border border-gray-300 rounded-lg p-6 shadow-sm min-h-[600px] font-serif text-sm leading-relaxed transition-all duration-200 ${isEditing && realTimePreview ? 'border-green-300 shadow-green-100' : ''}`}>
             {/* Header */}
             <div className="mb-8">
               <div className="text-lg font-bold text-gray-900 mb-2">
-                {editableData.personal_details.full_name}
+                {(isEditing && realTimePreview) ? editableData.personal_details.full_name : initialData.personal_details.full_name}
               </div>
               <div className="text-gray-600 text-sm space-y-1">
-                <div className="break-words overflow-hidden">{editableData.personal_details.email}</div>
-                <div>{editableData.personal_details.phone}</div>
-                <div>{editableData.personal_details.location}</div>
-                {editableData.personal_details.linkedin_url && (
-                  <div className="break-words overflow-hidden">{editableData.personal_details.linkedin_url}</div>
+                <div className="break-words overflow-hidden">{(isEditing && realTimePreview) ? editableData.personal_details.email : initialData.personal_details.email}</div>
+                <div>{(isEditing && realTimePreview) ? editableData.personal_details.phone : initialData.personal_details.phone}</div>
+                <div>{(isEditing && realTimePreview) ? editableData.personal_details.location : initialData.personal_details.location}</div>
+                {((isEditing && realTimePreview) ? editableData.personal_details.linkedin_url : initialData.personal_details.linkedin_url) && (
+                  <div className="break-words overflow-hidden">{(isEditing && realTimePreview) ? editableData.personal_details.linkedin_url : initialData.personal_details.linkedin_url}</div>
                 )}
               </div>
               
               <div className="text-right text-gray-600 text-sm mt-4">
-                {editableData.generation_date}
+                {(isEditing && realTimePreview) ? editableData.generation_date : initialData.generation_date}
               </div>
             </div>
 
             {/* Recipient */}
             <div className="mb-6 text-gray-700 text-sm">
               <div>Hiring Manager</div>
-              <div>{editableData.company_name}</div>
-              {editableData.include_company_address && editableData.company_address && (
-                <div className="whitespace-pre-wrap">{editableData.company_address}</div>
+              <div>{(isEditing && realTimePreview) ? editableData.company_name : initialData.company_name}</div>
+              {((isEditing && realTimePreview) ? editableData.include_company_address && editableData.company_address : initialData.include_company_address && initialData.company_address) && (
+                <div className="whitespace-pre-wrap">{(isEditing && realTimePreview) ? editableData.company_address : initialData.company_address}</div>
               )}
             </div>
 
             {/* Salutation */}
             <div className="mb-4 text-gray-900">
-              {editableData.company_name && editableData.company_name !== "[Company Name]" 
-                ? `Dear ${editableData.company_name} Hiring Team,`
+              {((isEditing && realTimePreview) ? editableData.company_name : initialData.company_name) && ((isEditing && realTimePreview) ? editableData.company_name : initialData.company_name) !== "[Company Name]" 
+                ? `Dear ${(isEditing && realTimePreview) ? editableData.company_name : initialData.company_name} Hiring Team,`
                 : "Dear Hiring Manager,"
               }
             </div>
@@ -346,14 +438,14 @@ export const CoverLetterEditor: React.FC<CoverLetterEditorProps> = ({
             {/* Body */}
             <div className="mb-6 text-gray-900 text-justify">
               <div className="whitespace-pre-wrap">
-                {editableData.cover_letter_body}
+                {(isEditing && realTimePreview) ? editableData.cover_letter_body : initialData.cover_letter_body}
               </div>
             </div>
 
             {/* Closing */}
             <div className="space-y-4">
               <div>Sincerely,</div>
-              <div className="font-semibold">{editableData.personal_details.full_name}</div>
+              <div className="font-semibold">{(isEditing && realTimePreview) ? editableData.personal_details.full_name : initialData.personal_details.full_name}</div>
             </div>
           </div>
         </div>
