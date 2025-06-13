@@ -74,13 +74,13 @@ const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ data, onEdit, o
           <div className="mb-5 pb-5 border-b border-gray-300">
             <div className="flex justify-between items-start">
               <div>
-                <h1 className="text-2xl font-semibold text-gray-900 mb-2 break-words" style={{ fontSize: '18pt' }}>
+                <h1 className="text-2xl font-semibold text-gray-900 mb-1 break-words" style={{ fontSize: '18pt' }}>
                   {data.personal_details.full_name}
                 </h1>
-                <div className="text-sm text-gray-600 space-y-0.5" style={{ fontSize: '10pt', lineHeight: '1.4' }}>
-                  <div className="break-all">{data.personal_details.email}</div>
-                  <div>{formatPhoneNumber(data.personal_details.phone)}</div>
-                  <div>{data.personal_details.location}</div>
+                <div className="text-sm text-gray-600 space-y-0" style={{ fontSize: '10pt', lineHeight: '1.25' }}>
+                  <div className="break-all" style={{ marginBottom: '2px' }}>{data.personal_details.email}</div>
+                  <div style={{ marginBottom: '2px' }}>{formatPhoneNumber(data.personal_details.phone)}</div>
+                  <div style={{ marginBottom: '2px' }}>{data.personal_details.location}</div>
                   {data.personal_details.linkedin_url && (
                     <div className="text-blue-600 break-all">{data.personal_details.linkedin_url}</div>
                   )}
@@ -95,11 +95,11 @@ const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ data, onEdit, o
 
           {/* Recipient Section */}
           <div className="mb-4">
-            <div className="text-gray-600 space-y-0.5" style={{ fontSize: '10pt', lineHeight: '1.4' }}>
-              <div>Hiring Manager</div>
-              <div className="font-medium break-words text-gray-900">{data.company_name}</div>
+            <div className="text-gray-600 space-y-0" style={{ fontSize: '10pt', lineHeight: '1.25' }}>
+              <div style={{ marginBottom: '1px' }}>Hiring Manager</div>
+              <div className="font-medium break-words text-gray-900" style={{ marginBottom: '1px' }}>{data.company_name}</div>
               {data.job_title && (
-                <div className="italic">{data.job_title}</div>
+                <div className="italic" style={{ marginBottom: '1px' }}>{data.job_title}</div>
               )}
               {data.include_company_address && data.company_address && (
                 <div className="whitespace-pre-line">{data.company_address}</div>
