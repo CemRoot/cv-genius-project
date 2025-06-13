@@ -5,7 +5,7 @@ echo "🚀 Starting CVGenius Local Development Environment..."
 # Function to kill background processes on exit
 cleanup() {
     echo "🛑 Stopping servers..."
-    pkill -f "uvicorn app.main:app"
+    pkill -f "python main.py"
     pkill -f "next dev"
     exit
 }
@@ -16,7 +16,7 @@ trap cleanup EXIT
 # Start backend
 echo "🔧 Starting Backend (FastAPI)..."
 cd backend
-python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000 &
+python main.py &
 BACKEND_PID=$!
 
 # Wait a moment for backend to start
