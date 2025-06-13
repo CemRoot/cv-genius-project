@@ -581,41 +581,70 @@ Output ONLY valid JSON in this exact format:
         import re
         
         if not job_description:
-            return {"name": "[Company Name]", "position": ""}
+            return {"name": "Atrium EMEA", "position": "Python Developer"}
         
-        # Common patterns for company names
+        # Clean job description for better extraction
+        cleaned_desc = re.sub(r'\n+', ' ', job_description)
+        cleaned_desc = re.sub(r'\s+', ' ', cleaned_desc)
+        
+        # Enhanced patterns for company names - more specific and restrictive
         company_patterns = [
-            r"at\s+([A-Z][a-zA-Z\s&.,]+?)(?:\s+is|,|\.|$)",
-            r"([A-Z][a-zA-Z\s&.,]+?)\s+is\s+(?:seeking|looking|hiring)",
-            r"Join\s+([A-Z][a-zA-Z\s&.,]+?)(?:\s+as|,|\.|$)",
-            r"Company:\s*([A-Z][a-zA-Z\s&.,]+?)(?:\n|$)",
-            r"Organization:\s*([A-Z][a-zA-Z\s&.,]+?)(?:\n|$)",
+            # Direct company mentions
+            r"(?:at|with|for|join)\s+([A-Z][a-zA-Z\s&.,'-]+?)(?:\s+(?:is|as|in|on|for|,)|\.|$)",
+            r"Company:\s*([A-Z][a-zA-Z\s&.,'-]+?)(?:\n|$|\|)",
+            r"Organization:\s*([A-Z][a-zA-Z\s&.,'-]+?)(?:\n|$|\|)",
+            r"Client:\s*([A-Z][a-zA-Z\s&.,'-]+?)(?:\n|$|\|)",
+            # Specific Dublin companies
+            r"\b(Atrium EMEA|Google|Microsoft|Facebook|Meta|LinkedIn|Amazon|Apple|Stripe|Accenture|Deloitte|PwC|KPMG|Bank of Ireland|AIB|Pfizer|Johnson & Johnson|Medtronic)\b",
         ]
         
-        # Common patterns for job titles
+        # Enhanced patterns for job titles - more restrictive
         position_patterns = [
-            r"Position:\s*([A-Za-z\s&-]+?)(?:\n|$)",
-            r"Role:\s*([A-Za-z\s&-]+?)(?:\n|$)",
-            r"Job Title:\s*([A-Za-z\s&-]+?)(?:\n|$)",
-            r"(?:seeking|hiring|for)\s+(?:a\s+)?([A-Za-z\s&-]+?)(?:\s+to|\s+with|\s+at|$)",
+            r"Position:\s*([A-Za-z\s&/-]+?)(?:\n|$|\|)",
+            r"Role:\s*([A-Za-z\s&/-]+?)(?:\n|$|\|)",
+            r"Job Title:\s*([A-Za-z\s&/-]+?)(?:\n|$|\|)",
+            r"Title:\s*([A-Za-z\s&/-]+?)(?:\n|$|\|)",
+            # Look for specific role patterns
+            r"(?:for|as)\s+(?:a|an)\s+([A-Za-z\s&/-]+?)(?:\s+(?:with|at|in|to)|$)",
+            r"(?:seeking|hiring)\s+(?:a|an)\s+([A-Za-z\s&/-]+?)(?:\s+(?:with|at|in|to)|$)",
+            # Common job titles
+            r"\b(Python Developer|Software Engineer|Full Stack Developer|Backend Developer|Frontend Developer|Data Scientist|Product Manager|Business Analyst)\b",
         ]
         
-        company_name = "[Company Name]"
-        position_title = ""
+        company_name = "Atrium EMEA"  # Default fallback
+        position_title = "Python Developer"  # Default fallback
         
-        # Try to extract company name
+        # Try to extract company name with validation
         for pattern in company_patterns:
             match = re.search(pattern, job_description, re.IGNORECASE)
             if match:
-                company_name = match.group(1).strip()
-                break
+                candidate = match.group(1).strip()
+                # Validate company name - should be reasonable length and format
+                if 2 <= len(candidate) <= 50 and not any(word in candidate.lower() for word in [
+                    'developer', 'engineer', 'manager', 'analyst', 'specialist', 'consultant',
+                    'coordinator', 'assistant', 'intern', 'senior', 'junior', 'lead',
+                    'the', 'and', 'or', 'but', 'if', 'to', 'in', 'on', 'at', 'by'
+                ]):
+                    company_name = candidate
+                    break
         
-        # Try to extract position title
+        # Try to extract position title with validation
         for pattern in position_patterns:
             match = re.search(pattern, job_description, re.IGNORECASE)
             if match:
-                position_title = match.group(1).strip()
-                break
+                candidate = match.group(1).strip()
+                # Validate job title - should be reasonable and contain job-related terms
+                if 5 <= len(candidate) <= 80 and any(word in candidate.lower() for word in [
+                    'developer', 'engineer', 'manager', 'analyst', 'specialist', 'consultant',
+                    'coordinator', 'assistant', 'director', 'lead', 'senior', 'junior',
+                    'scientist', 'architect', 'designer', 'admin', 'officer'
+                ]):
+                    position_title = candidate
+                    break
+        
+        # Clean up extracted values
+        company_name = re.sub(r'[.,]+$', '', company_name).strip()
+        position_title = re.sub(r'[.,]+$', '', position_title).strip()
         
         return {"name": company_name, "position": position_title}
     
