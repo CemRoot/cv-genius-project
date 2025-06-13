@@ -10,6 +10,7 @@ import Button from '@/components/ui/Button';
 import Textarea from '@/components/ui/Textarea';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import FileUpload from '@/components/updater/FileUpload';
+import ThemeSelector, { CoverLetterTheme } from '@/components/ui/ThemeSelector';
 import { cvAPI, downloadPDF, getErrorMessage } from '@/utils/api';
 import { PDFResponse } from '@/types';
 import safeStorage from '@/utils/storage';
@@ -18,12 +19,13 @@ const UpdateCVPage: React.FC = () => {
   const router = useRouter();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [jobDescription, setJobDescription] = useState('');
+  const [selectedTheme, setSelectedTheme] = useState<CoverLetterTheme>('classic');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<PDFResponse | null>(null);
-  const [errors, setErrors] = useState<{ file?: string; jobDescription?: string }>({});
+  const [errors, setErrors] = useState<{ file?: string; jobDescription?: string; theme?: string }>({});
 
   const validateForm = (): boolean => {
-    const newErrors: { file?: string; jobDescription?: string } = {};
+    const newErrors: { file?: string; jobDescription?: string; theme?: string } = {};
     
     if (!selectedFile) {
       newErrors.file = 'Please upload your CV file';
@@ -33,6 +35,10 @@ const UpdateCVPage: React.FC = () => {
       newErrors.jobDescription = 'Job description is required';
     } else if (jobDescription.trim().length < 50) {
       newErrors.jobDescription = 'Job description must be at least 50 characters';
+    }
+    
+    if (!selectedTheme) {
+      newErrors.theme = 'Please select a cover letter theme';
     }
     
     setErrors(newErrors);
@@ -49,7 +55,7 @@ const UpdateCVPage: React.FC = () => {
     setLoading(true);
     
     try {
-      const response = await cvAPI.generateFromUpload(selectedFile!, jobDescription);
+      const response = await cvAPI.generateFromUpload(selectedFile!, jobDescription, selectedTheme);
       
       // Store results in session storage and redirect to results page
       const resultsData = {
@@ -111,6 +117,7 @@ const UpdateCVPage: React.FC = () => {
   const resetForm = () => {
     setSelectedFile(null);
     setJobDescription('');
+    setSelectedTheme('classic');
     setResult(null);
     setErrors({});
   };
@@ -169,7 +176,7 @@ const UpdateCVPage: React.FC = () => {
                     <span className="mr-3">🎯</span>
                     Optimize Your CV
                   </h2>
-                  <p className="text-gray-600 mt-2">Two simple steps to transform your CV</p>
+                  <p className="text-gray-600 mt-2">Three simple steps to transform your CV</p>
                 </div>
                 <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-8 sm:space-y-10">
                   {/* File Upload Section */}
@@ -229,18 +236,44 @@ const UpdateCVPage: React.FC = () => {
                     </div>
                   </div>
 
+                  {/* Theme Selection Section */}
+                  <div className="relative">
+                    <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-4 sm:p-6 border border-purple-200/50">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center">
+                        <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-sm font-bold mr-3">3</span>
+                        Cover Letter Style
+                      </h3>
+                      
+                      <div className="mb-4">
+                        <p className="text-sm sm:text-base text-purple-700 mb-4">
+                          Choose the style that best fits your target role <span className="text-red-500">*</span>
+                        </p>
+                        
+                        <ThemeSelector
+                          selectedTheme={selectedTheme}
+                          onThemeChange={setSelectedTheme}
+                          error={errors.theme}
+                        />
+                        
+                        <div className="mt-4 text-xs sm:text-sm text-purple-600">
+                          <p>🎨 Each style follows professional standards but with different tones and structures</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="flex justify-center pt-6 sm:pt-8">
                     <div className="text-center w-full max-w-sm">
                       <Button
                         type="submit"
                         size="lg"
                         loading={loading}
-                        disabled={loading || !selectedFile || !jobDescription.trim()}
+                        disabled={loading || !selectedFile || !jobDescription.trim() || !selectedTheme}
                         className="w-full px-8 sm:px-16 py-4 text-base sm:text-lg font-bold bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-xl"
                       >
                         {loading ? '⚙️ Optimizing Your CV...' : '🚀 Optimize My CV'}
                       </Button>
-                      {selectedFile && jobDescription.trim().length >= 50 && (
+                      {selectedFile && jobDescription.trim().length >= 50 && selectedTheme && (
                         <p className="text-sm text-emerald-600 mt-3 font-medium">✓ Ready for optimization!</p>
                       )}
                     </div>

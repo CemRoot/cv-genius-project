@@ -90,10 +90,13 @@ export const cvAPI = {
   },
 
   // Generate CV from uploaded file (Updater flow)
-  generateFromUpload: async (file: File, jobDescription: string): Promise<PDFResponse> => {
+  generateFromUpload: async (file: File, jobDescription: string, theme?: string): Promise<PDFResponse> => {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('job_description', jobDescription);
+    if (theme) {
+      formData.append('theme', theme);
+    }
 
     const response = await api.post<PDFResponse>('/api/v1/generate-from-upload', formData, {
       headers: {

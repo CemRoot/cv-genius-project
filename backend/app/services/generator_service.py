@@ -90,8 +90,8 @@ class CVGeneratorService:
             # Combine data
             complete_data = {**cv_data, **cover_letter_data}
             
-            # Generate PDFs
-            cv_pdf, cover_letter_pdf = await self._generate_pdfs(complete_data)
+            # Generate PDFs (default to classic theme for form flow)
+            cv_pdf, cover_letter_pdf = await self._generate_pdfs(complete_data, "classic")
             
             return PDFResponse(
                 cv_pdf_base64=base64.b64encode(cv_pdf).decode(),
@@ -105,7 +105,7 @@ class CVGeneratorService:
         except Exception as e:
             raise Exception(f"CV generation failed: {str(e)}")
     
-    async def generate_from_upload(self, cv_content: str, job_description: str) -> PDFResponse:
+    async def generate_from_upload(self, cv_content: str, job_description: str, theme: str = "classic") -> PDFResponse:
         """Generate CV from uploaded file (Updater flow)"""
         try:
             # Create AI prompt for CV update
@@ -118,7 +118,7 @@ class CVGeneratorService:
             cv_data = self._parse_ai_response(ai_response)
             
             # Generate PDFs
-            cv_pdf, cover_letter_pdf = await self._generate_pdfs(cv_data)
+            cv_pdf, cover_letter_pdf = await self._generate_pdfs(cv_data, theme)
             
             return PDFResponse(
                 cv_pdf_base64=base64.b64encode(cv_pdf).decode(),
@@ -1390,14 +1390,23 @@ GENERAL SECTOR REQUIREMENTS:
         # Users should explicitly specify their work authorization status if needed
         return "I am authorized to work in Ireland and available to discuss my employment status during the interview process."
     
-    async def _generate_pdfs(self, cv_data: Dict[str, Any]) -> tuple[bytes, bytes]:
+    async def _generate_pdfs(self, cv_data: Dict[str, Any], theme: str = "classic") -> tuple[bytes, bytes]:
         """Generate CV and cover letter PDFs"""
         if HTML is None:
             raise Exception("PDF generation library not available. Please install weasyprint")
         try:
             # Load templates (use enhanced template for better formatting)
             cv_template = self.jinja_env.get_template('cv_template_enhanced.html')
-            letter_template = self.jinja_env.get_template('letter_template.html')
+            
+            # Select cover letter template based on theme
+            theme_templates = {
+                'classic': 'letter_template_classic.html',
+                'modern': 'letter_template_modern.html', 
+                'academic': 'letter_template_academic.html'
+            }
+            
+            template_name = theme_templates.get(theme, 'letter_template_classic.html')
+            letter_template = self.jinja_env.get_template(template_name)
             
             # Add current date for cover letter
             template_data = cv_data.copy()

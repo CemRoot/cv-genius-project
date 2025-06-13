@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ personal_details.full_name }} - Cover Letter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            font-size: 11pt;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .page {
+            width: 210mm;           
+            min-height: 297mm;      
+            padding: 20mm;          
+            margin: 0 auto;         
+            background: #fff;
+            box-sizing: border-box; 
+            overflow: hidden;
+            line-height: 1.6;      
+            font-family: 'Arial', sans-serif;
+            font-size: 11pt;
+            color: #000000;
+        }
+        
+        .container {
+            max-width: none;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+        }
+        
+        .header {
+            margin-bottom: 25px;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 15px;
+        }
+        
+        .sender-info {
+            text-align: left;
+            margin-bottom: 0;
+        }
+        
+        .name {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+        
+        .contact-info {
+            font-size: 10pt;
+            color: #374151;
+            line-height: 1.4;
+        }
+        
+        .contact-info div {
+            margin-bottom: 2px;
+        }
+        
+        .date {
+            text-align: right;
+            font-size: 10pt;
+            color: #6b7280;
+            font-weight: normal;
+            margin-top: -40px;
+            margin-bottom: 20px;
+        }
+        
+        .subject-line {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 20px;
+            text-decoration: underline;
+        }
+        
+        .salutation {
+            font-size: 11pt;
+            margin-bottom: 16px;
+            color: #000000;
+            font-weight: normal;
+        }
+        
+        .letter-body {
+            font-size: 11pt;
+            line-height: 1.7;
+            color: #374151;
+            text-align: justify;
+            margin-bottom: 25px;
+        }
+        
+        .letter-body p {
+            margin: 0 0 14px 0;
+            text-indent: 0;
+            line-height: 1.7;
+        }
+        
+        .letter-body p:first-child {
+            margin-top: 0;
+        }
+        
+        .letter-body p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .closing {
+            margin-bottom: 35px;
+            margin-top: 25px;
+        }
+        
+        .closing-phrase {
+            font-size: 11pt;
+            color: #000000;
+            margin-bottom: 18px;
+            font-weight: normal;
+        }
+        
+        .signature {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #1e40af;
+            margin-top: 5px;
+        }
+        
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+                margin: 0;
+                padding: 0;
+            }
+            
+            @page {
+                margin: 0;
+                size: A4 portrait;
+            }
+            
+            .page { 
+                page-break-after: always;
+                margin: 0;
+                width: 210mm;
+                min-height: 297mm;
+                padding: 20mm;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page" id="cover-letter">
+        <div class="container">
+            <!-- Header with sender info -->
+            <div class="header">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div class="sender-info">
+                        <div class="name">{{ personal_details.full_name }}</div>
+                        <div class="contact-info">
+                            <div>{{ personal_details.email }}</div>
+                            <div>{{ personal_details.phone }}</div>
+                            {% if personal_details.location %}<div>{{ personal_details.location }}</div>{% endif %}
+                            {% if personal_details.linkedin_url %}<div>{{ personal_details.linkedin_url }}</div>{% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="date">{{ generation_date }}</div>
+            </div>
+            
+            <!-- Subject line -->
+            <div class="subject-line">
+                Re: {% if job_title %}{{ job_title }}{% else %}Application{% endif %}{% if company_name %} at {{ company_name }}{% endif %}
+            </div>
+            
+            <!-- Salutation -->
+            <div class="salutation">
+                Dear {% if company_name %}{{ company_name }} Hiring Team{% else %}Hiring Manager{% endif %},
+            </div>
+            
+            <!-- Letter body -->
+            <div class="letter-body">
+                {{ cover_letter_body | safe }}
+            </div>
+            
+            <!-- Closing -->
+            <div class="closing">
+                <div class="closing-phrase">Yours sincerely,</div>
+                <div class="signature">{{ personal_details.full_name }}</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

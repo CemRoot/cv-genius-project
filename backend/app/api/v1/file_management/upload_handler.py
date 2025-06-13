@@ -21,7 +21,8 @@ limiter = Limiter(key_func=get_remote_address)
 async def generate_cv_from_upload(
     request: Request,
     file: UploadFile = File(...),
-    job_description: str = Form(...)
+    job_description: str = Form(...),
+    theme: str = Form(default="classic")
 ) -> PDFResponse:
     """
     Generate CV from uploaded file (Updater flow)
@@ -63,7 +64,7 @@ async def generate_cv_from_upload(
             )
         
         # Generate updated CV
-        result = await cv_service.generate_from_upload(cv_text, job_description)
+        result = await cv_service.generate_from_upload(cv_text, job_description, theme)
         return result
         
     except HTTPException:
