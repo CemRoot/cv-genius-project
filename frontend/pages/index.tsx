@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { PlusCircle, Upload, Sparkles, Shield, Zap, Globe } from 'lucide-react';
 import Button from '@/components/ui/Button';
 
 const HomePage: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <>
       <Head>
@@ -35,14 +37,46 @@ const HomePage: React.FC = () => {
                 </Link>
               </nav>
               
-              {/* Mobile menu button - placeholder for future implementation */}
-              <button className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+              <button 
+                className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle mobile menu"
+              >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               </button>
             </div>
           </div>
+          
+          {/* Mobile Navigation Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
+              <div className="px-4 py-2 space-y-1">
+                <Link 
+                  href="#features" 
+                  className="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Features
+                </Link>
+                <Link 
+                  href="#how-it-works" 
+                  className="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  How It Works
+                </Link>
+                <Link 
+                  href="/dublin-faq" 
+                  className="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  FAQ
+                </Link>
+              </div>
+            </div>
+          )}
         </header>
 
         {/* Hero Section */}

@@ -149,6 +149,22 @@ export const cvAPI = {
     const response = await api.post('/api/v1/generate-cv-pdf', cvData);
     return response.data;
   },
+
+  // Async CV generation methods
+  generateFromFormAsync: async (formData: CVFormData): Promise<{ task_id: string; status: string; message: string; poll_url: string }> => {
+    const response = await api.post('/api/v1/async/generate-from-form-async', formData);
+    return response.data;
+  },
+
+  getTaskStatus: async (taskId: string): Promise<{ task_id: string; status: string; progress: number; result?: any; error?: string }> => {
+    const response = await api.get(`/api/v1/async/task-status/${taskId}`);
+    return response.data;
+  },
+
+  cancelTask: async (taskId: string): Promise<{ message: string }> => {
+    const response = await api.delete(`/api/v1/async/task/${taskId}`);
+    return response.data;
+  },
 };
 
 // Utility functions

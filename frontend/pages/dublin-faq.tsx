@@ -251,6 +251,182 @@ const DublinFAQPage: React.FC = () => {
       `
     },
     {
+      id: 'cover-letter-dublin',
+      question: 'How Should I Write a Cover Letter for Dublin Job Applications?',
+      answer: `
+        <div class="space-y-6">
+          <div class="bg-blue-50 rounded-lg p-4">
+            <h4 class="font-bold text-blue-800 mb-2">🇮🇪 Dublin Cover Letter Essentials</h4>
+            <p class="text-blue-700">Cover letters are CRITICAL in Dublin job applications. 89% of Dublin hiring managers read cover letters first to decide if they'll review your CV. It's your chance to show cultural fit and genuine interest.</p>
+          </div>
+          
+          <div class="bg-emerald-50 rounded-lg p-4">
+            <h4 class="font-bold text-emerald-800 mb-3">📋 Perfect Structure for Dublin</h4>
+            <div class="space-y-2 text-emerald-700">
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">1</span><div><strong>Header (Your Details):</strong> Name, Dublin address, +353 phone, email, LinkedIn</div></div>
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">2</span><div><strong>Date & Company Address:</strong> Current date, hiring manager name if known</div></div>
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">3</span><div><strong>Salutation:</strong> "Dear Ms. O'Connor" or "Dear Hiring Manager" (NEVER "To Whom It May Concern")</div></div>
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">4</span><div><strong>Opening Paragraph:</strong> Position, where you saw it, genuine company interest</div></div>
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">5</span><div><strong>Body (1-2 paragraphs):</strong> Relevant experience with quantifiable achievements</div></div>
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">6</span><div><strong>Closing:</strong> Interest reiteration, interview request, appreciation</div></div>
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">7</span><div><strong>Sign-off:</strong> "Yours sincerely" (name known) or "Yours faithfully" (unknown)</div></div>
+            </div>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-red-50 rounded-lg p-4">
+              <h4 class="font-bold text-red-800 mb-2">❌ Dublin Cover Letter Mistakes</h4>
+              <ul class="text-red-700 text-sm space-y-1">
+                <li>• Using same letter for every application</li>
+                <li>• Mentioning salary expectations (unless asked)</li>
+                <li>• Being too American-direct or British-formal</li>
+                <li>• Using clichés: "team player", "hardworking"</li>
+                <li>• Exceeding one page (A4 format)</li>
+                <li>• Not researching company's Dublin operations</li>
+                <li>• Missing job description keywords</li>
+              </ul>
+            </div>
+            
+            <div class="bg-green-50 rounded-lg p-4">
+              <h4 class="font-bold text-green-800 mb-2">✅ Dublin Success Formula</h4>
+              <ul class="text-green-700 text-sm space-y-1">
+                <li>• Show genuine company research</li>
+                <li>• Use storytelling (Irish culture loves it)</li>
+                <li>• Include quantifiable achievements</li>
+                <li>• Mention Dublin business context</li>
+                <li>• Balance humility with confidence</li>
+                <li>• Demonstrate multicultural competence</li>
+                <li>• Reference EU work authorization</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="bg-purple-50 rounded-lg p-4">
+            <h4 class="font-bold text-purple-800 mb-3">🏢 Sector-Specific Tips for Dublin</h4>
+            <div class="grid md:grid-cols-2 gap-3 text-purple-700 text-sm">
+              <div><strong>Tech (Silicon Docks):</strong> Mention Dublin's tech hub status, specific technologies, agile experience</div>
+              <div><strong>Finance (IFSC):</strong> Reference regulatory knowledge (GDPR, MiFID II), international experience</div>
+              <div><strong>Healthcare:</strong> Show HSE system understanding, patient care focus, Irish qualifications</div>
+              <div><strong>Sales/Marketing:</strong> Demonstrate Irish market knowledge, B2B/B2C experience, CRM tools</div>
+            </div>
+          </div>
+          
+          <div class="bg-orange-50 rounded-lg p-4">
+            <h4 class="font-bold text-orange-800 mb-3">📝 Sample Opening Paragraph</h4>
+            <div class="bg-white rounded border-l-4 border-orange-400 p-3 text-orange-900 text-sm italic">
+              "I am writing to express my strong interest in the Marketing Coordinator position advertised on LinkedIn. Having followed your company's innovative campaigns in Dublin's competitive fintech market, I am excited about the opportunity to contribute to your dynamic team's continued success in Ireland's thriving financial services sector."
+            </div>
+          </div>
+          
+          <div class="bg-cyan-50 rounded-lg p-3 text-center">
+            <p class="text-cyan-700 text-sm"><strong>📈 Dublin Fact:</strong> Cover letters increase interview chances by 47% in the Dublin job market when properly customized</p>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'work-visa-ireland',
+      question: 'Do I Need a Work Visa for Dublin? What Are the Requirements?',
+      answer: `
+        <div class="space-y-6">
+          <div class="bg-blue-50 rounded-lg p-4">
+            <h4 class="font-bold text-blue-800 mb-2">🛂 Work Authorization in Ireland</h4>
+            <p class="text-blue-700">Ireland has specific work visa requirements depending on your nationality, skills, and the type of position. Understanding these is crucial for Dublin job applications.</p>
+          </div>
+          
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-green-50 rounded-lg p-4">
+              <h4 class="font-bold text-green-800 mb-2">✅ No Visa Needed</h4>
+              <ul class="text-green-700 text-sm space-y-1">
+                <li>• EU/EEA citizens</li>
+                <li>• Swiss nationals</li>
+                <li>• UK citizens (Brexit arrangements)</li>
+                <li>• Irish citizens returning</li>
+              </ul>
+            </div>
+            
+            <div class="bg-orange-50 rounded-lg p-4">
+              <h4 class="font-bold text-orange-800 mb-2">📋 Work Permits Required</h4>
+              <ul class="text-orange-700 text-sm space-y-1">
+                <li>• Non-EU/EEA nationals</li>
+                <li>• Most international applicants</li>
+                <li>• Specific visa categories apply</li>
+                <li>• Employer sponsorship usually required</li>
+              </ul>
+            </div>
+            
+            <div class="bg-purple-50 rounded-lg p-4">
+              <h4 class="font-bold text-purple-800 mb-2">🎓 Special Categories</h4>
+              <ul class="text-purple-700 text-sm space-y-1">
+                <li>• Irish graduates (1-year extension)</li>
+                <li>• Critical Skills Employment Permit</li>
+                <li>• General Employment Permit</li>
+                <li>• Atypical Working Scheme</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="bg-emerald-50 rounded-lg p-4">
+            <h4 class="font-bold text-emerald-800 mb-3">🎯 Critical Skills Employment Permit</h4>
+            <div class="space-y-2 text-emerald-700">
+              <p><strong>Salary Threshold:</strong> €32,000+ annually (€64,000+ for some roles)</p>
+              <p><strong>Eligible Occupations:</strong> Tech, Engineering, Healthcare, Finance professionals</p>
+              <p><strong>Benefits:</strong> Immediate family reunification, path to permanent residence</p>
+              <p><strong>Processing Time:</strong> 8-12 weeks typically</p>
+            </div>
+          </div>
+          
+          <div class="bg-blue-50 rounded-lg p-4">
+            <h4 class="font-bold text-blue-800 mb-3">📝 Application Process</h4>
+            <div class="space-y-2 text-blue-700">
+              <div class="flex items-center"><span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">1</span><strong>Job Offer:</strong> Secure employment with Dublin-based company</div>
+              <div class="flex items-center"><span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">2</span><strong>Employer Application:</strong> Company applies for employment permit</div>
+              <div class="flex items-center"><span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">3</span><strong>Visa Application:</strong> Apply for entry visa (if required)</div>
+              <div class="flex items-center"><span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">4</span><strong>IRP Registration:</strong> Register with Garda within 90 days</div>
+            </div>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-gray-50 rounded-lg p-4">
+              <h4 class="font-bold text-gray-800 mb-2">📄 Required Documents</h4>
+              <ul class="text-gray-700 text-sm space-y-1">
+                <li>• Passport (6+ months validity)</li>
+                <li>• Degree certificates (translated)</li>
+                <li>• Employment contract/job offer</li>
+                <li>• Criminal background check</li>
+                <li>• Medical insurance evidence</li>
+                <li>• Bank statements (financial proof)</li>
+              </ul>
+            </div>
+            
+            <div class="bg-yellow-50 rounded-lg p-4">
+              <h4 class="font-bold text-yellow-800 mb-2">💰 Associated Costs</h4>
+              <ul class="text-yellow-700 text-sm space-y-1">
+                <li>• Employment Permit: €1,000</li>
+                <li>• Entry Visa: €60-€100</li>
+                <li>• IRP Registration: €300</li>
+                <li>• Document translations: €100-€300</li>
+                <li>• Total estimated: €1,500-€1,700</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="bg-indigo-50 rounded-lg p-4">
+            <h4 class="font-bold text-indigo-800 mb-3">🏢 Cover Letter Mention Tips</h4>
+            <div class="space-y-1 text-indigo-700 text-sm">
+              <p><strong>EU Citizens:</strong> "As an EU citizen, I have the right to work in Ireland without restrictions."</p>
+              <p><strong>Non-EU with Permit:</strong> "I currently hold a Critical Skills Employment Permit valid until [date]."</p>
+              <p><strong>Visa Required:</strong> "I am eligible for an employment permit and ready to begin the application process upon job offer."</p>
+            </div>
+          </div>
+          
+          <div class="bg-red-50 rounded-lg p-3 text-center">
+            <p class="text-red-700 text-sm"><strong>⚠️ Important:</strong> Always check latest requirements at enterprise.gov.ie - visa rules change frequently</p>
+          </div>
+        </div>
+      `
+    },
+    {
       id: 'dublin-cv-mistakes',
       question: 'What Are the Most Common CV Mistakes for Dublin Job Applications?',
       answer: `

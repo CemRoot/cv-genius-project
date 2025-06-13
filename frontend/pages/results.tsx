@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Button from '@/components/ui/Button';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import CoverLetterEditor from '@/components/editor/CoverLetterEditor';
+import CoverLetterPreview from '@/components/preview/CoverLetterPreview';
 import CVEditor from '@/components/editor/CVEditor';
 // import CVEditorEnhanced from '@/components/editor/CVEditorEnhanced';
 import type { CoverLetterData } from '@/components/editor/CoverLetterEditor';
@@ -59,6 +60,7 @@ const ResultsPage = () => {
   const router = useRouter();
   const [resultsData, setResultsData] = useState<ResultsData | null>(null);
   const [showEditor, setShowEditor] = useState(false);
+  const [showCoverLetterPreview, setShowCoverLetterPreview] = useState(false);
   const [showCVEditor, setShowCVEditor] = useState(false);
   const [isRegenerating, setIsRegenerating] = useState(false);
   // const [useEnhancedEditor] = useState(false); // TODO: Add toggle for enhanced editor
@@ -95,7 +97,7 @@ const ResultsPage = () => {
   };
 
   const handleEditCoverLetter = () => {
-    setShowEditor(true);
+    setShowCoverLetterPreview(true);
   };
 
   const handleEditCV = () => {
@@ -147,6 +149,7 @@ const ResultsPage = () => {
       } : null);
       
       setShowEditor(false);
+      setShowCoverLetterPreview(false);
       
       // Show success message
       alert('Cover letter updated successfully!');
@@ -187,6 +190,7 @@ const ResultsPage = () => {
   const handleCancelEdit = () => {
     setShowEditor(false);
     setShowCVEditor(false);
+    setShowCoverLetterPreview(false);
   };
 
   const handleStartOver = () => {
@@ -225,6 +229,35 @@ const ResultsPage = () => {
           onCancel={handleCancelEdit}
           onRegenerate={handleRegenerateCoverLetter}
           isRegenerating={isRegenerating}
+        />
+      </>
+    );
+  }
+
+  if (showCoverLetterPreview) {
+    return (
+      <>
+        <Head>
+          <title>Cover Letter Preview - CVGenius</title>
+          <meta name="description" content="Preview and edit your AI-generated cover letter" />
+        </Head>
+        <CoverLetterPreview
+          data={{
+            personal_details: resultsData.cvData.personal_details,
+            company_name: resultsData.cvData.company_name || '[Company Name]',
+            job_title: resultsData.cvData.job_title || 'the position',
+            cover_letter_body: resultsData.cvData.cover_letter_body,
+            generation_date: new Date().toLocaleDateString('en-IE', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric'
+            })
+          }}
+          onEdit={() => {
+            setShowCoverLetterPreview(false);
+            setShowEditor(true);
+          }}
+          onDownload={handleDownloadCoverLetter}
         />
       </>
     );
@@ -334,7 +367,7 @@ const ResultsPage = () => {
                       variant="outline"
                       className="w-full border-green-300 text-green-700 hover:bg-green-50"
                     >
-                      Preview & Edit
+                      🇮🇪 Dublin Preview
                     </Button>
                     <Button 
                       onClick={handleDownloadCoverLetter}

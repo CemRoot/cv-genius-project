@@ -5,7 +5,7 @@
 
 // API Configuration
 export const API_CONFIG = {
-  TIMEOUT: 120000, // 2 minutes
+  TIMEOUT: 300000, // 5 minutes for AI processing
   RETRY_ATTEMPTS: 3,
   RETRY_DELAY: 1000, // 1 second
 } as const;
