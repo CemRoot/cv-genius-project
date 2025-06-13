@@ -329,52 +329,32 @@ Description: {job_description}
 Company: {company_name or cv_data.get('company_name', '')}
 Position: {cv_data.get('job_title', '')}
 
-CRITICAL COVER LETTER FORMATTING RULES:
+COVER LETTER FORMATTING RULES (DCU STANDARD):
 - Return content in clean HTML paragraph format: <p>paragraph content</p>
 - DO NOT include any salutation (Dear...) - template handles this
 - DO NOT include closing phrases (Sincerely, Best regards, etc.) - template handles this
-- Use proper HTML paragraph tags for each section
-- Each paragraph should be 3-5 sentences with clear focus
-- Start each paragraph with a strong topic sentence
-- NO repetitive "I am writing to apply" phrases
+- Follow DCU's 4-paragraph structure exactly
+- Each paragraph should be 3-4 sentences with clear focus
+- ENSURE all sentences are complete and properly finished
 
-DUBLIN COVER LETTER REQUIREMENTS:
-- Irish business culture: balance formality with directness
-- Show company research and cultural fit
-- Use job keywords naturally
-- Include quantifiable achievements
-- Avoid clichés
-- Natural opening without repetitive phrases
-- Break content into focused paragraphs
-- Strong, confident closing
+DCU COVER LETTER STRUCTURE:
+1. OPENING PARAGRAPH: Identify yourself, state the position you're applying for, and mention where you learned about the vacancy (online job board, company website, etc.)
+
+2. INTEREST PARAGRAPH: Explain why you are interested in this work and this organisation. Briefly mention your academic background, relevant qualifications, and related work experience that qualify you for the position. Summarise your talents and how they might benefit the employer.
+
+3. CV REFERENCE PARAGRAPH: Refer to the fact that you have enclosed your CV, and draw attention to any further points of relevance to your application. Highlight specific achievements or skills that make you stand out.
+
+4. CLOSING PARAGRAPH: Reiterate your interest and indicate your availability for interview. Close with a confident statement that encourages a positive response.
 
 SECTOR CONTEXT:
 Sector: {job_sector.upper()}
 Company Research: {company_research}
 
-Generate cover letter body (3-4 well-structured paragraphs) that:
-
-PARAGRAPH 1: Natural opening connecting your relevant background to the specific role 
-- Start directly with your value proposition
-- NO "I am writing to apply" or similar phrases
-- Connect your experience to their needs immediately
-
-PARAGRAPH 2: Highlight key achievement with specific metrics from your CV experience
-- Use quantifiable results from CV
-- Show impact and relevance to the role
-- Include specific technical skills or tools used
-
-PARAGRAPH 3: Connect your skills to company needs and mention specific context
-- Reference something specific about the company or role
-- Show understanding of their challenges/goals
-- Demonstrate how you can contribute
-
-PARAGRAPH 4: Strong, confident closing that demonstrates value and initiative
-- NO passive "I look forward to hearing from you"
-- Show eagerness to contribute
-- End with confidence and action-oriented statement
-
-OUTPUT FORMAT: Each paragraph should be separated by double line breaks (\\n\\n) for proper spacing.
+EXPECTED HTML OUTPUT FORMAT:
+<p>I am writing to apply for the [job_title] position at [company_name], as advertised on [platform]. [Brief self-identification and relevant background].</p>
+<p>I am particularly interested in this role because [specific interest in company/role]. My [academic background/qualifications] and [relevant experience] have prepared me well for this position. [How your talents benefit the employer].</p>
+<p>I have enclosed my CV for your consideration, which provides further details of my [relevant experience/achievements]. [Highlight 1-2 specific points that make you stand out for this role].</p>
+<p>I would welcome the opportunity to discuss my application further and am available for interview at your convenience. I look forward to hearing from you.</p>
 
 Output ONLY valid JSON:
 {{
@@ -417,15 +397,19 @@ Education: {[edu.model_dump() for edu in form_data.education]}
 Skills: {form_data.skills}
 Job Description: {form_data.job_description or "Not provided"}
 
-COVER LETTER REQUIREMENTS:
+COVER LETTER REQUIREMENTS (DCU STANDARD):
+- Follow DCU's 4-paragraph structure exactly
 - Irish business culture: balance formality with directness
 - Show company research and cultural fit
 - Use job keywords naturally
 - Include quantifiable achievements
 - Avoid clichés
-- Natural opening without repetitive phrases
-- Break content into focused paragraphs
-- Strong, confident closing
+
+DCU COVER LETTER STRUCTURE:
+1. OPENING PARAGRAPH: Identify yourself, state the position you're applying for, and mention where you learned about the vacancy (online job board, company website, etc.)
+2. INTEREST PARAGRAPH: Explain why you are interested in this work and this organisation. Briefly mention your academic background, relevant qualifications, and related work experience that qualify you for the position. Summarise your talents and how they might benefit the employer.
+3. CV REFERENCE PARAGRAPH: Refer to the fact that you have enclosed your CV, and draw attention to any further points of relevance to your application. Highlight specific achievements or skills that make you stand out.
+4. CLOSING PARAGRAPH: Reiterate your interest and indicate your availability for interview. Close with a confident statement that encourages a positive response.
 
 SECTOR: {job_sector.upper()}
 KEYWORDS: Technical: {', '.join(key_keywords['technical_skills'][:3])}, Soft: {', '.join(key_keywords['soft_skills'][:3])}
@@ -434,7 +418,7 @@ TASKS:
 1. Professional summary (3-4 sentences)
 2. Work experience with quantifiable metrics
 3. Organized skills
-4. Cover letter body (3-4 well-structured paragraphs with focused content and strong closing)
+4. Cover letter body following DCU's 4-paragraph structure
 
 Output ONLY valid JSON in this exact format:
 {{
@@ -520,22 +504,28 @@ TASKS:
 4. Organize skills
 5. Write cover letter body (3-4 well-structured paragraphs with natural opening, focused content, and confident closing)
 
-COVER LETTER FORMATTING RULES:
+COVER LETTER FORMATTING RULES (DCU STANDARD):
 - Return content in clean HTML paragraph format: <p>paragraph content</p>
 - DO NOT include any salutation (Dear...) - template handles this
 - DO NOT include closing phrases (Sincerely, Best regards, etc.) - template handles this
-- Use proper HTML paragraph tags for each section
-- Each paragraph should be 3-5 sentences with clear focus
-- Start each paragraph with a strong topic sentence
-- NO repetitive "I am writing to apply" phrases
+- Follow DCU's 4-paragraph structure exactly
+- Each paragraph should be 3-4 sentences with clear focus
 - ENSURE all sentences are complete and properly finished
-- NO incomplete fragments like "at your earliest convenience and look forward"
+
+DCU COVER LETTER STRUCTURE:
+1. OPENING PARAGRAPH: Identify yourself, state the position you're applying for, and mention where you learned about the vacancy (online job board, company website, etc.)
+
+2. INTEREST PARAGRAPH: Explain why you are interested in this work and this organisation. Briefly mention your academic background, relevant qualifications, and related work experience that qualify you for the position. Summarise your talents and how they might benefit the employer.
+
+3. CV REFERENCE PARAGRAPH: Refer to the fact that you have enclosed your CV, and draw attention to any further points of relevance to your application. Highlight specific achievements or skills that make you stand out.
+
+4. CLOSING PARAGRAPH: Reiterate your interest and indicate your availability for interview. Close with a confident statement that encourages a positive response.
 
 EXPECTED HTML OUTPUT FORMAT:
-<p>Strong opening paragraph with value proposition</p>
-<p>Experience paragraph with specific achievements and metrics</p>
-<p>Skills/fit paragraph connecting to job requirements</p>
-<p>Confident closing paragraph with complete sentences</p>
+<p>I am writing to apply for the [job_title] position at [company_name], as advertised on [platform]. [Brief self-identification and relevant background].</p>
+<p>I am particularly interested in this role because [specific interest in company/role]. My [academic background/qualifications] and [relevant experience] have prepared me well for this position. [How your talents benefit the employer].</p>
+<p>I have enclosed my CV for your consideration, which provides further details of my [relevant experience/achievements]. [Highlight 1-2 specific points that make you stand out for this role].</p>
+<p>I would welcome the opportunity to discuss my application further and am available for interview at your convenience. I look forward to hearing from you.</p>
 
 Output ONLY valid JSON in this exact format:
 {{
