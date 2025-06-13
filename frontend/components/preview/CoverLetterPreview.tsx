@@ -71,31 +71,36 @@ const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ data, onEdit, o
         <div className="p-4 sm:p-6 md:p-8 lg:p-12" style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.6' }}>
           
           {/* Header Section */}
-          <div className="mb-6 sm:mb-8 pb-4 sm:pb-6 border-b border-gray-200">
-            <div className="mb-4 sm:mb-6">
-              <h1 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2 break-words">
-                {data.personal_details.full_name}
-              </h1>
-              <div className="text-sm text-gray-600 space-y-1">
-                <div className="break-all">{data.personal_details.email}</div>
-                <div>{formatPhoneNumber(data.personal_details.phone)}</div>
-                <div>{data.personal_details.location}</div>
-                {data.personal_details.linkedin_url && (
-                  <div className="text-blue-600 break-all">{data.personal_details.linkedin_url}</div>
-                )}
+          <div className="mb-5 pb-5 border-b border-gray-300">
+            <div className="flex justify-between items-start">
+              <div>
+                <h1 className="text-2xl font-semibold text-gray-900 mb-2 break-words" style={{ fontSize: '18pt' }}>
+                  {data.personal_details.full_name}
+                </h1>
+                <div className="text-sm text-gray-600 space-y-0.5" style={{ fontSize: '10pt', lineHeight: '1.4' }}>
+                  <div className="break-all">{data.personal_details.email}</div>
+                  <div>{formatPhoneNumber(data.personal_details.phone)}</div>
+                  <div>{data.personal_details.location}</div>
+                  {data.personal_details.linkedin_url && (
+                    <div className="text-blue-600 break-all">{data.personal_details.linkedin_url}</div>
+                  )}
+                </div>
               </div>
-            </div>
-            
-            <div className="text-right text-sm text-gray-600">
-              {formatDate(data.generation_date)}
+              
+              <div className="text-right text-sm text-gray-600" style={{ fontSize: '10pt' }}>
+                {formatDate(data.generation_date)}
+              </div>
             </div>
           </div>
 
           {/* Recipient Section */}
-          <div className="mb-4 sm:mb-6">
-            <div className="text-sm space-y-1">
+          <div className="mb-4">
+            <div className="text-gray-600 space-y-0.5" style={{ fontSize: '10pt', lineHeight: '1.4' }}>
               <div>Hiring Manager</div>
-              <div className="font-medium break-words">{data.company_name}</div>
+              <div className="font-medium break-words text-gray-900">{data.company_name}</div>
+              {data.job_title && (
+                <div className="italic">{data.job_title}</div>
+              )}
               {data.include_company_address && data.company_address && (
                 <div className="whitespace-pre-line">{data.company_address}</div>
               )}
@@ -103,30 +108,35 @@ const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ data, onEdit, o
           </div>
 
           {/* Salutation */}
-          <div className="mb-4 font-medium break-words">
+          <div className="mb-4 font-medium break-words" style={{ fontSize: '11pt' }}>
             Dear {data.company_name} Hiring Team,
           </div>
 
           {/* Letter Body */}
-          <div className="space-y-3 sm:space-y-4 text-gray-700">
+          <div className="text-gray-700" style={{ fontSize: '11pt', lineHeight: '1.75' }}>
             {data.cover_letter_body.includes('<p>') && data.cover_letter_body.includes('</p>') ? (
               <div 
-                className="text-justify leading-relaxed"
+                className="text-justify space-y-3"
                 dangerouslySetInnerHTML={{ __html: data.cover_letter_body }}
+                style={{ 
+                  '& p': { marginBottom: '12px' }
+                } as React.CSSProperties}
               />
             ) : (
-              data.cover_letter_body.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="text-justify leading-relaxed">
-                  {paragraph.trim()}
-                </p>
-              ))
+              <div className="space-y-3">
+                {data.cover_letter_body.split('\n\n').map((paragraph, index) => (
+                  <p key={index} className="text-justify" style={{ marginBottom: '12px' }}>
+                    {paragraph.trim()}
+                  </p>
+                ))}
+              </div>
             )}
           </div>
 
           {/* Closing */}
-          <div className="mt-6 sm:mt-8">
-            <div className="mb-4">Yours sincerely,</div>
-            <div className="font-medium break-words">{data.personal_details.full_name}</div>
+          <div className="mt-6">
+            <div className="mb-4" style={{ fontSize: '11pt' }}>Yours sincerely,</div>
+            <div className="font-medium break-words" style={{ fontSize: '11pt' }}>{data.personal_details.full_name}</div>
           </div>
         </div>
 
