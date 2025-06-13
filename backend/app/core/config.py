@@ -5,6 +5,11 @@ Configuration settings for CVGenius backend
 import os
 from typing import List
 from pydantic_settings import BaseSettings
+from dotenv import load_dotenv
+
+# Load environment variables from backend/.env only
+env_path = os.path.join(os.path.dirname(__file__), '..', '..', '.env')
+load_dotenv(env_path)
 
 
 class Settings(BaseSettings):
@@ -17,6 +22,7 @@ class Settings(BaseSettings):
     # CORS settings
     ALLOWED_ORIGINS: List[str] = [
         "http://localhost:3000",  # Local development
+        "http://127.0.0.1:3000",  # Alternative localhost
         "https://cvgenius.vercel.app",  # Production frontend
         "https://cvgenius-nine.vercel.app",  # Your actual Vercel URL
         "https://cvgenius-8y064emqk-cemroots-projects.vercel.app",  # Previous deployment
@@ -43,7 +49,7 @@ class Settings(BaseSettings):
     
     # PDF generation settings
     PDF_TIMEOUT: int = int(os.getenv("PDF_TIMEOUT", "30"))  # seconds
-    
+
     class Config:
         env_file = ".env"
         extra = "ignore"  # Ignore extra environment variables

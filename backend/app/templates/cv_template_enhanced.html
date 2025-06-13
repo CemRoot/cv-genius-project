@@ -225,6 +225,58 @@
             content: ',';
         }
         
+        /* Metrics and Numbers Highlighting */
+        .achievement-metric {
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .metric-highlight {
+            background: #f0f8ff;
+            padding: 1px 3px;
+            border-radius: 2px;
+            font-weight: 600;
+            color: #1a365d;
+        }
+        
+        .percentage-highlight {
+            background: #f0fff4;
+            padding: 1px 3px;
+            border-radius: 2px;
+            font-weight: 600;
+            color: #22543d;
+        }
+        
+        .currency-highlight {
+            background: #fffaf0;
+            padding: 1px 3px;
+            border-radius: 2px;
+            font-weight: 600;
+            color: #744210;
+        }
+        
+        /* Key Achievement Box */
+        .key-achievements {
+            background: #f8fafc;
+            border-left: 3px solid #2563eb;
+            padding: 8px 12px;
+            margin: 8px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .key-achievements .achievement-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 4px;
+        }
+        
+        .key-achievements .achievement-item {
+            font-size: 13px;
+            color: #334155;
+            margin-bottom: 2px;
+        }
+        
         /* Print Styles */
         @media print {
             body {
@@ -310,6 +362,21 @@
             </div>
             {% endif %}
             
+            <!-- Key Achievements Section -->
+            {% if key_achievements %}
+            <div class="section">
+                <h2 class="section-name">Key Achievements</h2>
+                <div class="key-achievements">
+                    <div class="achievement-title">Quantifiable Results</div>
+                    {% for achievement in key_achievements %}
+                    <div class="achievement-item">
+                        <strong>{{ achievement.company }}:</strong> {{ achievement.achievement|safe }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            
             <!-- Skills Section (at top like enhancv) -->
             {% if skills %}
             <div class="section">
@@ -358,7 +425,7 @@
                         {% for achievement in experience.achievements %}
                         <li>
                             <span class="bullet-dot">•</span>
-                            <span>{{ achievement }}</span>
+                            <span>{{ achievement|safe }}</span>
                         </li>
                         {% endfor %}
                     </ul>

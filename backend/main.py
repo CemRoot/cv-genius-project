@@ -3,6 +3,7 @@ CVGenius Backend - FastAPI Application Entry Point
 """
 
 import os
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from slowapi import Limiter, _rate_limit_exceeded_handler
@@ -10,8 +11,10 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 import uvicorn
 
-from app.api.v1.endpoints import router as api_router
-from app.api.v1.endpoints_advanced import router as advanced_api_router
+# Load environment variables from .env file
+load_dotenv()
+
+from app.api.v1.router import router as api_v1_router
 from app.core.config import settings
 
 # Initialize rate limiter
@@ -33,15 +36,14 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.ALLOWED_ORIGINS,
+    allow_origins=["*"],  # Development için tüm origin'lere izin ver
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 
 # Include API routes
-app.include_router(api_router, prefix="/api/v1")
-app.include_router(advanced_api_router, prefix="/api/v1/advanced")
+app.include_router(api_v1_router, prefix="/api/v1")
 
 
 @app.get("/")
