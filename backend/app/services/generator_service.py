@@ -528,12 +528,14 @@ COVER LETTER FORMATTING RULES:
 - Each paragraph should be 3-5 sentences with clear focus
 - Start each paragraph with a strong topic sentence
 - NO repetitive "I am writing to apply" phrases
+- ENSURE all sentences are complete and properly finished
+- NO incomplete fragments like "at your earliest convenience and look forward"
 
 EXPECTED HTML OUTPUT FORMAT:
 <p>Strong opening paragraph with value proposition</p>
 <p>Experience paragraph with specific achievements and metrics</p>
 <p>Skills/fit paragraph connecting to job requirements</p>
-<p>Confident closing paragraph</p>
+<p>Confident closing paragraph with complete sentences</p>
 
 Output ONLY valid JSON in this exact format:
 {{
@@ -1337,6 +1339,10 @@ GENERAL SECTOR REQUIREMENTS:
             # Generic fit statements
             r'\bi\s+would\s+be\s+a\s+great\s+fit\b',
             r'\bperfect\s+fit\s+for\s+this\s+role\b',
+            
+            # Incomplete sentences and fragments
+            r'\.\s+at\s+your\s+earliest\s+convenience\s+and\s+look\s+forward\b',
+            r'\bat\s+your\s+earliest\s+convenience\s+and\s+look\s+forward\b',
             r'\bideal\s+candidate\b',
             
             # Vague skill claims
