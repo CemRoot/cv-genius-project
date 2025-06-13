@@ -96,7 +96,6 @@ const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ data, onEdit, o
           {/* Recipient Section */}
           <div className="mb-4">
             <div className="text-gray-600 space-y-0" style={{ fontSize: '10pt', lineHeight: '1.25' }}>
-              <div style={{ marginBottom: '1px' }}>Hiring Manager</div>
               <div className="font-medium break-words text-gray-900" style={{ marginBottom: '1px' }}>{data.company_name}</div>
               {data.job_title && (
                 <div className="italic" style={{ marginBottom: '1px' }}>{data.job_title}</div>
