@@ -22,8 +22,8 @@ const DublinFAQPage: React.FC = () => {
 
   const faqData: FAQItem[] = [
     {
-      id: 'ats-systems',
-      question: 'What are ATS (Applicant Tracking Systems) and How Do They Work?',
+      id: 'dublin-cv-format',
+      question: 'How Should I Format My CV for Dublin/Ireland Job Market?',
       answer: `
         <div class="space-y-6">
           <div class="bg-blue-50 rounded-lg p-4">
@@ -673,6 +673,110 @@ const DublinFAQPage: React.FC = () => {
           </div>
         </div>
       `
+    },
+    {
+      id: 'cover-letter-guide',
+      question: 'How Do I Write an Effective Cover Letter for Dublin Jobs?',
+      answer: `
+        <div class="space-y-6">
+          <div class="bg-emerald-50 rounded-lg p-4">
+            <h4 class="font-bold text-emerald-800 mb-2">📝 Cover Letter Essentials</h4>
+            <p class="text-emerald-700">A well-crafted cover letter can be the difference between landing an interview and being overlooked. Dublin employers expect professional, personalized letters that demonstrate genuine interest and cultural fit.</p>
+          </div>
+          
+          <div class="bg-blue-50 rounded-lg p-4">
+            <h4 class="font-bold text-blue-800 mb-3">📋 Perfect Structure (3-4 Paragraphs)</h4>
+            <div class="space-y-3 text-blue-700">
+              <div class="flex items-start">
+                <span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1">1</span>
+                <div>
+                  <strong>Opening Paragraph:</strong> Outline what you have to offer that's directly relevant to the role. State the position you're applying for and where you learned about it. Avoid rambling - you'll immediately lose the reader.
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1">2</span>
+                <div>
+                  <strong>Middle Paragraphs:</strong> Detail how your skills, experience and education make you ideal for the specific requirements. Include company research to show you've done your homework. Mention why you specifically want to work for them.
+                </div>
+              </div>
+              <div class="flex items-start">
+                <span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1">3</span>
+                <div>
+                  <strong>Final Paragraph:</strong> Thank the reader for their consideration and state that you would welcome the opportunity for an interview. Close with confidence that encourages a positive response.
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-green-50 rounded-lg p-4">
+              <h4 class="font-bold text-green-800 mb-3">✅ DO These Things</h4>
+              <ul class="text-green-700 text-sm space-y-2">
+                <li>• <strong>Start with qualifications</strong> relevant to the job opening</li>
+                <li>• <strong>Show genuine interest</strong> in the field and company</li>
+                <li>• <strong>Include company research</strong> and historical facts</li>
+                <li>• <strong>Use varied sentence structures</strong> and openings</li>
+                <li>• <strong>Be specific</strong> about achievements with metrics</li>
+                <li>• <strong>Research the company</strong> and mention relevant details</li>
+                <li>• <strong>Show personality</strong> while staying professional</li>
+              </ul>
+            </div>
+            
+            <div class="bg-red-50 rounded-lg p-4">
+              <h4 class="font-bold text-red-800 mb-3">❌ DON'T Do These</h4>
+              <ul class="text-red-700 text-sm space-y-2">
+                <li>• <strong>Begin with your name</strong> (it's already on your CV)</li>
+                <li>• <strong>Repeat your CV content</strong> word for word</li>
+                <li>• <strong>Use repetitive sentence starters</strong> like "for", "I am", "my"</li>
+                <li>• <strong>Add references</strong> or justify previous job changes</li>
+                <li>• <strong>Use clichés</strong> or generic phrases</li>
+                <li>• <strong>Make it too long</strong> (keep to one page)</li>
+                <li>• <strong>Send generic letters</strong> to multiple companies</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="bg-purple-50 rounded-lg p-4">
+            <h4 class="font-bold text-purple-800 mb-3">✍️ Writing Style Requirements</h4>
+            <div class="grid md:grid-cols-2 gap-3 text-purple-700 text-sm">
+              <div>• <strong>Vary sentence openings</strong> - avoid repetitive starts</div>
+              <div>• <strong>Use active voice</strong> and strong action verbs</div>
+              <div>• <strong>Include specific metrics</strong> and achievements</div>
+              <div>• <strong>Balance professionalism</strong> with Irish directness</div>
+              <div>• <strong>Show genuine enthusiasm</strong> for the role</div>
+              <div>• <strong>Demonstrate cultural fit</strong> with company values</div>
+            </div>
+          </div>
+          
+          <div class="bg-gray-50 rounded-lg p-4">
+            <h4 class="font-bold text-gray-800 mb-3">📄 Cover Letter Example</h4>
+            <div class="bg-white border-l-4 border-purple-500 p-4 text-sm text-gray-700">
+              <p class="mb-3"><strong>Dear Mr. Jones,</strong></p>
+              <p class="mb-3">I am applying for the available marketing assistant role advertised at www.jobs.ie.</p>
+              <p class="mb-3">As well as having experience in the marketing field, I graduated from University College Dublin (UCD) with a BA in Marketing. I am now looking to use the knowledge gained so far in my career to further help clients achieve their sales targets and the opening at Acme Business presents me with the ideal opportunity to achieve this goal.</p>
+              <p class="mb-3">I believe I meet all the criteria needed for the role. In the course of my studies, I learned a great deal about the financial side of running a business including details on setting a budget. I worked as part of a group for a number of projects and feel comfortable as part of a team due to my interpersonal and communication skills.</p>
+              <p class="mb-3">At Johnson Marketing, I worked for a variety of major international firms and helped them learn crucial details about customer behaviour. As a result, we were able to streamline the marketing campaigns of these clients to reduce costs while increasing ROI. I worked with five different clients during my tenure at Johnson Marketing and all five enjoyed a sales increase of at least 10%.</p>
+              <p class="mb-3">In addition to this extensive marketing campaign experience, I also have strong administrative, communication, problem solving and time management skills. This broad background makes me an ideal candidate for this position and I believe I will bring flexibility, efficiency, reliability and innovation to your company. Please read the accompanying CV which will provide you with further details of my skill set and academic qualifications.</p>
+              <p class="mb-3">I appreciate you taking the time to read my application and I look forward to hearing from you.</p>
+              <p><strong>Kind Regards,<br>Jane Smith</strong></p>
+            </div>
+          </div>
+          
+          <div class="bg-orange-50 rounded-lg p-4">
+            <h4 class="font-bold text-orange-800 mb-3">🎯 Dublin-Specific Tips</h4>
+            <div class="space-y-2 text-orange-700 text-sm">
+              <p>• <strong>Irish Business Culture:</strong> Professional but warm - show genuine personality</p>
+              <p>• <strong>Company Research:</strong> Mention Dublin office specifics, recent company news, or Irish market expansion</p>
+              <p>• <strong>Local Knowledge:</strong> Reference understanding of Irish business practices or European market</p>
+              <p>• <strong>Networking:</strong> Mention any Irish professional connections or industry involvement</p>
+            </div>
+          </div>
+          
+          <div class="bg-yellow-50 rounded-lg p-3 text-center">
+            <p class="text-yellow-700 text-sm"><strong>💡 Pro Tip:</strong> 73% of Dublin hiring managers read cover letters first before looking at CVs - make yours count!</p>
+          </div>
+        </div>
+      `
     }
   ];
 
@@ -697,15 +801,15 @@ const DublinFAQPage: React.FC = () => {
               </div>
               
               <nav className="hidden md:flex space-x-8">
-                <Link href="/#features" className="text-gray-600 hover:text-primary-600 transition-colors">
+                <a href="/#features" className="text-gray-600 hover:text-primary-600 transition-colors">
                   Features
-                </Link>
-                <Link href="/#how-it-works" className="text-gray-600 hover:text-primary-600 transition-colors">
+                </a>
+                <a href="/#how-it-works" className="text-gray-600 hover:text-primary-600 transition-colors">
                   How It Works
-                </Link>
-                <Link href="/#faq" className="text-gray-600 hover:text-primary-600 transition-colors">
+                </a>
+                <a href="/#faq" className="text-gray-600 hover:text-primary-600 transition-colors">
                   FAQ
-                </Link>
+                </a>
               </nav>
             </div>
           </div>

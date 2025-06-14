@@ -332,22 +332,32 @@ Description: {job_description}
 Company: {company_name or cv_data.get('company_name', '')}
 Position: {cv_data.get('job_title', '')}
 
-COVER LETTER FORMATTING RULES (DCU STANDARD):
-- Return content in clean HTML paragraph format: <p>paragraph content</p>
-- DO NOT include any salutation (Dear...) - template handles this
-- DO NOT include closing phrases (Sincerely, Best regards, etc.) - template handles this
-- Follow DCU's 4-paragraph structure exactly
-- Each paragraph should be 3-4 sentences with clear focus
-- ENSURE all sentences are complete and properly finished
+COVER LETTER BEST PRACTICES:
+✓ DO: Start with qualifications relevant to the job opening
+✓ DO: Show genuine interest in the field and company
+✓ DO: Include company research and historical facts
+✓ DO: Use varied sentence structures and openings
+✓ DO: Be specific about achievements with metrics
+✗ DON'T: Begin with your name (it's already on CV)
+✗ DON'T: Repeat your CV content
+✗ DON'T: Use repetitive sentence starters like "for"
+✗ DON'T: Add references or justify previous job changes
+✗ DON'T: Use clichés or generic phrases
 
-DCU COVER LETTER STRUCTURE:
-1. OPENING PARAGRAPH: Identify yourself, state the position you're applying for, and mention where you learned about the vacancy (online job board, company website, etc.)
+COVER LETTER STRUCTURE (3-4 paragraphs):
+1. OPENING: Outline what you offer that's directly relevant to the role. State the position and why you applied. Avoid rambling.
 
-2. INTEREST PARAGRAPH: Explain why you are interested in this work and this organisation. Briefly mention your academic background, relevant qualifications, and related work experience that qualify you for the position. Summarise your talents and how they might benefit the employer.
+2. MIDDLE: Detail how your skills, experience and education make you ideal for the specific requirements. Include company research to show you've done homework.
 
-3. CV REFERENCE PARAGRAPH: Refer to the fact that you have enclosed your CV, and draw attention to any further points of relevance to your application. Highlight specific achievements or skills that make you stand out.
+3. FINAL: Thank reader for consideration and state you welcome interview opportunity.
 
-4. CLOSING PARAGRAPH: Reiterate your interest and indicate your availability for interview. Close with a confident statement that encourages a positive response.
+WRITING STYLE REQUIREMENTS:
+- Vary sentence openings (avoid starting multiple sentences with "for", "I am", "my")
+- Use active voice and strong action verbs
+- Include specific metrics and achievements
+- Show personality and genuine interest
+- Research the company and mention relevant details
+- Balance professionalism with directness (Irish business culture)
 
 SECTOR CONTEXT:
 Sector: {job_sector.upper()}
@@ -400,19 +410,30 @@ Education: {[edu.model_dump() for edu in form_data.education]}
 Skills: {form_data.skills}
 Job Description: {form_data.job_description or "Not provided"}
 
-COVER LETTER REQUIREMENTS (DCU STANDARD):
-- Follow DCU's 4-paragraph structure exactly
-- Irish business culture: balance formality with directness
-- Show company research and cultural fit
-- Use job keywords naturally
-- Include quantifiable achievements
-- Avoid clichés
+COVER LETTER BEST PRACTICES:
+✓ DO: Start with qualifications relevant to the job opening
+✓ DO: Show genuine interest in the field and company
+✓ DO: Include company research and historical facts
+✓ DO: Use varied sentence structures and openings
+✓ DO: Be specific about achievements with metrics
+✗ DON'T: Begin with your name (it's already on CV)
+✗ DON'T: Repeat your CV content
+✗ DON'T: Use repetitive sentence starters like "for"
+✗ DON'T: Add references or justify previous job changes
+✗ DON'T: Use clichés or generic phrases
 
-DCU COVER LETTER STRUCTURE:
-1. OPENING PARAGRAPH: Identify yourself, state the position you're applying for, and mention where you learned about the vacancy (online job board, company website, etc.)
-2. INTEREST PARAGRAPH: Explain why you are interested in this work and this organisation. Briefly mention your academic background, relevant qualifications, and related work experience that qualify you for the position. Summarise your talents and how they might benefit the employer.
-3. CV REFERENCE PARAGRAPH: Refer to the fact that you have enclosed your CV, and draw attention to any further points of relevance to your application. Highlight specific achievements or skills that make you stand out.
-4. CLOSING PARAGRAPH: Reiterate your interest and indicate your availability for interview. Close with a confident statement that encourages a positive response.
+COVER LETTER STRUCTURE (3-4 paragraphs):
+1. OPENING: Outline what you offer that's directly relevant to the role. State the position and why you applied. Avoid rambling.
+2. MIDDLE: Detail how your skills, experience and education make you ideal for the specific requirements. Include company research to show you've done homework.
+3. FINAL: Thank reader for consideration and state you welcome interview opportunity.
+
+WRITING STYLE REQUIREMENTS:
+- Vary sentence openings (avoid starting multiple sentences with "for", "I am", "my")
+- Use active voice and strong action verbs
+- Include specific metrics and achievements
+- Show personality and genuine interest
+- Research the company and mention relevant details
+- Balance professionalism with directness (Irish business culture)
 
 SECTOR: {job_sector.upper()}
 KEYWORDS: Technical: {', '.join(key_keywords['technical_skills'][:3])}, Soft: {', '.join(key_keywords['soft_skills'][:3])}
