@@ -86,6 +86,15 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
     setHoveredTheme(themeId);
     setShowPreview(true);
     setIsModalOpen(true);
+    
+    // Scroll to top of the page to ensure preview modal is visible
+    // This works on both desktop and mobile devices
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 50); // Small delay to ensure modal is rendered first
   };
 
   const closePreview = () => {
