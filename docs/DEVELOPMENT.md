@@ -41,7 +41,7 @@ Backend klasöründe `.env` dosyası oluşturun:
 
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_MODEL=gemini-1.5-flash
+GEMINI_MODEL=gemini-2.0-flash-exp
 ENVIRONMENT=development
 DEBUG=True
 FRONTEND_URL=http://localhost:3000

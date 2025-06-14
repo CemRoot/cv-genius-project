@@ -5,7 +5,11 @@
 - **Production**: `https://cvgenius-backend-449239631634.europe-west1.run.app`
 
 ## Authentication
-No authentication required. All endpoints are public.
+No authentication required. All endpoints are public with rate limiting (15 requests/hour per IP).
+
+## Rate Limiting
+- **Limit**: 15 requests per hour per IP address
+- **Headers**: Rate limit information included in response headers
 
 ## Endpoints
 
@@ -18,193 +22,215 @@ GET /health
 ```json
 {
   "status": "healthy",
-  "timestamp": "2025-01-09T12:00:00Z",
+  "timestamp": "2025-01-14T12:00:00Z",
   "version": "1.0.0"
 }
 ```
 
-### Generate CV from Form Data
+### System Health
 ```http
-POST /api/v1/generate-cv
+GET /api/v1/system/health
+```
+
+**Response:**
+```json
+{
+  "status": "healthy",
+  "checks": {
+    "database": "healthy",
+    "external_apis": "healthy"
+  },
+  "timestamp": "2025-01-14T12:00:00Z"
+}
+```
+
+## CV Operations
+
+### 1. Generate CV from Form Data (Creator Flow)
+```http
+POST /api/v1/generate-from-form
 ```
 
 **Request Body:**
 ```json
 {
   "personal_details": {
-    "full_name": "string",
-    "email": "string",
-    "phone": "string",
-    "linkedin_url": "string",
-    "location": "string"
+    "full_name": "John Doe",
+    "email": "john@example.com",
+    "phone": "+353 1 234 5678",
+    "linkedin_url": "linkedin.com/in/johndoe",
+    "location": "Dublin, Ireland"
   },
   "work_experience": [
     {
-      "job_title": "string",
-      "company": "string",
-      "start_date": "string",
-      "end_date": "string",
-      "is_current": boolean,
-      "location": "string",
-      "description": "string"
+      "job_title": "Software Engineer",
+      "company": "Tech Corp",
+      "duration": "2020-2023",
+      "responsibilities": ["Developed web applications", "Led team projects"]
     }
   ],
   "education": [
     {
-      "degree": "string",
-      "institution": "string",
-      "start_date": "string",
-      "end_date": "string",
-      "grade": "string",
-      "location": "string"
+      "degree": "Computer Science",
+      "institution": "Trinity College Dublin",
+      "year": "2020"
     }
   ],
-  "skills": ["string"],
-  "job_description": "string"
+  "skills": "Python, JavaScript, React",
+  "job_description": "Full stack developer position...",
+  "theme": "classic"
 }
 ```
 
 **Response:**
 ```json
 {
-  "cv_pdf_base64": "string",
-  "cover_letter_pdf_base64": "string",
-  "filename_cv": "string",
-  "filename_cover_letter": "string",
-  "generation_timestamp": "2025-01-09T12:00:00Z",
+  "cv_pdf_base64": "base64_encoded_pdf_content",
+  "cover_letter_pdf_base64": "base64_encoded_cover_letter_content",
+  "filename_cv": "cv_20250114_120000.pdf",
+  "filename_cover_letter": "cover_letter_20250114_120000.pdf",
+  "generation_timestamp": "2025-01-14T12:00:00Z",
   "cv_data": {
-    "personal_details": {},
-    "professional_summary": "string",
-    "work_experience": [],
-    "education": [],
-    "skills": {},
-    "cover_letter_body": "string",
-    "company_name": "string",
-    "job_title": "string"
+    "personal_details": {...},
+    "work_experience": [...],
+    "education": [...],
+    "skills": {...},
+    "cover_letter_body": "Cover letter content...",
+    "company_name": "Target Company",
+    "job_title": "Target Position"
   }
 }
 ```
 
-### Generate CV from Upload
+### 2. Generate CV from Upload (Updater Flow)
 ```http
 POST /api/v1/generate-from-upload
 ```
 
-**Request:**
-- Multipart form data
-- `cv_file`: PDF or DOCX file
-- `job_description`: Text
-
-**Response:** Same as generate-cv
-
-### Generate Cover Letter PDF
-```http
-POST /api/v1/generate-cover-letter-pdf
-```
-
-**Request Body:**
-```json
-{
-  "personal_details": {},
-  "cover_letter_body": "string",
-  "company_name": "string",
-  "job_title": "string",
-  "generation_date": "string"
-}
-```
+**Request Body (multipart/form-data):**
+- `file`: CV file (PDF, DOCX, DOC, TXT)
+- `job_description`: Job description text
+- `theme`: Cover letter theme (classic, modern, academic)
 
 **Response:**
 ```json
 {
-  "cover_letter_pdf_base64": "string",
-  "filename_cover_letter": "string"
+  "cv_pdf_base64": "base64_encoded_pdf_content",
+  "cover_letter_pdf_base64": "base64_encoded_cover_letter_content",
+  "filename_cv": "updated_cv_20250114_120000.pdf",
+  "filename_cover_letter": "cover_letter_20250114_120000.pdf",
+  "generation_timestamp": "2025-01-14T12:00:00Z",
+  "cv_data": {
+    "personal_details": {...},
+    "work_experience": [...],
+    "education": [...],
+    "skills": {...},
+    "cover_letter_body": "Cover letter content...",
+    "company_name": "Target Company",
+    "job_title": "Target Position"
+  }
 }
 ```
 
-### Regenerate Cover Letter
-```http
-POST /api/v1/regenerate-cover-letter
-```
+## Cover Letter Themes
 
-**Request Body:**
+### Available Themes:
+1. **classic**: Traditional professional format
+2. **modern**: Contemporary design with color accents
+3. **academic**: Formal academic style
+
+## File Upload Specifications
+
+### Supported File Types:
+- **PDF**: `.pdf`
+- **Word Documents**: `.docx`, `.doc`
+- **Text Files**: `.txt`
+
+### File Size Limits:
+- Maximum file size: 10MB
+- Recommended: Under 5MB for faster processing
+
+## Error Responses
+
+### Rate Limit Exceeded (429)
 ```json
 {
-  "cv_data": {},
-  "job_description": "string"
+  "detail": "Rate limit exceeded. Try again later."
 }
 ```
 
-**Response:**
+### Validation Error (422)
 ```json
 {
-  "personal_details": {},
-  "professional_summary": "string",
-  "work_experience": [],
-  "education": [],
-  "skills": {},
-  "cover_letter_body": "string",
-  "company_name": "string",
-  "job_title": "string"
+  "detail": [
+    {
+      "loc": ["body", "personal_details", "email"],
+      "msg": "field required",
+      "type": "value_error.missing"
+    }
+  ]
 }
 ```
 
-### Configuration Info
-```http
-GET /api/v1/config
-```
-
-**Response:**
+### File Processing Error (400)
 ```json
 {
-  "supported_file_types": ["pdf", "docx"],
-  "max_file_size": 5242880,
-  "max_file_size_mb": 5.0
+  "detail": "File format not supported or corrupted"
 }
 ```
 
-## Error Handling
-
-### Error Response Format
+### AI Service Error (500)
 ```json
 {
-  "detail": "Error message description"
+  "detail": "AI service temporarily unavailable. Please try again."
 }
 ```
 
-### Status Codes
-- `200`: Success
-- `400`: Bad Request (validation error)
-- `413`: Payload Too Large (file too big)
-- `422`: Unprocessable Entity (invalid data)
-- `429`: Too Many Requests (rate limit exceeded)
-- `500`: Internal Server Error
+## Response Headers
 
-## Rate Limiting
-- **Limit**: 10 requests per minute per IP
-- **Headers**: 
-  - `X-RateLimit-Limit`
-  - `X-RateLimit-Remaining`
-  - `X-RateLimit-Reset`
+All API responses include:
+- `X-RateLimit-Limit`: Maximum requests allowed
+- `X-RateLimit-Remaining`: Remaining requests in current window
+- `X-RateLimit-Reset`: Time when rate limit resets
 
-## File Upload Limits
-- **Maximum file size**: 5MB
-- **Supported formats**: PDF, DOCX
-- **Content types**: `application/pdf`, `application/vnd.openxmlformats-officedocument.wordprocessingml.document`
+## Dublin/Ireland Optimizations
 
-## Examples
+The API is specifically optimized for:
+- **Irish phone number formatting**: +353 format
+- **Dublin addresses**: Proper formatting for Irish addresses
+- **EU work authorization**: Automatic detection and inclusion
+- **ATS compatibility**: Optimized for Irish/European ATS systems
+- **Local companies**: Recognition of major Dublin employers
+- **Irish English**: Proper spelling and terminology
 
-### cURL Examples
+## AI Features
 
-#### Generate CV from form:
-```bash
-curl -X POST "http://localhost:8000/api/v1/generate-cv" \
-  -H "Content-Type: application/json" \
-  -d '{"personal_details": {"full_name": "John Doe", "email": "john@example.com"}, "work_experience": [], "education": [], "skills": [], "job_description": ""}'
-```
+### Content Enhancement:
+- **Skills optimization** based on job description
+- **Achievement quantification** where possible
+- **Keyword optimization** for ATS systems
+- **Cliché removal** from cover letters
+- **Grammar checking** and improvement
 
-#### Upload CV file:
-```bash
-curl -X POST "http://localhost:8000/api/v1/generate-from-upload" \
-  -F "cv_file=@resume.pdf" \
-  -F "job_description=Software Engineer position..."
-``` 
+### Dublin-Specific Enhancements:
+- **Company research** for known Dublin employers
+- **Industry context** for Irish job market
+- **Cultural adaptation** for Irish business practices
+- **Local terminology** and preferences
+
+## Development Notes
+
+### Testing Endpoints:
+Use the interactive API documentation at:
+- Development: `http://localhost:8000/docs`
+- Production: `https://cvgenius-backend-449239631634.europe-west1.run.app/docs`
+
+### CORS Configuration:
+The API accepts requests from:
+- `http://localhost:3000` (development)
+- `https://cvgenius-nine.vercel.app` (production)
+
+### Performance:
+- Average response time: 15-30 seconds
+- PDF generation: WeasyPrint with A4 optimization
+- AI processing: Google Gemini 2.0 Flash

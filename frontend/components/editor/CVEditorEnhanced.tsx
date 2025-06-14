@@ -49,7 +49,7 @@ export default function CVEditorEnhanced({ cvData: initialData, onUpdate, isEdit
   const cvRef = useRef<HTMLDivElement>(null);
 
   // Update content handler
-  const handleContentChange = (path: string[], value: string | string[]) => {
+  const handleContentChange = (path: string[], value: any) => {
     const newData = { ...cvData };
     let current: any = newData;
     

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '@/components/ui/Button';
+import CoverLetterMobilePreview from '@/components/mobile/CoverLetterMobilePreview';
 
 interface CoverLetterData {
   personal_details: {
@@ -25,6 +26,19 @@ interface CoverLetterPreviewProps {
 }
 
 const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ data, onEdit, onDownload }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const formatDate = (dateStr: string) => {
     try {
       return new Date(dateStr).toLocaleDateString('en-IE', {
@@ -72,6 +86,18 @@ const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ data, onEdit, o
 
   const theme = data.theme || 'classic';
   const themeStyles = getThemeStyles(theme);
+
+  // Use mobile preview for mobile devices
+  if (isMobile) {
+    return (
+      <CoverLetterMobilePreview
+        data={data}
+        onEdit={onEdit}
+        onDownload={onDownload}
+        className="mx-4"
+      />
+    );
+  }
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

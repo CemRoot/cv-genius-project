@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { PlusCircle, Upload, Sparkles, Shield, Zap, Globe } from 'lucide-react';
 import Button from '@/components/ui/Button';
+import CoverLetterStyleShowcase from '@/components/showcase/CoverLetterStyleShowcase';
 
 const HomePage: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -244,6 +245,13 @@ const HomePage: React.FC = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Cover Letter Styles Showcase */}
+        <section className="py-16 sm:py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <CoverLetterStyleShowcase />
           </div>
         </section>
 

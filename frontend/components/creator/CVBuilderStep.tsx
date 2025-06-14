@@ -346,10 +346,9 @@ const CVBuilderStep: React.FC<CVBuilderStepProps> = ({ onBack, onContinue }) => 
               {/* Iframe Container with Aspect Ratio */}
               <div 
                 className="relative bg-white"
-                style={{ 
-                  aspectRatio: '0.7076648841354723',
-                  '--aspect-ratio': '0.7076648841354723'
-                }}
+                                  style={{ 
+                    aspectRatio: '0.7076648841354723'
+                  }}
               >
                 <iframe
                   key={iframeKey}

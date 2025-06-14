@@ -1251,10 +1251,10 @@ const AIResumeBuilder: React.FC<AIResumeBuilderProps> = ({ onSave, onBack }) => 
                 </div>
               </div>
               <div className="flex gap-2">
-                <Button size="xs" variant="outline" icon={<Download className="w-3 h-3" />}>
+                <Button size="sm" variant="outline" icon={<Download className="w-3 h-3" />}>
                   Download
                 </Button>
-                <Button size="xs" variant="outline" icon={<RefreshCw className="w-3 h-3" />}>
+                <Button size="sm" variant="outline" icon={<RefreshCw className="w-3 h-3" />}>
                   Refresh
                 </Button>
               </div>
@@ -1367,6 +1367,7 @@ const AIResumeBuilder: React.FC<AIResumeBuilderProps> = ({ onSave, onBack }) => 
                   icon={<Send className="w-4 h-4" />}
                   className="bg-blue-500 hover:bg-blue-600"
                 >
+                  Send
                 </Button>
               </div>
             </div>
