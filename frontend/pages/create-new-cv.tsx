@@ -37,6 +37,7 @@ const CreateNewCVPage: React.FC = () => {
   const [education, setEducation] = useState<Education[]>([]);
   const [skills, setSkills] = useState<string>('');
   const [jobDescription, setJobDescription] = useState<string | undefined>();
+  const [selectedTheme, setSelectedTheme] = useState<string>('classic');
 
   const handleStep1Next = (data: PersonalDetails) => {
     setPersonalDetails(data);
@@ -56,9 +57,12 @@ const CreateNewCVPage: React.FC = () => {
     setCurrentStep(4);
   };
 
-  const handleStep4Next = async (data: { skills: string; job_description?: string }) => {
+  const handleStep4Next = async (data: { skills: string; job_description?: string; theme?: string }) => {
     setSkills(data.skills);
     setJobDescription(data.job_description);
+    if (data.theme) {
+      setSelectedTheme(data.theme);
+    }
     setCompletedSteps(prev => [...prev.filter(s => s !== 4), 4]);
     
     // Generate CV
@@ -79,7 +83,8 @@ const CreateNewCVPage: React.FC = () => {
         work_experience: workExperience,
         education: education,
         skills: skillsData,
-        job_description: jobDescriptionData
+        job_description: jobDescriptionData,
+        theme: selectedTheme
       };
 
       // Debug logging to see what's being sent
@@ -169,6 +174,7 @@ const CreateNewCVPage: React.FC = () => {
     setEducation([]);
     setSkills('');
     setJobDescription(undefined);
+    setSelectedTheme('classic');
     setResult(null);
   };
 
@@ -201,7 +207,7 @@ const CreateNewCVPage: React.FC = () => {
       case 4:
         return (
           <Step4_Skills
-            initialData={{ skills, job_description: jobDescription }}
+            initialData={{ skills, job_description: jobDescription, theme: selectedTheme }}
             onNext={handleStep4Next}
             onPrevious={handlePrevious}
           />

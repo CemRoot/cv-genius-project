@@ -90,8 +90,8 @@ class CVGeneratorService:
             # Combine data
             complete_data = {**cv_data, **cover_letter_data}
             
-            # Generate PDFs (default to classic theme for form flow)
-            cv_pdf, cover_letter_pdf = await self._generate_pdfs(complete_data, "classic")
+            # Generate PDFs with selected theme
+            cv_pdf, cover_letter_pdf = await self._generate_pdfs(complete_data, form_data.theme or "classic")
             
             return PDFResponse(
                 cv_pdf_base64=base64.b64encode(cv_pdf).decode(),

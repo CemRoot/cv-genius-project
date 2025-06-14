@@ -44,6 +44,7 @@ class CVFormData(BaseModel):
     education: List[Education] = Field(..., min_items=1)
     skills: str = Field(..., min_length=10, max_length=1000)
     job_description: Optional[str] = Field(None, max_length=5000)
+    theme: Optional[str] = Field(default="classic", pattern=r'^(classic|modern|academic)$')
     
     @field_validator('job_description')
     @classmethod

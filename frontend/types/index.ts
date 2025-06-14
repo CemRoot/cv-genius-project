@@ -35,6 +35,7 @@ export interface CVFormData {
   education: Education[];
   skills: string;
   job_description?: string;
+  theme?: string;
 }
 
 export interface CVUploadRequest {

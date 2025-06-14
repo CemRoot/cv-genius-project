@@ -4,13 +4,15 @@ import { Lightbulb, Target, Plus, X, ChevronDown, ChevronUp, Type } from 'lucide
 import Textarea from '@/components/ui/Textarea';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import ThemeSelector, { CoverLetterTheme } from '@/components/ui/ThemeSelector';
 
 interface Step4Props {
   initialData?: {
     skills: string;
     job_description?: string;
+    theme?: string;
   };
-  onNext: (data: { skills: string; job_description?: string }) => void;
+  onNext: (data: { skills: string; job_description?: string; theme?: string }) => void;
   onPrevious: () => void;
 }
 
@@ -35,13 +37,15 @@ const Step4_Skills: React.FC<Step4Props> = ({
   const onSubmit = (data: { skills: string; job_description: string }) => {
     onNext({
       skills: data.skills,
-      job_description: data.job_description.trim() || undefined
+      job_description: data.job_description.trim() || undefined,
+      theme: selectedTheme
     });
   };
 
   const [selectedSkills, setSelectedSkills] = useState<string[]>(initialData?.skills ? initialData.skills.split(', ') : []);
   const [expandedCategories, setExpandedCategories] = useState<string[]>(['Programming Languages']);
   const [customSkillInput, setCustomSkillInput] = useState<string>('');
+  const [selectedTheme, setSelectedTheme] = useState<string>(initialData?.theme || 'classic');
 
   const skillCategories = {
     "Programming Languages": [
@@ -369,6 +373,19 @@ const Step4_Skills: React.FC<Step4Props> = ({
             )}
           />
 
+        </div>
+
+        {/* Theme Selection Section */}
+        <div className="card p-6">
+          <div className="flex items-center mb-4">
+            <Type className="w-5 h-5 text-purple-600 mr-2" />
+            <h3 className="text-lg font-semibold text-gray-900">Cover Letter Style</h3>
+          </div>
+          
+          <ThemeSelector
+            selectedTheme={selectedTheme as CoverLetterTheme}
+            onThemeChange={setSelectedTheme}
+          />
         </div>
 
         {/* Job Description Section */}
