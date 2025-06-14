@@ -46,6 +46,7 @@ interface CVData {
   company_name: string;
   job_title: string;
   job_description?: string;
+  theme?: string;
 }
 
 interface ResultsData {
@@ -251,7 +252,8 @@ const ResultsPage = () => {
               day: 'numeric',
               month: 'long',
               year: 'numeric'
-            })
+            }),
+            theme: resultsData.cvData.theme
           }}
           onEdit={() => {
             setShowCoverLetterPreview(false);

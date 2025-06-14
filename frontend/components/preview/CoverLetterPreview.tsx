@@ -15,6 +15,7 @@ interface CoverLetterData {
   cover_letter_body: string;
   generation_date: string;
   include_company_address?: boolean;
+  theme?: string;
 }
 
 interface CoverLetterPreviewProps {
@@ -44,6 +45,34 @@ const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ data, onEdit, o
     return phone;
   };
 
+  const getThemeStyles = (theme: string) => {
+    switch (theme) {
+      case 'modern':
+        return {
+          fontFamily: 'Arial, sans-serif',
+          headerStyle: { borderBottom: '2px solid #3B82F6', paddingBottom: '10px' },
+          nameStyle: { color: '#1E40AF', fontSize: '20pt' },
+          subjectLine: true
+        };
+      case 'academic':
+        return {
+          fontFamily: 'Times New Roman, serif',
+          headerStyle: { borderBottom: '1px solid #6B7280' },
+          nameStyle: { fontSize: '16pt', fontWeight: 'normal' },
+          formalClosing: true
+        };
+      default: // classic
+        return {
+          fontFamily: 'Arial, sans-serif',
+          headerStyle: { borderBottom: '1px solid #d1d5db' },
+          nameStyle: { fontSize: '18pt' }
+        };
+    }
+  };
+
+  const theme = data.theme || 'classic';
+  const themeStyles = getThemeStyles(theme);
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Dublin Standards Badge */}
@@ -68,13 +97,13 @@ const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ data, onEdit, o
 
       {/* Preview Container */}
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div style={{ padding: '20mm', fontFamily: 'Arial, sans-serif', lineHeight: '1.6' }}>
+        <div style={{ padding: '20mm', fontFamily: themeStyles.fontFamily, lineHeight: '1.6' }}>
           
           {/* Header Section */}
-          <div className="mb-5 pb-5 border-b" style={{ borderColor: '#d1d5db' }}>
+          <div className="mb-5 pb-5" style={themeStyles.headerStyle}>
             <div className="flex justify-between items-start">
               <div>
-                <h1 className="text-2xl font-semibold text-gray-900 mb-1 break-words" style={{ fontSize: '18pt' }}>
+                <h1 className="font-semibold text-gray-900 mb-1 break-words" style={themeStyles.nameStyle}>
                   {data.personal_details.full_name}
                 </h1>
                 <div className="text-sm text-gray-600 space-y-0" style={{ fontSize: '10pt', lineHeight: '1.25' }}>
@@ -106,9 +135,16 @@ const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ data, onEdit, o
             </div>
           </div>
 
+          {/* Subject Line (Modern theme only) */}
+          {themeStyles.subjectLine && data.job_title && (
+            <div className="mb-4 font-medium" style={{ fontSize: '11pt' }}>
+              <strong>Re: {data.job_title}</strong>
+            </div>
+          )}
+
           {/* Salutation */}
           <div className="mb-4 font-medium break-words" style={{ fontSize: '11pt' }}>
-            Dear {data.company_name} Hiring Team,
+            {theme === 'academic' ? `Dear ${data.company_name} Selection Committee,` : `Dear ${data.company_name} Hiring Team,`}
           </div>
 
           {/* Letter Body */}
@@ -135,6 +171,9 @@ const CoverLetterPreview: React.FC<CoverLetterPreviewProps> = ({ data, onEdit, o
           {/* Closing */}
           <div className="mt-6">
             <div className="mb-4" style={{ fontSize: '11pt' }}>Yours sincerely,</div>
+            {themeStyles.formalClosing && (
+              <div className="mb-4" style={{ fontSize: '11pt', borderBottom: '1px solid #000', width: '200px', height: '40px' }}></div>
+            )}
             <div className="font-medium break-words" style={{ fontSize: '11pt' }}>{data.personal_details.full_name}</div>
           </div>
         </div>

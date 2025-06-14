@@ -88,7 +88,7 @@ class CVGeneratorService:
             )
             
             # Combine data
-            complete_data = {**cv_data, **cover_letter_data}
+            complete_data = {**cv_data, **cover_letter_data, "theme": form_data.theme or "classic"}
             
             # Generate PDFs with selected theme
             cv_pdf, cover_letter_pdf = await self._generate_pdfs(complete_data, form_data.theme or "classic")
@@ -116,6 +116,9 @@ class CVGeneratorService:
             
             # Parse AI response
             cv_data = self._parse_ai_response(ai_response)
+            
+            # Add theme to cv_data
+            cv_data["theme"] = theme
             
             # Generate PDFs
             cv_pdf, cover_letter_pdf = await self._generate_pdfs(cv_data, theme)
