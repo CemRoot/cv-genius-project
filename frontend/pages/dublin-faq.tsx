@@ -26,43 +26,6 @@ const DublinFAQPage: React.FC = () => {
       question: 'How Should I Format My CV for Dublin/Ireland Job Market?',
       answer: `
         <div class="space-y-6">
-          <div class="bg-blue-50 rounded-lg p-4">
-            <h4 class="font-bold text-blue-800 mb-2">📊 What is ATS?</h4>
-            <p class="text-blue-700">ATS (Applicant Tracking Systems) are software applications that help employers manage hiring by automatically filtering and ranking job applications. Major Dublin companies like Google, Meta, LinkedIn, Amazon, and Accenture all use these systems.</p>
-          </div>
-          
-          <div class="bg-green-50 rounded-lg p-4">
-            <h4 class="font-bold text-green-800 mb-3">⚙️ How ATS Works</h4>
-            <div class="space-y-2 text-green-700">
-              <p><strong>1. Keyword Scanning:</strong> Scans CVs for specific keywords from job descriptions</p>
-              <p><strong>2. Automatic Filtering:</strong> Eliminates CVs that don't match required qualifications</p>
-              <p><strong>3. Ranking System:</strong> Ranks applications based on keyword density and relevance</p>
-            </div>
-          </div>
-          
-          <div class="bg-purple-50 rounded-lg p-4">
-            <h4 class="font-bold text-purple-800 mb-3">✅ ATS-Friendly CV Tips</h4>
-            <div class="grid md:grid-cols-2 gap-3 text-purple-700 text-sm">
-              <div><strong>Format:</strong> Clean layouts, no graphics</div>
-              <div><strong>Fonts:</strong> Arial, Calibri, Times New Roman</div>
-              <div><strong>Keywords:</strong> Use exact terms from job descriptions</div>
-              <div><strong>File Type:</strong> Save as .docx or PDF</div>
-              <div><strong>Headers:</strong> Use standard section titles</div>
-              <div><strong>Size:</strong> 11-12pt for body text</div>
-            </div>
-          </div>
-          
-          <div class="bg-orange-50 rounded-lg p-3 text-center">
-            <p class="text-orange-700 text-sm"><strong>📈 Key Stat:</strong> 98% of Fortune 500 companies and 75% of Dublin companies use ATS systems</p>
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'dublin-cv-standards',
-      question: 'How Should I Format My CV for Dublin/Ireland Job Market?',
-      answer: `
-        <div class="space-y-6">
           <div class="bg-emerald-50 rounded-lg p-4">
             <h4 class="font-bold text-emerald-800 mb-2">🇮🇪 Irish CV Basics</h4>
             <p class="text-emerald-700">Irish CV standards differ significantly from other countries. Here's what Dublin employers expect:</p>
@@ -846,27 +809,7 @@ const DublinFAQPage: React.FC = () => {
             
 
             
-            {/* Quick Stats */}
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 shadow-lg border border-blue-200 transform hover:scale-105 transition-transform">
-                <FileText className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-                <div className="text-3xl font-bold text-blue-900 mb-1">98%</div>
-                <div className="text-sm text-blue-700 font-medium">of Dublin companies use ATS</div>
-                <div className="text-xs text-blue-600 mt-2">📈 Critical for job success</div>
-              </div>
-              <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-6 shadow-lg border border-emerald-200 transform hover:scale-105 transition-transform">
-                <Users className="w-10 h-10 text-emerald-600 mx-auto mb-4" />
-                <div className="text-3xl font-bold text-emerald-900 mb-1">3.8%</div>
-                <div className="text-sm text-emerald-700 font-medium">unemployment in Dublin</div>
-                <div className="text-xs text-emerald-600 mt-2">🎯 High opportunity market</div>
-              </div>
-              <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 shadow-lg border border-purple-200 transform hover:scale-105 transition-transform">
-                <CheckCircle className="w-10 h-10 text-purple-600 mx-auto mb-4" />
-                <div className="text-3xl font-bold text-purple-900 mb-1">2 pages</div>
-                <div className="text-sm text-purple-700 font-medium">max CV length in Ireland</div>
-                <div className="text-xs text-purple-600 mt-2">📝 Strict formatting rules</div>
-              </div>
-            </div>
+
           </div>
         </section>
 
@@ -1096,7 +1039,7 @@ const DublinFAQPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row justify-between items-center">
                 <p>&copy; 2025 CVGenius. All rights reserved. | Specialized guidance for Dublin and Irish job markets.</p>
                 <p className="mt-2 sm:mt-0">
-                  Created by{' '}
+                  Created voluntarily by{' '}
                   <a 
                     href="https://www.linkedin.com/in/cem-koyluoglu/" 
                     target="_blank" 

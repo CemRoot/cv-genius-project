@@ -290,6 +290,120 @@ const HomePage: React.FC = () => {
           </div>
         </section>
 
+        {/* Community Section */}
+        <section className="py-16 sm:py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-6">
+                <span className="text-3xl sm:text-4xl mr-3">🤝</span>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                  Join Our <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Community</span>
+                </h2>
+              </div>
+              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-4">
+                Connect with 1400+ professionals for support, tips, and career opportunities
+              </p>
+              <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-8 max-w-2xl mx-auto">
+                <div className="flex items-center justify-center mb-2">
+                  <span className="text-green-600 font-semibold text-lg">🆓 Completely FREE Community</span>
+                </div>
+                <p className="text-green-700 text-center text-sm">
+                  All members are volunteers helping each other. No fees, no charges - just genuine support from fellow job seekers and professionals.
+                </p>
+              </div>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              {/* WhatsApp Group */}
+              <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 border-2 border-gray-100 hover:border-green-200 hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors">
+                    <span className="text-2xl">📱</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">WhatsApp Group</h3>
+                    <p className="text-sm text-gray-600">1400+ members</p>
+                  </div>
+                </div>
+                                 <p className="text-gray-600 mb-6 leading-relaxed">
+                   Join our <strong>FREE</strong> WhatsApp community where volunteers share CV tips, job opportunities, and provide instant support. No cost, just genuine help from fellow professionals.
+                 </p>
+                <a 
+                  href="https://chat.whatsapp.com/IYD1DWWnzVH7szBh5GpyPq"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  <span className="mr-2">💬</span>
+                  Join WhatsApp Group
+                  <span className="ml-2">→</span>
+                </a>
+              </div>
+
+              {/* Slack Channel */}
+              <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 border-2 border-gray-100 hover:border-purple-200 hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mr-4 group-hover:bg-purple-200 transition-colors">
+                    <span className="text-2xl">💼</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">Slack Channel</h3>
+                    <p className="text-sm text-gray-600">Professional network</p>
+                  </div>
+                </div>
+                                 <p className="text-gray-600 mb-6 leading-relaxed">
+                   Join our <strong>FREE</strong> Slack workspace where volunteers provide professional career advice, networking opportunities, and structured support. Completely voluntary community.
+                 </p>
+                <a 
+                  href="https://join.slack.com/t/corporatecare-x2t7491/shared_invite/zt-36v0dw0pf-5Pic~nMl_soYczCI3hZIXw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  <span className="mr-2">🚀</span>
+                  Join Slack Channel
+                  <span className="ml-2">→</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Community Benefits */}
+            <div className="mt-12 bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200">
+                             <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">What You'll Get (100% FREE)</h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <span className="text-xl">💡</span>
+                  </div>
+                                     <h4 className="font-semibold text-gray-900 mb-1">CV Tips</h4>
+                   <p className="text-sm text-gray-600">Free volunteer advice & feedback</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <span className="text-xl">🎯</span>
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-1">Job Alerts</h4>
+                  <p className="text-sm text-gray-600">Latest opportunities</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <span className="text-xl">🤝</span>
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-1">Networking</h4>
+                  <p className="text-sm text-gray-600">Connect with peers</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <span className="text-xl">⚡</span>
+                  </div>
+                                     <h4 className="font-semibold text-gray-900 mb-1">Quick Support</h4>
+                   <p className="text-sm text-gray-600">Free volunteer help & answers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Footer */}
         <footer className="bg-gray-900 text-white py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -329,7 +443,7 @@ const HomePage: React.FC = () => {
               <div className="flex flex-col sm:flex-row justify-between items-center">
                 <p>&copy; 2025 CVGenius. All rights reserved.</p>
                 <p className="mt-2 sm:mt-0">
-                  Created by{' '}
+                  Created voluntarily by{' '}
                   <a 
                     href="https://www.linkedin.com/in/cem-koyluoglu/" 
                     target="_blank" 

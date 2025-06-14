@@ -178,7 +178,7 @@ const ContactPage: React.FC = () => {
             <div className="mt-8 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center">
               <p>&copy; 2025 CVGenius. All rights reserved.</p>
               <p className="mt-2 sm:mt-0">
-                Created by{' '}
+                Created voluntarily by{' '}
                 <a 
                   href="https://www.linkedin.com/in/cem-koyluoglu/" 
                   target="_blank" 
