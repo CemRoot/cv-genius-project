@@ -344,6 +344,17 @@ COVER LETTER BEST PRACTICES:
 ✗ DON'T: Add references or justify previous job changes
 ✗ DON'T: Use clichés or generic phrases
 
+CRITICAL SENTENCE STARTER RULES:
+❌ NEVER start sentences with "For" - this is unprofessional and repetitive
+❌ Avoid repetitive "I am", "My", "I have" openings
+✅ Use varied professional openings like:
+- "Having worked in..."
+- "With my experience in..."
+- "Through my role as..."
+- "During my time at..."
+- "As a professional with..."
+- "Building on my background in..."
+
 COVER LETTER STRUCTURE (3-4 paragraphs):
 1. OPENING: Outline what you offer that's directly relevant to the role. State the position and why you applied. Avoid rambling.
 
@@ -358,6 +369,8 @@ WRITING STYLE REQUIREMENTS:
 - Show personality and genuine interest
 - Research the company and mention relevant details
 - Balance professionalism with directness (Irish business culture)
+- Ensure all sentences are complete and grammatically correct
+- Avoid incomplete phrases or dangling words
 
 SECTOR CONTEXT:
 Sector: {job_sector.upper()}
@@ -367,7 +380,20 @@ EXPECTED HTML OUTPUT FORMAT:
 <p>I am writing to apply for the [job_title] position at [company_name], as advertised on [platform]. [Brief self-identification and relevant background].</p>
 <p>I am particularly interested in this role because [specific interest in company/role]. My [academic background/qualifications] and [relevant experience] have prepared me well for this position. [How your talents benefit the employer].</p>
 <p>I have enclosed my CV for your consideration, which provides further details of my [relevant experience/achievements]. [Highlight 1-2 specific points that make you stand out for this role].</p>
-<p>I would welcome the opportunity to discuss my application further and am available for interview at your convenience. I look forward to hearing from you.</p>
+<p>Thank you for considering my application. I would welcome the opportunity to discuss my qualifications further.</p>
+
+CRITICAL QUALITY REQUIREMENTS:
+- NEVER start sentences with punctuation marks (., !, ?, etc.)
+- NEVER end paragraphs with incomplete phrases or random words
+- NEVER include fragments like "soon.", "at your earliest convenience.", "to hearing from you"
+- Every sentence must be complete with subject, verb, and proper ending
+- Final paragraph must end with a complete, professional closing statement
+
+BEFORE OUTPUTTING JSON, REVIEW YOUR COVER LETTER:
+1. Check that no sentence starts with punctuation
+2. Check that no paragraph ends with incomplete phrases
+3. Check that all sentences are grammatically complete
+4. If you find any errors, FIX THEM before outputting
 
 Output ONLY valid JSON:
 {{
@@ -422,6 +448,17 @@ COVER LETTER BEST PRACTICES:
 ✗ DON'T: Add references or justify previous job changes
 ✗ DON'T: Use clichés or generic phrases
 
+CRITICAL SENTENCE STARTER RULES:
+❌ NEVER start sentences with "For" - this is unprofessional and repetitive
+❌ Avoid repetitive "I am", "My", "I have" openings
+✅ Use varied professional openings like:
+- "Having worked in..."
+- "With my experience in..."
+- "Through my role as..."
+- "During my time at..."
+- "As a professional with..."
+- "Building on my background in..."
+
 COVER LETTER STRUCTURE (3-4 paragraphs):
 1. OPENING: Outline what you offer that's directly relevant to the role. State the position and why you applied. Avoid rambling.
 2. MIDDLE: Detail how your skills, experience and education make you ideal for the specific requirements. Include company research to show you've done homework.
@@ -434,6 +471,8 @@ WRITING STYLE REQUIREMENTS:
 - Show personality and genuine interest
 - Research the company and mention relevant details
 - Balance professionalism with directness (Irish business culture)
+- Ensure all sentences are complete and grammatically correct
+- Avoid incomplete phrases or dangling words
 
 SECTOR: {job_sector.upper()}
 KEYWORDS: Technical: {', '.join(key_keywords['technical_skills'][:3])}, Soft: {', '.join(key_keywords['soft_skills'][:3])}
@@ -535,6 +574,17 @@ COVER LETTER FORMATTING RULES (DCU STANDARD):
 - Follow DCU's 4-paragraph structure exactly
 - Each paragraph should be 3-4 sentences with clear focus
 - ENSURE all sentences are complete and properly finished
+
+CRITICAL SENTENCE STARTER RULES:
+❌ NEVER start sentences with "For" - this is unprofessional and repetitive
+❌ Avoid repetitive "I am", "My", "I have" openings
+✅ Use varied professional openings like:
+- "Having worked in..."
+- "With my experience in..."
+- "Through my role as..."
+- "During my time at..."
+- "As a professional with..."
+- "Building on my background in..."
 
 DCU COVER LETTER STRUCTURE:
 1. OPENING PARAGRAPH: Identify yourself, state the position you're applying for, and mention where you learned about the vacancy (online job board, company website, etc.)
@@ -1181,6 +1231,7 @@ GENERAL SECTOR REQUIREMENTS:
             # Clean placeholder text and clichés
             data["cover_letter_body"] = self._clean_placeholder_text(data["cover_letter_body"])
             data["cover_letter_body"] = self._detect_and_remove_cliches(data["cover_letter_body"])
+            data["cover_letter_body"] = self._fix_grammar_issues(data["cover_letter_body"])
             
             # Additional cover letter specific cleaning
             cover_letter_body = data["cover_letter_body"]
@@ -1304,6 +1355,29 @@ GENERAL SECTOR REQUIREMENTS:
         cleaned_text = cleaned_text.strip()
         
         return cleaned_text
+    
+    def _fix_grammar_issues(self, text: str) -> str:
+        """Fix common grammar issues in cover letters"""
+        import re
+        
+        # Fix sentences starting with punctuation
+        text = re.sub(r'<p>\s*\.\s*', '<p>', text)
+        text = re.sub(r'<p>\s*,\s*', '<p>', text)
+        text = re.sub(r'<p>\s*;\s*', '<p>', text)
+        
+        # Fix incomplete phrases at end of paragraphs
+        text = re.sub(r'\.\s+at\s+your\s+earliest\s+convenience\.\s*</p>', '.</p>', text, flags=re.IGNORECASE)
+        text = re.sub(r'\.\s+soon\.\s*</p>', '.</p>', text, flags=re.IGNORECASE)
+        text = re.sub(r'\.\s+to\s+hearing\s+from\s+you\s*\.\s*</p>', '.</p>', text, flags=re.IGNORECASE)
+        text = re.sub(r'\.\s+and\s+look\s+forward\s+to\s+hearing\s+from\s+you\s*\.\s*</p>', '.</p>', text, flags=re.IGNORECASE)
+        
+        # Fix incomplete sentences
+        text = re.sub(r'\.\s+my\s+qualifications\s+further\s+and\s+am\s+available\s+for\s+an\s+interview\s+at\s+your\s+earliest\s+convenience\.\s*</p>', '. I would welcome the opportunity to discuss my qualifications further.</p>', text, flags=re.IGNORECASE)
+        
+        # Fix double spaces
+        text = re.sub(r'\s+', ' ', text)
+        
+        return text
     
     def _detect_and_remove_cliches(self, text: str) -> str:
         """Detect and remove clichéd expressions from cover letter content"""

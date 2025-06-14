@@ -158,7 +158,6 @@ const UpdateCVPage: React.FC = () => {
                       Update Your Existing CV
                     </span>
                   </h1>
-                  <div className="absolute -top-2 -right-4 text-2xl animate-bounce">🔄</div>
                 </div>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
                   📤 Upload your current CV and provide a job description. Our AI will optimize 
@@ -307,7 +306,6 @@ const UpdateCVPage: React.FC = () => {
                     <FileText className="w-12 h-12 text-white" />
                   </div>
                   <div className="absolute -top-2 -right-8 text-3xl animate-pulse">🎉</div>
-                  <div className="absolute -top-4 -left-8 text-2xl animate-bounce delay-300">✨</div>
                 </div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-6">
                   <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">

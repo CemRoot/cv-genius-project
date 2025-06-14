@@ -734,12 +734,11 @@ const DublinFAQPage: React.FC = () => {
         {/* Hero Section */}
         <section className="py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="flex flex-col md:flex-row items-center justify-center mb-6">
-              <div className="relative mb-4 md:mb-0 md:mr-6 flex-shrink-0">
+            <div className="flex flex-col items-center justify-center mb-6">
+              <div className="relative mb-4 flex-shrink-0">
                 <Globe className="w-16 h-16 text-primary-600 animate-pulse" />
-                <div className="absolute -top-2 -right-2 text-2xl">🇮🇪</div>
               </div>
-              <div className="text-center">
+              <div className="text-center w-full">
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                   Dublin Career <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Mastery</span> Guide
                 </h1>

@@ -64,6 +64,29 @@ async def generate_cv_pdf(
         raise HTTPException(status_code=500, detail=f"CV PDF generation failed: {str(e)}")
 
 
+@router.post("/generate-cover-letter")
+@limiter.limit(f"{settings.RATE_LIMIT_REQUESTS}/{settings.RATE_LIMIT_WINDOW}")
+async def generate_cover_letter_only(
+    request: Request,
+    data: dict
+):
+    """
+    Generate cover letter content only (JSON response)
+    """
+    try:
+        # Extract required data
+        cv_data = data.get("cv_data", {})
+        job_description = data.get("job_description", "")
+        company_name = data.get("company_name", "")
+        
+        # Generate cover letter content
+        result = await cv_service.generate_cover_letter_only(cv_data, job_description, company_name)
+        return result
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Cover letter generation failed: {str(e)}")
+
+
 @router.post("/generate-cover-letter-pdf")
 @limiter.limit(f"{settings.RATE_LIMIT_REQUESTS}/{settings.RATE_LIMIT_WINDOW}")
 async def generate_cover_letter_pdf(

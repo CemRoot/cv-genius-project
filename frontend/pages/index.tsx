@@ -92,12 +92,11 @@ const HomePage: React.FC = () => {
         {/* Hero Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="flex flex-col md:flex-row items-center justify-center mb-8">
-              <div className="relative mb-4 md:mb-0 md:mr-6 flex-shrink-0">
+            <div className="flex flex-col items-center justify-center mb-8">
+              <div className="relative mb-4 flex-shrink-0">
                 <Sparkles className="w-16 md:w-20 h-16 md:h-20 text-primary-600 animate-pulse" />
-                <div className="absolute -top-2 -right-2 text-2xl md:text-3xl">🤖</div>
               </div>
-              <div className="text-center">
+              <div className="text-center w-full">
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                   Create <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent gradient-flow">ATS-Friendly</span> CVs with AI
                 </h1>
@@ -132,7 +131,7 @@ const HomePage: React.FC = () => {
                     <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-100 to-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-primary-200 group-hover:to-blue-200 transition-all duration-300 shadow-lg">
                       <PlusCircle className="w-8 h-8 sm:w-10 sm:h-10 text-primary-600" />
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">✨ Create New CV</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Create New CV</h3>
                     <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                       🚀 Build a professional CV from scratch with our AI-powered guided form. Perfect for career changes or first-time CV creation.
                     </p>
@@ -155,7 +154,7 @@ const HomePage: React.FC = () => {
                     <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-emerald-100 to-secondary-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-secondary-200 group-hover:to-emerald-200 transition-all duration-300 shadow-lg">
                       <Upload className="w-8 h-8 sm:w-10 sm:h-10 text-secondary-600" />
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">🔄 Update Existing CV</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Update Existing CV</h3>
                     <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                       ⚡ Upload your current CV and optimize it for a specific job description. Get instant AI-powered improvements.
                     </p>
