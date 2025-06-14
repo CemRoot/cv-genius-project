@@ -87,14 +87,16 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
     setShowPreview(true);
     setIsModalOpen(true);
     
-    // Scroll to top of the page to ensure preview modal is visible
-    // This works on both desktop and mobile devices
+    // Prevent body scroll when modal is open for better UX
+    document.body.style.overflow = 'hidden';
+    
+    // Scroll to the top of the modal content after a short delay
     setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }, 50); // Small delay to ensure modal is rendered first
+      const previewContent = document.getElementById('cover-letter-preview-content');
+      if (previewContent) {
+        previewContent.scrollTop = 0;
+      }
+    }, 100);
   };
 
   const closePreview = () => {
@@ -107,6 +109,9 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
     setHoveredTheme(null);
     setShowPreview(false);
     setIsModalOpen(false);
+    
+    // Restore body scroll when modal is closed
+    document.body.style.overflow = 'unset';
   };
 
   // Cleanup timeout on unmount
@@ -203,7 +208,7 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
       {/* Large Preview Modal */}
       {showPreview && previewTheme && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-start justify-center z-50 p-4 pt-8 overflow-y-auto"
           onClick={closePreview}
         >
           <div 
@@ -240,7 +245,7 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
             </div>
 
             {/* Mock Cover Letter Preview */}
-            <div className="p-8 overflow-y-auto max-h-[70vh]">
+            <div className="p-8 overflow-y-auto max-h-[70vh]" id="cover-letter-preview-content">
               <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm max-w-2xl mx-auto">
                 {/* Header styling based on theme */}
                 <div className={clsx(
