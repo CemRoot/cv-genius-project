@@ -224,7 +224,7 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
           onClick={closePreview}
         >
           <div 
-            className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full h-[90vh] overflow-hidden flex flex-col"
+            className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full h-[95vh] overflow-hidden flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
@@ -257,8 +257,8 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
             </div>
 
             {/* Mock Cover Letter Preview */}
-            <div className="flex-1 overflow-y-auto p-4" id="cover-letter-preview-content">
-              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm mx-auto text-sm leading-relaxed max-w-3xl">
+            <div className="flex-1 overflow-y-auto p-2" id="cover-letter-preview-content">
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm mx-auto text-sm leading-relaxed max-w-3xl min-h-full">
                 {/* Header styling based on theme */}
                 <div className={clsx(
                   'mb-4',

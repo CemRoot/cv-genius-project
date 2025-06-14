@@ -345,15 +345,27 @@ COVER LETTER BEST PRACTICES:
 ✗ DON'T: Use clichés or generic phrases
 
 CRITICAL SENTENCE STARTER RULES:
-❌ NEVER start sentences with "For" - this is unprofessional and repetitive
-❌ Avoid repetitive "I am", "My", "I have" openings
-✅ Use varied professional openings like:
+🚫 ABSOLUTELY FORBIDDEN: NEVER start sentences with "For" - this is unprofessional and repetitive
+🚫 STRICTLY PROHIBITED: Avoid repetitive "I am", "My", "I have" openings
+🚫 BANNED WORDS: Do not start sentences with: "For", "My", "I am", "I have", "I was", "I will"
+✅ REQUIRED OPENINGS: Use varied professional openings like:
 - "Having worked in..."
 - "With my experience in..."
 - "Through my role as..."
 - "During my time at..."
 - "As a professional with..."
 - "Building on my background in..."
+- "Given my expertise in..."
+- "Leveraging my skills in..."
+- "Based on my experience..."
+- "Throughout my career..."
+
+SENTENCE STARTER VALIDATION:
+Before writing each sentence, check:
+1. Does it start with "For"? → REWRITE IMMEDIATELY
+2. Does it start with "I am/My/I have"? → REWRITE IMMEDIATELY
+3. Is it similar to the previous sentence opener? → CHANGE IT
+4. Does it sound professional and engaging? → IMPROVE IF NEEDED
 
 COVER LETTER STRUCTURE (3-4 paragraphs):
 1. OPENING: Outline what you offer that's directly relevant to the role. State the position and why you applied. Avoid rambling.
@@ -376,11 +388,25 @@ SECTOR CONTEXT:
 Sector: {job_sector.upper()}
 Company Research: {company_research}
 
-EXPECTED HTML OUTPUT FORMAT:
-<p>I am writing to apply for the [job_title] position at [company_name], as advertised on [platform]. [Brief self-identification and relevant background].</p>
-<p>I am particularly interested in this role because [specific interest in company/role]. My [academic background/qualifications] and [relevant experience] have prepared me well for this position. [How your talents benefit the employer].</p>
-<p>I have enclosed my CV for your consideration, which provides further details of my [relevant experience/achievements]. [Highlight 1-2 specific points that make you stand out for this role].</p>
+EXPECTED HTML OUTPUT FORMAT (NEVER USE "FOR" AT START):
+<p>My experience in [relevant field] makes me well-suited for the [job_title] position at [company_name], as advertised on [platform]. [Brief self-identification and relevant background].</p>
+<p>This role particularly interests me because [specific interest in company/role]. Having [academic background/qualifications] and [relevant experience], I am well-prepared for this position. [How your talents benefit the employer].</p>
+<p>Having enclosed my CV with this application, I wish to highlight [relevant experience/achievements]. [Highlight 1-2 specific points that make you stand out for this role].</p>
 <p>Thank you for considering my application. I would welcome the opportunity to discuss my qualifications further.</p>
+
+CRITICAL EXAMPLES OF WHAT NOT TO DO:
+❌ BAD: "For the Machine Vision Engineer position..."
+❌ BAD: "For this exciting opportunity..."
+❌ BAD: "For your consideration, I am..."
+❌ BAD: "My qualifications make me ideal for..."
+❌ BAD: "I am writing to apply for..."
+
+✅ GOOD EXAMPLES:
+✅ "Having reviewed the Machine Vision Engineer position..."
+✅ "This exciting opportunity aligns perfectly with..."
+✅ "Given my background in..."
+✅ "With extensive experience in..."
+✅ "As a professional specializing in..."
 
 CRITICAL QUALITY REQUIREMENTS:
 - NEVER start sentences with punctuation marks (., !, ?, etc.)
@@ -1263,9 +1289,21 @@ GENERAL SECTOR REQUIREMENTS:
             cover_letter_body = re.sub(r'\n\s*\n\s*\n+', '\n\n', cover_letter_body)  # Multiple line breaks to double
             cover_letter_body = re.sub(r'^\s+|\s+$', '', cover_letter_body)  # Remove leading/trailing whitespace
             
-            # Fix common repetitive phrases
+            # Fix common repetitive phrases and "for" starters
             cover_letter_body = re.sub(r'I am writing to apply for', 'My experience makes me well-suited for', cover_letter_body, flags=re.IGNORECASE)
             cover_letter_body = re.sub(r'I am writing to express my interest in', 'My background aligns perfectly with', cover_letter_body, flags=re.IGNORECASE)
+            
+            # Fix sentences starting with "for" - most common issue
+            cover_letter_body = re.sub(r'(<p>|^|\. )for the ([A-Z][^.]*?position)', r'\1Regarding the \2position', cover_letter_body, flags=re.IGNORECASE)
+            cover_letter_body = re.sub(r'(<p>|^|\. )for this ([A-Z][^.]*?role)', r'\1Concerning this \2role', cover_letter_body, flags=re.IGNORECASE)
+            cover_letter_body = re.sub(r'(<p>|^|\. )for ([A-Z][^.]*?,)', r'\1Regarding \2,', cover_letter_body, flags=re.IGNORECASE)
+            
+            # Fix repetitive "I am" patterns
+            cover_letter_body = re.sub(r'(<p>|^|\. )I am ([^.]*?) and I am', r'\1I am \2, and have been', cover_letter_body, flags=re.IGNORECASE)
+            cover_letter_body = re.sub(r'(<p>|^|\. )I am particularly', r'\1This role particularly', cover_letter_body, flags=re.IGNORECASE)
+            
+            # Fix "My" starters when overused
+            cover_letter_body = re.sub(r'(<p>|^|\. )My ([^.]*?) and my ([^.]*?)', r'\1With my \2 and \3', cover_letter_body, flags=re.IGNORECASE)
             
             data["cover_letter_body"] = cover_letter_body
             
@@ -1442,11 +1480,16 @@ GENERAL SECTOR REQUIREMENTS:
             r'\btrack\s+record\s+of\s+success\b(?!\s+in)',
             r'\bproven\s+track\s+record\b(?!\s+of\s+[a-z]+)',
             
-            # Weak opening phrases
+            # Weak opening phrases including "for" starters
             r'\bi\s+am\s+writing\s+to\s+apply\b',
             r'\bi\s+am\s+writing\s+to\s+express\s+my\s+interest\b',
             r'\bi\s+saw\s+your\s+job\s+posting\b',
             r'\bi\s+came\s+across\s+your\s+job\s+listing\b',
+            r'^for\s+the\s+[a-zA-Z\s]+\s+position\b',
+            r'^for\s+this\s+[a-zA-Z\s]+\s+role\b',
+            r'^for\s+your\s+consideration\b',
+            r'<p>for\s+the\s+[a-zA-Z\s]+\s+position\b',
+            r'<p>for\s+this\s+[a-zA-Z\s]+\s+role\b',
             
             # Passive closing phrases
             r'\bi\s+look\s+forward\s+to\s+hearing\s+from\s+you\b',

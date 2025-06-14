@@ -286,7 +286,7 @@ const UpdateCVPage: React.FC = () => {
                   <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full mx-4 shadow-2xl">
                     <LoadingSpinner size="lg" message="Our AI is analyzing your CV and optimizing it for the job..." />
                     <div className="mt-6 bg-gradient-to-r from-emerald-50 to-blue-50 rounded-2xl p-4 border border-emerald-200/50">
-                      <p className="text-sm text-emerald-700 font-medium">
+                      <p className="text-sm text-emerald-700 font-medium text-center">
                         ⏱️ This usually takes 15-30 seconds
                       </p>
                     </div>
