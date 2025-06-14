@@ -807,9 +807,9 @@ const DublinFAQPage: React.FC = () => {
                 <a href="/#how-it-works" className="text-gray-600 hover:text-primary-600 transition-colors">
                   How It Works
                 </a>
-                <a href="/#faq" className="text-gray-600 hover:text-primary-600 transition-colors">
+                <span className="text-primary-600 font-semibold">
                   FAQ
-                </a>
+                </span>
               </nav>
             </div>
           </div>
@@ -844,18 +844,7 @@ const DublinFAQPage: React.FC = () => {
               this guide reveals the secrets that land interviews at Google Dublin, AIB, Stripe, and Ireland&apos;s top employers.
             </p>
             
-            <div className="bg-gradient-to-r from-emerald-50 to-blue-50 rounded-2xl p-6 mb-8 max-w-2xl mx-auto border border-emerald-200">
-              <div className="flex items-center justify-center mb-3">
-                <span className="text-2xl mr-2">✨</span>
-                <span className="font-semibold text-gray-800">Success-Proven Strategies Inside</span>
-              </div>
-              <div className="text-sm text-gray-600 grid grid-cols-2 gap-2">
-                <div>📊 ATS System Mastery</div>
-                <div>🎯 Interview Excellence</div>
-                <div>💼 LinkedIn Optimization</div>
-                <div>📝 Irish CV Standards</div>
-              </div>
-            </div>
+
             
             {/* Quick Stats */}
             <div className="grid md:grid-cols-3 gap-6 mb-12">

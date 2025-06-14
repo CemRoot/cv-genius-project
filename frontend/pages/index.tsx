@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
                 <Link href="#how-it-works" className="text-gray-600 hover:text-primary-600 transition-colors">
                   How It Works
                 </Link>
-                <Link href="#faq" className="text-gray-600 hover:text-primary-600 transition-colors">
+                <Link href="/dublin-faq" className="text-gray-600 hover:text-primary-600 transition-colors">
                   FAQ
                 </Link>
               </nav>
@@ -68,7 +68,7 @@ const HomePage: React.FC = () => {
                   How It Works
                 </Link>
                 <Link 
-                  href="#faq" 
+                  href="/dublin-faq" 
                   className="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
