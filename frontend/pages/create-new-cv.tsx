@@ -236,7 +236,7 @@ const CreateNewCVPage: React.FC = () => {
               </Link>
               
               <div className="flex items-center">
-                <span className="text-xl font-bold text-gray-900">CVGenius</span>
+                                 <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent gradient-flow">CVGenius</span>
               </div>
             </div>
           </div>

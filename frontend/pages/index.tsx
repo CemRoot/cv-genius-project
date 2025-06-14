@@ -22,17 +22,20 @@ const HomePage: React.FC = () => {
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center">
                 <Sparkles className="h-6 w-6 sm:h-8 sm:w-8 text-primary-600 mr-2" />
-                <span className="text-lg sm:text-xl font-bold text-gray-900">CVGenius</span>
+                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent gradient-flow">CVGenius</span>
               </div>
               
               <nav className="hidden md:flex space-x-8">
-                <Link href="#features" className="text-gray-600 hover:text-primary-600 transition-colors">
-                  Features
+                <Link href="#features" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
+                  ATS-Friendly
                 </Link>
-                <Link href="#how-it-works" className="text-gray-600 hover:text-primary-600 transition-colors">
-                  How It Works
+                <Link href="#how-it-works" className="text-gray-600 hover:text-purple-600 transition-colors font-medium">
+                  Works
                 </Link>
-                <Link href="/dublin-faq" className="text-gray-600 hover:text-primary-600 transition-colors">
+                <Link href="#community" className="text-gray-600 hover:text-emerald-600 transition-colors font-medium">
+                  Community
+                </Link>
+                <Link href="/dublin-faq" className="text-gray-600 hover:text-orange-600 transition-colors font-medium">
                   FAQ
                 </Link>
               </nav>
@@ -55,21 +58,28 @@ const HomePage: React.FC = () => {
               <div className="px-4 py-2 space-y-1">
                 <Link 
                   href="#features" 
-                  className="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors"
+                  className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Features
+                  ATS-Friendly
                 </Link>
                 <Link 
                   href="#how-it-works" 
-                  className="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors"
+                  className="block px-3 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  How It Works
+                  Works
+                </Link>
+                <Link 
+                  href="#community" 
+                  className="block px-3 py-2 text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Community
                 </Link>
                 <Link 
                   href="/dublin-faq" 
-                  className="block px-3 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors"
+                  className="block px-3 py-2 text-gray-600 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   FAQ
@@ -89,7 +99,7 @@ const HomePage: React.FC = () => {
               </div>
               <div className="text-center">
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Create <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">ATS-Friendly</span> CVs with AI
+                  Create <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent gradient-flow">ATS-Friendly</span> CVs with AI
                 </h1>
                 <div className="text-base md:text-lg text-gray-500 mt-2 font-medium">🚀 Your pathway to job success in Ireland & Europe</div>
               </div>
@@ -193,7 +203,7 @@ const HomePage: React.FC = () => {
               <div className="flex items-center justify-center mb-6">
                 <span className="text-3xl sm:text-4xl mr-3">✨</span>
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-                  Why Choose <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">CVGenius</span>?
+                  Why Choose <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent gradient-flow">CVGenius</span>?
                 </h2>
               </div>
               <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
@@ -245,7 +255,7 @@ const HomePage: React.FC = () => {
               <div className="flex items-center justify-center mb-6">
                 <span className="text-3xl sm:text-4xl mr-3">🚀</span>
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-                  How It <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Works</span>
+                  How It <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent gradient-flow">Works</span>
                 </h2>
               </div>
               <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
@@ -291,13 +301,13 @@ const HomePage: React.FC = () => {
         </section>
 
         {/* Community Section */}
-        <section className="py-16 sm:py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+        <section id="community" className="py-16 sm:py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="flex items-center justify-center mb-6">
                 <span className="text-3xl sm:text-4xl mr-3">🤝</span>
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-                  Join Our <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Community</span>
+                  Join Our <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent gradient-flow">Community</span>
                 </h2>
               </div>
               <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-4">
@@ -411,7 +421,7 @@ const HomePage: React.FC = () => {
               <div className="md:col-span-2">
                 <div className="flex items-center mb-4">
                   <Sparkles className="h-8 w-8 text-primary-400 mr-2" />
-                  <span className="text-xl font-bold">CVGenius</span>
+                                      <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent gradient-flow">CVGenius</span>
                 </div>
                 <p className="text-gray-400 mb-6">
                   AI-powered CV and cover letter generation for the modern job seeker. 

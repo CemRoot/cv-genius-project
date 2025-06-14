@@ -95,6 +95,12 @@ body {
   animation: slideUp 0.5s ease-out;
 }
 
+/* Gradient flow animation */
+.gradient-flow {
+  background-size: 200% 100%;
+  animation: gradientFlow 3s ease-in-out infinite;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -112,6 +118,18 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 

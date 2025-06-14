@@ -20,7 +20,7 @@ const ContactPage: React.FC = () => {
             <div className="flex justify-between h-16">
               <div className="flex items-center">
                 <Link href="/" className="flex-shrink-0">
-                  <span className="text-2xl font-bold text-indigo-600">CVGenius</span>
+                                      <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent gradient-flow">CVGenius</span>
                 </Link>
               </div>
               <div className="flex items-center space-x-4">

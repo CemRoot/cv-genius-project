@@ -162,142 +162,256 @@ const DublinFAQPage: React.FC = () => {
       `
     },
     {
-      id: 'dublin-interview-tips',
-      question: 'What Should I Expect in Dublin Job Interviews?',
+      id: 'dublin-cv-mistakes',
+      question: 'What Are the Most Common CV Mistakes for Dublin Job Applications?',
       answer: `
         <div class="space-y-6">
-          <div class="bg-emerald-50 rounded-lg p-4">
-            <h4 class="font-bold text-emerald-800 mb-2">🎤 Dublin Interview Process</h4>
-            <p class="text-emerald-700">Dublin interviews typically follow a structured 2-3 stage process, with cultural nuances specific to Irish business practices and European workplace standards.</p>
+          <div class="bg-red-50 rounded-lg p-4">
+            <h4 class="font-bold text-red-800 mb-2">⚠️ Common CV Mistakes in Dublin</h4>
+            <p class="text-red-700">Understanding these common mistakes can significantly improve your chances in Dublin's competitive job market and help you avoid instant rejection.</p>
           </div>
           
-          <div class="bg-blue-50 rounded-lg p-4">
-            <h4 class="font-bold text-blue-800 mb-3">📋 Interview Stages</h4>
-            <div class="space-y-2 text-blue-700">
-              <div class="flex items-center"><span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">1</span><strong>Phone/Video Screening (20-30 mins):</strong> HR or recruiter discussing basics, salary expectations, visa status</div>
-              <div class="flex items-center"><span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">2</span><strong>Technical/Competency Interview (45-60 mins):</strong> Department manager assessing skills and cultural fit</div>
-              <div class="flex items-center"><span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">3</span><strong>Final Panel Interview:</strong> Senior management, sometimes including company culture assessment</div>
+          <div class="bg-orange-50 rounded-lg p-4">
+            <h4 class="font-bold text-orange-800 mb-3">📏 Format and Length Errors</h4>
+            <div class="space-y-2 text-orange-700">
+              <p><strong>❌ Too Long:</strong> CVs over 2 pages are automatically rejected by most Dublin employers</p>
+              <p><strong>❌ Creative Layouts:</strong> Graphics, unusual fonts, or complex designs confuse ATS systems</p>
+              <p><strong>❌ Including Photos:</strong> Unlike Germany or France, Irish CVs never include photographs</p>
+              <p><strong>❌ Irrelevant Personal Info:</strong> Age, marital status, or nationality are not required and can lead to bias</p>
             </div>
           </div>
           
           <div class="grid md:grid-cols-2 gap-4">
             <div class="bg-purple-50 rounded-lg p-4">
-              <h4 class="font-bold text-purple-800 mb-2">💬 Common Questions</h4>
+              <h4 class="font-bold text-purple-800 mb-2">📝 Content Mistakes</h4>
               <ul class="text-purple-700 text-sm space-y-1">
-                <li>• "Why do you want to work in Dublin?"</li>
-                <li>• "Tell me about solving complex problems"</li>
-                <li>• "How do you handle diverse teams?"</li>
-                <li>• "What interests you about our Irish operations?"</li>
+                <li>• <strong>Vague Achievements:</strong> "Good team player"</li>
+                <li>• <strong>Missing Keywords:</strong> Ignoring job description terms</li>
+                <li>• <strong>Wrong English:</strong> American vs. Irish spelling</li>
+                <li>• <strong>Weak Summary:</strong> Generic statements</li>
               </ul>
             </div>
             
-            <div class="bg-orange-50 rounded-lg p-4">
-              <h4 class="font-bold text-orange-800 mb-2">🤝 Cultural Considerations</h4>
-              <ul class="text-orange-700 text-sm space-y-1">
-                <li>• <strong>Tone:</strong> Friendly but professional</li>
-                <li>• <strong>Punctuality:</strong> Arrive 10-15 mins early</li>
-                <li>• <strong>Small Talk:</strong> Weather/Dublin chat is normal</li>
-                <li>• <strong>Questions:</strong> Ask about Dublin market growth</li>
+            <div class="bg-cyan-50 rounded-lg p-4">
+              <h4 class="font-bold text-cyan-800 mb-2">🇮🇪 Dublin-Specific Errors</h4>
+              <ul class="text-cyan-700 text-sm space-y-1">
+                <li>• <strong>Work Authorization:</strong> Not mentioning EU status</li>
+                <li>• <strong>Local Knowledge:</strong> Ignoring Irish market</li>
+                <li>• <strong>Currency:</strong> Using GBP/USD not EUR (€)</li>
+                <li>• <strong>Contact Info:</strong> Wrong country code</li>
               </ul>
+            </div>
+          </div>
+          
+          <div class="bg-blue-50 rounded-lg p-4">
+            <h4 class="font-bold text-blue-800 mb-3">🌍 Translation & Localization Issues</h4>
+            <div class="space-y-2 text-blue-700">
+              <p><strong>Direct Translation:</strong> Don't directly translate foreign qualifications - explain Irish equivalents</p>
+              <p><strong>Job Title Confusion:</strong> Use standard Irish/UK job titles (e.g., "Managing Director" not "CEO" for smaller companies)</p>
+              <p><strong>Education Format:</strong> Clearly explain international degrees in Irish context (e.g., "Masters equivalent to Irish Level 9")</p>
             </div>
           </div>
           
           <div class="bg-gray-50 rounded-lg p-4">
-            <h4 class="font-bold text-gray-800 mb-3">👔 Dress Code by Sector</h4>
-            <div class="grid md:grid-cols-2 gap-3 text-gray-700 text-sm">
-              <div><strong>Financial Services/Law:</strong> Formal business attire (suit required)</div>
-              <div><strong>Tech Companies:</strong> Smart-casual (button-down, chinos)</div>
-              <div><strong>Startups:</strong> Business casual to smart-casual</div>
-              <div><strong>Pharmaceuticals:</strong> Business professional</div>
+            <h4 class="font-bold text-gray-800 mb-3">💻 Technical Mistakes</h4>
+            <div class="grid md:grid-cols-3 gap-3 text-gray-700 text-sm">
+              <div><strong>File Naming:</strong> Use "FirstName_LastName_CV.pdf"</div>
+              <div><strong>Email Address:</strong> Professional email only</div>
+              <div><strong>LinkedIn URL:</strong> Customized, not random numbers</div>
             </div>
           </div>
           
-          <div class="bg-indigo-50 rounded-lg p-4">
-            <h4 class="font-bold text-indigo-800 mb-3">🎯 Interview Preparation</h4>
-            <div class="space-y-1 text-indigo-700 text-sm">
-              <p>• Research the company's Irish operations and recent Dublin announcements</p>
-              <p>• Understand Ireland's role in their European strategy</p>
-              <p>• Prepare examples demonstrating adaptability and international mindset</p>
-              <p>• Know basic facts about Dublin's business districts (IFSC, Docklands, Sandyford)</p>
-            </div>
+          <div class="bg-green-50 rounded-lg p-4">
+            <h4 class="font-bold text-green-800 mb-2">✅ Better Example</h4>
+            <p class="text-green-700 text-sm"><strong>Instead of:</strong> "Good team player" <strong>Write:</strong> "Led cross-functional team of 6 to deliver €2M project 3 weeks ahead of schedule"</p>
           </div>
           
-          <div class="bg-green-50 rounded-lg p-3 text-center">
-            <p class="text-green-700 text-sm"><strong>🍀 Irish Tip:</strong> Use STAR method (Situation, Task, Action, Result) - Dublin employers love structured answers</p>
+          <div class="bg-yellow-50 rounded-lg p-3 text-center">
+            <p class="text-yellow-700 text-sm"><strong>🎯 Success Tip:</strong> Use Irish English spelling (specialise, colour, centre) and terminology throughout your CV</p>
           </div>
         </div>
       `
     },
     {
-      id: 'cover-letter-dublin',
-      question: 'How Should I Write a Cover Letter for Dublin Job Applications?',
+      id: 'ats-systems',
+      question: 'What Are ATS Systems and How Do They Impact My Dublin Job Application?',
       answer: `
         <div class="space-y-6">
           <div class="bg-blue-50 rounded-lg p-4">
-            <h4 class="font-bold text-blue-800 mb-2">🇮🇪 Dublin Cover Letter Essentials</h4>
-            <p class="text-blue-700">Cover letters are CRITICAL in Dublin job applications. 89% of Dublin hiring managers read cover letters first to decide if they'll review your CV. It's your chance to show cultural fit and genuine interest.</p>
+            <h4 class="font-bold text-blue-800 mb-2">📊 What is ATS?</h4>
+            <p class="text-blue-700">ATS (Applicant Tracking Systems) are software applications that help employers manage hiring by automatically filtering and ranking job applications. Major Dublin companies like Google, Meta, LinkedIn, Amazon, and Accenture all use these systems.</p>
           </div>
           
+          <div class="bg-green-50 rounded-lg p-4">
+            <h4 class="font-bold text-green-800 mb-3">⚙️ How ATS Works</h4>
+            <div class="space-y-2 text-green-700">
+              <p><strong>1. Keyword Scanning:</strong> Scans CVs for specific keywords from job descriptions</p>
+              <p><strong>2. Automatic Filtering:</strong> Eliminates CVs that don't match required qualifications</p>
+              <p><strong>3. Ranking System:</strong> Ranks applications based on keyword density and relevance</p>
+            </div>
+          </div>
+          
+          <div class="bg-purple-50 rounded-lg p-4">
+            <h4 class="font-bold text-purple-800 mb-3">✅ ATS-Friendly CV Tips</h4>
+            <div class="grid md:grid-cols-2 gap-3 text-purple-700 text-sm">
+              <div><strong>Format:</strong> Clean layouts, no graphics</div>
+              <div><strong>Fonts:</strong> Arial, Calibri, Times New Roman</div>
+              <div><strong>Keywords:</strong> Use exact terms from job descriptions</div>
+              <div><strong>File Type:</strong> Save as .docx or PDF</div>
+              <div><strong>Headers:</strong> Use standard section titles</div>
+              <div><strong>Size:</strong> 11-12pt for body text</div>
+            </div>
+          </div>
+          
+          <div class="bg-orange-50 rounded-lg p-3 text-center">
+            <p class="text-orange-700 text-sm"><strong>📈 Key Stat:</strong> 98% of Fortune 500 companies and 75% of Dublin companies use ATS systems</p>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'dublin-job-platforms',
+      question: 'Which Job Platforms Are Most Effective for Finding Work in Dublin?',
+      answer: `
+        <div class="space-y-6">
           <div class="bg-emerald-50 rounded-lg p-4">
-            <h4 class="font-bold text-emerald-800 mb-3">📋 Perfect Structure for Dublin</h4>
-            <div class="space-y-2 text-emerald-700">
-              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">1</span><div><strong>Header (Your Details):</strong> Name, Dublin address, +353 phone, email, LinkedIn</div></div>
-              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">2</span><div><strong>Date & Company Address:</strong> Current date, hiring manager name if known</div></div>
-              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">3</span><div><strong>Salutation:</strong> "Dear Ms. O'Connor" or "Dear Hiring Manager" (NEVER "To Whom It May Concern")</div></div>
-              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">4</span><div><strong>Opening Paragraph:</strong> Position, where you saw it, genuine company interest</div></div>
-              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">5</span><div><strong>Body (1-2 paragraphs):</strong> Relevant experience with quantifiable achievements</div></div>
-              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">6</span><div><strong>Closing:</strong> Interest reiteration, interview request, appreciation</div></div>
-              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">7</span><div><strong>Sign-off:</strong> "Yours sincerely" (name known) or "Yours faithfully" (unknown)</div></div>
+            <h4 class="font-bold text-emerald-800 mb-2">🌐 Dublin Job Market Overview</h4>
+            <p class="text-emerald-700">Dublin's job market utilizes both local and international platforms. Here's a comprehensive guide to the most effective job search channels for maximum success.</p>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-blue-50 rounded-lg p-4">
+              <h4 class="font-bold text-blue-800 mb-2">🇮🇪 Primary Irish Platforms</h4>
+              <ul class="text-blue-700 text-sm space-y-1">
+                <li>• <strong>IrishJobs.ie:</strong> Ireland's largest job site</li>
+                <li>• <strong>Jobs.ie:</strong> Great for retail, hospitality</li>
+                <li>• <strong>Recruiters.ie:</strong> Finance & tech roles</li>
+                <li>• <strong>TheJournal.ie Jobs:</strong> Dublin startups</li>
+              </ul>
+            </div>
+            
+            <div class="bg-purple-50 rounded-lg p-4">
+              <h4 class="font-bold text-purple-800 mb-2">🌍 International Platforms</h4>
+              <ul class="text-purple-700 text-sm space-y-1">
+                <li>• <strong>LinkedIn Jobs:</strong> Professional roles</li>
+                <li>• <strong>Indeed.ie:</strong> Comprehensive coverage</li>
+                <li>• <strong>Glassdoor.ie:</strong> Company research</li>
+                <li>• <strong>Monster.ie:</strong> Multinational companies</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="bg-orange-50 rounded-lg p-4">
+            <h4 class="font-bold text-orange-800 mb-3">🎯 Sector-Specific Platforms</h4>
+            <div class="grid md:grid-cols-2 gap-3 text-orange-700 text-sm">
+              <div><strong>Technology:</strong> Stack Overflow Jobs, AngelList, GitHub Jobs</div>
+              <div><strong>Finance:</strong> eFinancialCareers, Michael Page, Morgan McKinley</div>
+              <div><strong>Healthcare:</strong> HSEJobs.ie, Irish Medical Jobs</div>
+              <div><strong>Pharmaceuticals:</strong> BioPharma Dive Jobs, PharmaJobs.ie</div>
+            </div>
+          </div>
+          
+          <div class="bg-cyan-50 rounded-lg p-4">
+            <h4 class="font-bold text-cyan-800 mb-3">🏢 Company Direct Applications</h4>
+            <div class="space-y-2 text-cyan-700">
+              <p><strong>Multinational HQs:</strong> Google Careers, Microsoft Careers, Facebook Careers</p>
+              <p><strong>Irish Companies:</strong> Apply directly through company websites (AIB, Bank of Ireland, CRH)</p>
+              <p><strong>Startups:</strong> AngelList, F6S, or directly through company websites</p>
             </div>
           </div>
           
           <div class="grid md:grid-cols-2 gap-4">
             <div class="bg-red-50 rounded-lg p-4">
-              <h4 class="font-bold text-red-800 mb-2">❌ Dublin Cover Letter Mistakes</h4>
+              <h4 class="font-bold text-red-800 mb-2">🤝 Recruitment Agencies</h4>
               <ul class="text-red-700 text-sm space-y-1">
-                <li>• Using same letter for every application</li>
-                <li>• Mentioning salary expectations (unless asked)</li>
-                <li>• Being too American-direct or British-formal</li>
-                <li>• Using clichés: "team player", "hardworking"</li>
-                <li>• Exceeding one page (A4 format)</li>
-                <li>• Not researching company's Dublin operations</li>
-                <li>• Missing job description keywords</li>
+                <li>• <strong>Technology:</strong> Reperio, Matrix, Version 1</li>
+                <li>• <strong>Finance:</strong> Mason Alexander, Sigmar</li>
+                <li>• <strong>General:</strong> CPL, Adecco, Manpower</li>
               </ul>
             </div>
             
-            <div class="bg-green-50 rounded-lg p-4">
-              <h4 class="font-bold text-green-800 mb-2">✅ Dublin Success Formula</h4>
-              <ul class="text-green-700 text-sm space-y-1">
-                <li>• Show genuine company research</li>
-                <li>• Use storytelling (Irish culture loves it)</li>
-                <li>• Include quantifiable achievements</li>
-                <li>• Mention Dublin business context</li>
-                <li>• Balance humility with confidence</li>
-                <li>• Demonstrate multicultural competence</li>
-                <li>• Reference EU work authorization</li>
+            <div class="bg-indigo-50 rounded-lg p-4">
+              <h4 class="font-bold text-indigo-800 mb-2">📅 Networking & Events</h4>
+              <ul class="text-indigo-700 text-sm space-y-1">
+                <li>• <strong>Tech Meetups:</strong> Meetup.com events</li>
+                <li>• <strong>Professional Bodies:</strong> Engineers Ireland</li>
+                <li>• <strong>Alumni Networks:</strong> TCD, UCD, DCU</li>
               </ul>
+            </div>
+          </div>
+          
+          <div class="bg-green-50 rounded-lg p-4">
+            <h4 class="font-bold text-green-800 mb-3">⚡ Platform Usage Strategy</h4>
+            <div class="space-y-2 text-green-700">
+              <div class="flex items-center"><span class="bg-green-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">1</span><strong>Start with IrishJobs.ie and LinkedIn</strong> for maximum coverage</div>
+              <div class="flex items-center"><span class="bg-green-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">2</span><strong>Set up job alerts</strong> with specific Dublin location filters</div>
+              <div class="flex items-center"><span class="bg-green-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">3</span><strong>Apply directly to target companies</strong> for senior roles</div>
+              <div class="flex items-center"><span class="bg-green-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">4</span><strong>Use recruitment agencies</strong> for specialized positions</div>
+              <div class="flex items-center"><span class="bg-green-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">5</span><strong>Network actively</strong> through professional events and online communities</div>
+            </div>
+          </div>
+          
+          <div class="bg-yellow-50 rounded-lg p-3 text-center">
+            <p class="text-yellow-700 text-sm"><strong>💡 Success Tip:</strong> Apply within 48 hours of job posting for 3x higher response rate in Dublin's fast-moving market</p>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: 'linkedin-dublin-jobs',
+      question: 'How Can I Use LinkedIn Effectively for Dublin Job Applications?',
+      answer: `
+        <div class="space-y-6">
+          <div class="bg-blue-50 rounded-lg p-4">
+            <h4 class="font-bold text-blue-800 mb-2">💼 LinkedIn Power in Dublin</h4>
+            <p class="text-blue-700">LinkedIn is the most powerful platform for Dublin job seekers, with 85% of local recruiters actively using it for talent acquisition and networking.</p>
+          </div>
+          
+          <div class="bg-green-50 rounded-lg p-4">
+            <h4 class="font-bold text-green-800 mb-3">🎯 Profile Optimization</h4>
+            <div class="space-y-2 text-green-700">
+              <p><strong>Headline:</strong> Include your target role and location (e.g., "Software Engineer | Dublin | Full-Stack Developer specializing in React & Node.js")</p>
+              <p><strong>Location:</strong> Set to "Dublin, Ireland" to appear in local searches</p>
+              <p><strong>Open to Work Badge:</strong> Enable "Share with recruiters only" for discreet job searching</p>
+              <p><strong>Summary:</strong> Mention your passion for Dublin's tech/business ecosystem</p>
             </div>
           </div>
           
           <div class="bg-purple-50 rounded-lg p-4">
-            <h4 class="font-bold text-purple-800 mb-3">🏢 Sector-Specific Tips for Dublin</h4>
-            <div class="grid md:grid-cols-2 gap-3 text-purple-700 text-sm">
-              <div><strong>Tech (Silicon Docks):</strong> Mention Dublin's tech hub status, specific technologies, agile experience</div>
-              <div><strong>Finance (IFSC):</strong> Reference regulatory knowledge (GDPR, MiFID II), international experience</div>
-              <div><strong>Healthcare:</strong> Show HSE system understanding, patient care focus, Irish qualifications</div>
-              <div><strong>Sales/Marketing:</strong> Demonstrate Irish market knowledge, B2B/B2C experience, CRM tools</div>
+            <h4 class="font-bold text-purple-800 mb-3">📋 Job Application Strategy</h4>
+            <div class="space-y-2 text-purple-700">
+              <div class="flex items-center"><span class="bg-purple-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">1</span><strong>Use Advanced Filters:</strong> Search by "Dublin", "Ireland", and set date filters for recent postings</div>
+              <div class="flex items-center"><span class="bg-purple-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">2</span><strong>Easy Apply:</strong> Your LinkedIn profile auto-populates applications</div>
+              <div class="flex items-center"><span class="bg-purple-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">3</span><strong>Personalized Messages:</strong> Add notes like "Excited to contribute to Dublin's thriving fintech sector"</div>
+              <div class="flex items-center"><span class="bg-purple-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">4</span><strong>Follow Companies:</strong> Track updates from major Dublin employers (Google Dublin, Accenture, Bank of Ireland)</div>
             </div>
           </div>
           
-          <div class="bg-orange-50 rounded-lg p-4">
-            <h4 class="font-bold text-orange-800 mb-3">📝 Sample Opening Paragraph</h4>
-            <div class="bg-white rounded border-l-4 border-orange-400 p-3 text-orange-900 text-sm italic">
-              "I am writing to express my strong interest in the Marketing Coordinator position advertised on LinkedIn. Having followed your company's innovative campaigns in Dublin's competitive fintech market, I am excited about the opportunity to contribute to your dynamic team's continued success in Ireland's thriving financial services sector."
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-cyan-50 rounded-lg p-4">
+              <h4 class="font-bold text-cyan-800 mb-2">🤝 Networking in Dublin</h4>
+              <ul class="text-cyan-700 text-sm space-y-1">
+                <li>• Join groups: "Dublin Tech Professionals"</li>
+                <li>• "Irish Tech Community", "Dublin Startups"</li>
+                <li>• Attend virtual events by Dublin companies</li>
+                <li>• Connect with Dublin professionals</li>
+                <li>• Engage with Irish industry leaders</li>
+              </ul>
+            </div>
+            
+            <div class="bg-orange-50 rounded-lg p-4">
+              <h4 class="font-bold text-orange-800 mb-2">🏢 Top Dublin Companies</h4>
+              <ul class="text-orange-700 text-sm space-y-1">
+                <li><strong>Tech:</strong> Google Dublin, Meta Dublin</li>
+                <li><strong>Finance:</strong> Bank of Ireland, AIB, Stripe</li>
+                <li><strong>Pharma:</strong> Pfizer Ireland, J&J Dublin</li>
+                <li><strong>Consulting:</strong> Accenture, Deloitte</li>
+              </ul>
             </div>
           </div>
           
-          <div class="bg-cyan-50 rounded-lg p-3 text-center">
-            <p class="text-cyan-700 text-sm"><strong>📈 Dublin Fact:</strong> Cover letters increase interview chances by 47% in the Dublin job market when properly customized</p>
+          <div class="bg-indigo-50 rounded-lg p-3 text-center">
+            <p class="text-indigo-700 text-sm"><strong>🔍 Pro Tip:</strong> 75% of Dublin tech jobs are filled through LinkedIn networking before being posted publicly</p>
           </div>
         </div>
       `
@@ -307,6 +421,19 @@ const DublinFAQPage: React.FC = () => {
       question: 'Do I Need a Work Visa for Dublin? What Are the Requirements?',
       answer: `
         <div class="space-y-6">
+          <div class="bg-purple-50 rounded-lg p-4 border-2 border-purple-200">
+            <h4 class="font-bold text-purple-800 mb-3">🤖 AI Assistant for Ireland Tax & Visa Questions</h4>
+            <div class="bg-white rounded-lg p-4 border border-purple-300">
+              <p class="text-purple-700 mb-3"><strong>Get personalized answers instantly!</strong> Use our specialized ChatGPT assistant for detailed visa, tax, and work authorization questions:</p>
+              <a href="https://chatgpt.com/g/g-TFDwjLRt7-irlanda-vergi-rehberi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors font-semibold text-sm">
+                <span class="mr-2">💬</span>
+                Ask İrlanda Vergi Rehberi Bot
+                <span class="ml-2">→</span>
+              </a>
+              <p class="text-purple-600 text-xs mt-2">💡 Custom-trained AI for Ireland-specific tax and visa guidance</p>
+            </div>
+          </div>
+          
           <div class="bg-blue-50 rounded-lg p-4">
             <h4 class="font-bold text-blue-800 mb-2">🛂 Work Authorization in Ireland</h4>
             <p class="text-blue-700">Ireland has specific work visa requirements depending on your nationality, skills, and the type of position. Understanding these is crucial for Dublin job applications.</p>
@@ -405,160 +532,68 @@ const DublinFAQPage: React.FC = () => {
       `
     },
     {
-      id: 'dublin-cv-mistakes',
-      question: 'What Are the Most Common CV Mistakes for Dublin Job Applications?',
+      id: 'dublin-interview-tips',
+      question: 'What Should I Expect in Dublin Job Interviews?',
       answer: `
         <div class="space-y-6">
-          <div class="bg-red-50 rounded-lg p-4">
-            <h4 class="font-bold text-red-800 mb-2">⚠️ Common CV Mistakes in Dublin</h4>
-            <p class="text-red-700">Understanding these common mistakes can significantly improve your chances in Dublin's competitive job market and help you avoid instant rejection.</p>
+          <div class="bg-emerald-50 rounded-lg p-4">
+            <h4 class="font-bold text-emerald-800 mb-2">🎤 Dublin Interview Process</h4>
+            <p class="text-emerald-700">Dublin interviews typically follow a structured 2-3 stage process, with cultural nuances specific to Irish business practices and European workplace standards.</p>
           </div>
           
-          <div class="bg-orange-50 rounded-lg p-4">
-            <h4 class="font-bold text-orange-800 mb-3">📏 Format and Length Errors</h4>
-            <div class="space-y-2 text-orange-700">
-              <p><strong>❌ Too Long:</strong> CVs over 2 pages are automatically rejected by most Dublin employers</p>
-              <p><strong>❌ Creative Layouts:</strong> Graphics, unusual fonts, or complex designs confuse ATS systems</p>
-              <p><strong>❌ Including Photos:</strong> Unlike Germany or France, Irish CVs never include photographs</p>
-              <p><strong>❌ Irrelevant Personal Info:</strong> Age, marital status, or nationality are not required and can lead to bias</p>
+          <div class="bg-blue-50 rounded-lg p-4">
+            <h4 class="font-bold text-blue-800 mb-3">📋 Interview Stages</h4>
+            <div class="space-y-2 text-blue-700">
+              <div class="flex items-center"><span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">1</span><strong>Phone/Video Screening (20-30 mins):</strong> HR or recruiter discussing basics, salary expectations, visa status</div>
+              <div class="flex items-center"><span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">2</span><strong>Technical/Competency Interview (45-60 mins):</strong> Department manager assessing skills and cultural fit</div>
+              <div class="flex items-center"><span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">3</span><strong>Final Panel Interview:</strong> Senior management, sometimes including company culture assessment</div>
             </div>
           </div>
           
           <div class="grid md:grid-cols-2 gap-4">
             <div class="bg-purple-50 rounded-lg p-4">
-              <h4 class="font-bold text-purple-800 mb-2">📝 Content Mistakes</h4>
+              <h4 class="font-bold text-purple-800 mb-2">💬 Common Questions</h4>
               <ul class="text-purple-700 text-sm space-y-1">
-                <li>• <strong>Vague Achievements:</strong> "Good team player"</li>
-                <li>• <strong>Missing Keywords:</strong> Ignoring job description terms</li>
-                <li>• <strong>Wrong English:</strong> American vs. Irish spelling</li>
-                <li>• <strong>Weak Summary:</strong> Generic statements</li>
+                <li>• "Why do you want to work in Dublin?"</li>
+                <li>• "Tell me about solving complex problems"</li>
+                <li>• "How do you handle diverse teams?"</li>
+                <li>• "What interests you about our Irish operations?"</li>
               </ul>
             </div>
             
-            <div class="bg-cyan-50 rounded-lg p-4">
-              <h4 class="font-bold text-cyan-800 mb-2">🇮🇪 Dublin-Specific Errors</h4>
-              <ul class="text-cyan-700 text-sm space-y-1">
-                <li>• <strong>Work Authorization:</strong> Not mentioning EU status</li>
-                <li>• <strong>Local Knowledge:</strong> Ignoring Irish market</li>
-                <li>• <strong>Currency:</strong> Using GBP/USD not EUR (€)</li>
-                <li>• <strong>Contact Info:</strong> Wrong country code</li>
+            <div class="bg-orange-50 rounded-lg p-4">
+              <h4 class="font-bold text-orange-800 mb-2">🤝 Cultural Considerations</h4>
+              <ul class="text-orange-700 text-sm space-y-1">
+                <li>• <strong>Tone:</strong> Friendly but professional</li>
+                <li>• <strong>Punctuality:</strong> Arrive 10-15 mins early</li>
+                <li>• <strong>Small Talk:</strong> Weather/Dublin chat is normal</li>
+                <li>• <strong>Questions:</strong> Ask about Dublin market growth</li>
               </ul>
-            </div>
-          </div>
-          
-          <div class="bg-blue-50 rounded-lg p-4">
-            <h4 class="font-bold text-blue-800 mb-3">🌍 Translation & Localization Issues</h4>
-            <div class="space-y-2 text-blue-700">
-              <p><strong>Direct Translation:</strong> Don't directly translate foreign qualifications - explain Irish equivalents</p>
-              <p><strong>Job Title Confusion:</strong> Use standard Irish/UK job titles (e.g., "Managing Director" not "CEO" for smaller companies)</p>
-              <p><strong>Education Format:</strong> Clearly explain international degrees in Irish context (e.g., "Masters equivalent to Irish Level 9")</p>
             </div>
           </div>
           
           <div class="bg-gray-50 rounded-lg p-4">
-            <h4 class="font-bold text-gray-800 mb-3">💻 Technical Mistakes</h4>
-            <div class="grid md:grid-cols-3 gap-3 text-gray-700 text-sm">
-              <div><strong>File Naming:</strong> Use "FirstName_LastName_CV.pdf"</div>
-              <div><strong>Email Address:</strong> Professional email only</div>
-              <div><strong>LinkedIn URL:</strong> Customized, not random numbers</div>
+            <h4 class="font-bold text-gray-800 mb-3">👔 Dress Code by Sector</h4>
+            <div class="grid md:grid-cols-2 gap-3 text-gray-700 text-sm">
+              <div><strong>Financial Services/Law:</strong> Formal business attire (suit required)</div>
+              <div><strong>Tech Companies:</strong> Smart-casual (button-down, chinos)</div>
+              <div><strong>Startups:</strong> Business casual to smart-casual</div>
+              <div><strong>Pharmaceuticals:</strong> Business professional</div>
             </div>
           </div>
           
-          <div class="bg-green-50 rounded-lg p-4">
-            <h4 class="font-bold text-green-800 mb-2">✅ Better Example</h4>
-            <p class="text-green-700 text-sm"><strong>Instead of:</strong> "Good team player" <strong>Write:</strong> "Led cross-functional team of 6 to deliver €2M project 3 weeks ahead of schedule"</p>
-          </div>
-          
-          <div class="bg-yellow-50 rounded-lg p-3 text-center">
-            <p class="text-yellow-700 text-sm"><strong>🎯 Success Tip:</strong> Use Irish English spelling (specialise, colour, centre) and terminology throughout your CV</p>
-          </div>
-        </div>
-      `
-    },
-    {
-      id: 'dublin-job-platforms',
-      question: 'Which Job Platforms Are Most Effective for Finding Work in Dublin?',
-      answer: `
-        <div class="space-y-6">
-          <div class="bg-emerald-50 rounded-lg p-4">
-            <h4 class="font-bold text-emerald-800 mb-2">🌐 Dublin Job Market Overview</h4>
-            <p class="text-emerald-700">Dublin's job market utilizes both local and international platforms. Here's a comprehensive guide to the most effective job search channels for maximum success.</p>
-          </div>
-          
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="bg-blue-50 rounded-lg p-4">
-              <h4 class="font-bold text-blue-800 mb-2">🇮🇪 Primary Irish Platforms</h4>
-              <ul class="text-blue-700 text-sm space-y-1">
-                <li>• <strong>IrishJobs.ie:</strong> Ireland's largest job site</li>
-                <li>• <strong>Jobs.ie:</strong> Great for retail, hospitality</li>
-                <li>• <strong>Recruiters.ie:</strong> Finance & tech roles</li>
-                <li>• <strong>TheJournal.ie Jobs:</strong> Dublin startups</li>
-              </ul>
-            </div>
-            
-            <div class="bg-purple-50 rounded-lg p-4">
-              <h4 class="font-bold text-purple-800 mb-2">🌍 International Platforms</h4>
-              <ul class="text-purple-700 text-sm space-y-1">
-                <li>• <strong>LinkedIn Jobs:</strong> Professional roles</li>
-                <li>• <strong>Indeed.ie:</strong> Comprehensive coverage</li>
-                <li>• <strong>Glassdoor.ie:</strong> Company research</li>
-                <li>• <strong>Monster.ie:</strong> Multinational companies</li>
-              </ul>
+          <div class="bg-indigo-50 rounded-lg p-4">
+            <h4 class="font-bold text-indigo-800 mb-3">🎯 Interview Preparation</h4>
+            <div class="space-y-1 text-indigo-700 text-sm">
+              <p>• Research the company's Irish operations and recent Dublin announcements</p>
+              <p>• Understand Ireland's role in their European strategy</p>
+              <p>• Prepare examples demonstrating adaptability and international mindset</p>
+              <p>• Know basic facts about Dublin's business districts (IFSC, Docklands, Sandyford)</p>
             </div>
           </div>
           
-          <div class="bg-orange-50 rounded-lg p-4">
-            <h4 class="font-bold text-orange-800 mb-3">🎯 Sector-Specific Platforms</h4>
-            <div class="grid md:grid-cols-2 gap-3 text-orange-700 text-sm">
-              <div><strong>Technology:</strong> Stack Overflow Jobs, AngelList, GitHub Jobs</div>
-              <div><strong>Finance:</strong> eFinancialCareers, Michael Page, Morgan McKinley</div>
-              <div><strong>Healthcare:</strong> HSEJobs.ie, Irish Medical Jobs</div>
-              <div><strong>Pharmaceuticals:</strong> BioPharma Dive Jobs, PharmaJobs.ie</div>
-            </div>
-          </div>
-          
-          <div class="bg-cyan-50 rounded-lg p-4">
-            <h4 class="font-bold text-cyan-800 mb-3">🏢 Company Direct Applications</h4>
-            <div class="space-y-2 text-cyan-700">
-              <p><strong>Multinational HQs:</strong> Google Careers, Microsoft Careers, Facebook Careers</p>
-              <p><strong>Irish Companies:</strong> Apply directly through company websites (AIB, Bank of Ireland, CRH)</p>
-              <p><strong>Startups:</strong> AngelList, F6S, or directly through company websites</p>
-            </div>
-          </div>
-          
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="bg-red-50 rounded-lg p-4">
-              <h4 class="font-bold text-red-800 mb-2">🤝 Recruitment Agencies</h4>
-              <ul class="text-red-700 text-sm space-y-1">
-                <li>• <strong>Technology:</strong> Reperio, Matrix, Version 1</li>
-                <li>• <strong>Finance:</strong> Mason Alexander, Sigmar</li>
-                <li>• <strong>General:</strong> CPL, Adecco, Manpower</li>
-              </ul>
-            </div>
-            
-            <div class="bg-indigo-50 rounded-lg p-4">
-              <h4 class="font-bold text-indigo-800 mb-2">📅 Networking & Events</h4>
-              <ul class="text-indigo-700 text-sm space-y-1">
-                <li>• <strong>Tech Meetups:</strong> Meetup.com events</li>
-                <li>• <strong>Professional Bodies:</strong> Engineers Ireland</li>
-                <li>• <strong>Alumni Networks:</strong> TCD, UCD, DCU</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div class="bg-green-50 rounded-lg p-4">
-            <h4 class="font-bold text-green-800 mb-3">⚡ Platform Usage Strategy</h4>
-            <div class="space-y-2 text-green-700">
-              <div class="flex items-center"><span class="bg-green-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">1</span><strong>Start with IrishJobs.ie and LinkedIn</strong> for maximum coverage</div>
-              <div class="flex items-center"><span class="bg-green-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">2</span><strong>Set up job alerts</strong> with specific Dublin location filters</div>
-              <div class="flex items-center"><span class="bg-green-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">3</span><strong>Apply directly to target companies</strong> for senior roles</div>
-              <div class="flex items-center"><span class="bg-green-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">4</span><strong>Use recruitment agencies</strong> for specialized positions</div>
-              <div class="flex items-center"><span class="bg-green-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">5</span><strong>Network actively</strong> through professional events and online communities</div>
-            </div>
-          </div>
-          
-          <div class="bg-yellow-50 rounded-lg p-3 text-center">
-            <p class="text-yellow-700 text-sm"><strong>💡 Success Tip:</strong> Apply within 48 hours of job posting for 3x higher response rate in Dublin's fast-moving market</p>
+          <div class="bg-green-50 rounded-lg p-3 text-center">
+            <p class="text-green-700 text-sm"><strong>🍀 Irish Tip:</strong> Use STAR method (Situation, Task, Action, Result) - Dublin employers love structured answers</p>
           </div>
         </div>
       `
@@ -651,113 +686,8 @@ const DublinFAQPage: React.FC = () => {
           </div>
         </div>
       `
-    },
-    {
-      id: 'cover-letter-guide',
-      question: 'How Do I Write an Effective Cover Letter for Dublin Jobs?',
-      answer: `
-        <div class="space-y-6">
-          <div class="bg-emerald-50 rounded-lg p-4">
-            <h4 class="font-bold text-emerald-800 mb-2">📝 Cover Letter Essentials</h4>
-            <p class="text-emerald-700">A well-crafted cover letter can be the difference between landing an interview and being overlooked. Dublin employers expect professional, personalized letters that demonstrate genuine interest and cultural fit.</p>
-          </div>
-          
-          <div class="bg-blue-50 rounded-lg p-4">
-            <h4 class="font-bold text-blue-800 mb-3">📋 Perfect Structure (3-4 Paragraphs)</h4>
-            <div class="space-y-3 text-blue-700">
-              <div class="flex items-start">
-                <span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1">1</span>
-                <div>
-                  <strong>Opening Paragraph:</strong> Outline what you have to offer that's directly relevant to the role. State the position you're applying for and where you learned about it. Avoid rambling - you'll immediately lose the reader.
-                </div>
-              </div>
-              <div class="flex items-start">
-                <span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1">2</span>
-                <div>
-                  <strong>Middle Paragraphs:</strong> Detail how your skills, experience and education make you ideal for the specific requirements. Include company research to show you've done your homework. Mention why you specifically want to work for them.
-                </div>
-              </div>
-              <div class="flex items-start">
-                <span class="bg-blue-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1">3</span>
-                <div>
-                  <strong>Final Paragraph:</strong> Thank the reader for their consideration and state that you would welcome the opportunity for an interview. Close with confidence that encourages a positive response.
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="bg-green-50 rounded-lg p-4">
-              <h4 class="font-bold text-green-800 mb-3">✅ DO These Things</h4>
-              <ul class="text-green-700 text-sm space-y-2">
-                <li>• <strong>Start with qualifications</strong> relevant to the job opening</li>
-                <li>• <strong>Show genuine interest</strong> in the field and company</li>
-                <li>• <strong>Include company research</strong> and historical facts</li>
-                <li>• <strong>Use varied sentence structures</strong> and openings</li>
-                <li>• <strong>Be specific</strong> about achievements with metrics</li>
-                <li>• <strong>Research the company</strong> and mention relevant details</li>
-                <li>• <strong>Show personality</strong> while staying professional</li>
-              </ul>
-            </div>
-            
-            <div class="bg-red-50 rounded-lg p-4">
-              <h4 class="font-bold text-red-800 mb-3">❌ DON'T Do These</h4>
-              <ul class="text-red-700 text-sm space-y-2">
-                <li>• <strong>Begin with your name</strong> (it's already on your CV)</li>
-                <li>• <strong>Repeat your CV content</strong> word for word</li>
-                <li>• <strong>Use repetitive sentence starters</strong> like "for", "I am", "my"</li>
-                <li>• <strong>Add references</strong> or justify previous job changes</li>
-                <li>• <strong>Use clichés</strong> or generic phrases</li>
-                <li>• <strong>Make it too long</strong> (keep to one page)</li>
-                <li>• <strong>Send generic letters</strong> to multiple companies</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div class="bg-purple-50 rounded-lg p-4">
-            <h4 class="font-bold text-purple-800 mb-3">✍️ Writing Style Requirements</h4>
-            <div class="grid md:grid-cols-2 gap-3 text-purple-700 text-sm">
-              <div>• <strong>Vary sentence openings</strong> - avoid repetitive starts</div>
-              <div>• <strong>Use active voice</strong> and strong action verbs</div>
-              <div>• <strong>Include specific metrics</strong> and achievements</div>
-              <div>• <strong>Balance professionalism</strong> with Irish directness</div>
-              <div>• <strong>Show genuine enthusiasm</strong> for the role</div>
-              <div>• <strong>Demonstrate cultural fit</strong> with company values</div>
-            </div>
-          </div>
-          
-          <div class="bg-gray-50 rounded-lg p-4">
-            <h4 class="font-bold text-gray-800 mb-3">📄 Cover Letter Example</h4>
-            <div class="bg-white border-l-4 border-purple-500 p-4 text-sm text-gray-700">
-              <p class="mb-3"><strong>Dear Mr. Jones,</strong></p>
-              <p class="mb-3">I am applying for the available marketing assistant role advertised at www.jobs.ie.</p>
-              <p class="mb-3">As well as having experience in the marketing field, I graduated from University College Dublin (UCD) with a BA in Marketing. I am now looking to use the knowledge gained so far in my career to further help clients achieve their sales targets and the opening at Acme Business presents me with the ideal opportunity to achieve this goal.</p>
-              <p class="mb-3">I believe I meet all the criteria needed for the role. In the course of my studies, I learned a great deal about the financial side of running a business including details on setting a budget. I worked as part of a group for a number of projects and feel comfortable as part of a team due to my interpersonal and communication skills.</p>
-              <p class="mb-3">At Johnson Marketing, I worked for a variety of major international firms and helped them learn crucial details about customer behaviour. As a result, we were able to streamline the marketing campaigns of these clients to reduce costs while increasing ROI. I worked with five different clients during my tenure at Johnson Marketing and all five enjoyed a sales increase of at least 10%.</p>
-              <p class="mb-3">In addition to this extensive marketing campaign experience, I also have strong administrative, communication, problem solving and time management skills. This broad background makes me an ideal candidate for this position and I believe I will bring flexibility, efficiency, reliability and innovation to your company. Please read the accompanying CV which will provide you with further details of my skill set and academic qualifications.</p>
-              <p class="mb-3">I appreciate you taking the time to read my application and I look forward to hearing from you.</p>
-              <p><strong>Kind Regards,<br>Jane Smith</strong></p>
-            </div>
-          </div>
-          
-          <div class="bg-orange-50 rounded-lg p-4">
-            <h4 class="font-bold text-orange-800 mb-3">🎯 Dublin-Specific Tips</h4>
-            <div class="space-y-2 text-orange-700 text-sm">
-              <p>• <strong>Irish Business Culture:</strong> Professional but warm - show genuine personality</p>
-              <p>• <strong>Company Research:</strong> Mention Dublin office specifics, recent company news, or Irish market expansion</p>
-              <p>• <strong>Local Knowledge:</strong> Reference understanding of Irish business practices or European market</p>
-              <p>• <strong>Networking:</strong> Mention any Irish professional connections or industry involvement</p>
-            </div>
-          </div>
-          
-          <div class="bg-yellow-50 rounded-lg p-3 text-center">
-            <p class="text-yellow-700 text-sm"><strong>💡 Pro Tip:</strong> 73% of Dublin hiring managers read cover letters first before looking at CVs - make yours count!</p>
-          </div>
-        </div>
-      `
     }
   ];
-
   return (
     <>
       <Head>
@@ -774,7 +704,7 @@ const DublinFAQPage: React.FC = () => {
               <div className="flex items-center">
                 <Link href="/" className="flex items-center">
                   <Sparkles className="h-8 w-8 text-primary-600 mr-2" />
-                  <span className="text-xl font-bold text-gray-900">CVGenius</span>
+                  <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent gradient-flow">CVGenius</span>
                 </Link>
               </div>
               
@@ -1021,7 +951,7 @@ const DublinFAQPage: React.FC = () => {
               <div className="md:col-span-2">
                 <div className="flex items-center mb-4">
                   <Sparkles className="h-8 w-8 text-primary-400 mr-2" />
-                  <span className="text-xl font-bold">CVGenius</span>
+                  <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent gradient-flow">CVGenius</span>
                 </div>
                 <p className="text-gray-400 mb-6">
                   AI-powered CV and cover letter generation for the modern job seeker. 
