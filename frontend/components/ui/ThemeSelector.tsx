@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Check, Eye } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Check, Eye, X } from 'lucide-react';
 import clsx from 'clsx';
 
 export type CoverLetterTheme = 'classic' | 'modern' | 'academic';
@@ -70,21 +70,49 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
 }) => {
   const [hoveredTheme, setHoveredTheme] = useState<CoverLetterTheme | null>(null);
   const [showPreview, setShowPreview] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseEnter = (themeId: CoverLetterTheme) => {
+
+
+  const handlePreviewClick = (themeId: CoverLetterTheme) => {
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    
     setHoveredTheme(themeId);
     setShowPreview(true);
+    setIsModalOpen(true);
   };
 
-  const handleMouseLeave = () => {
+  const closePreview = () => {
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    
     setHoveredTheme(null);
     setShowPreview(false);
+    setIsModalOpen(false);
   };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   const previewTheme = hoveredTheme ? themes.find(t => t.id === hoveredTheme) : null;
 
   return (
-    <div className="space-y-4 relative">
+    <div className="space-y-4 relative" ref={containerRef}>
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-semibold text-gray-900">
           Choose Cover Letter Style
@@ -103,8 +131,6 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
                 : 'border-gray-200 bg-white hover:border-gray-300'
             )}
             onClick={() => onThemeChange(theme.id)}
-            onMouseEnter={() => handleMouseEnter(theme.id)}
-            onMouseLeave={handleMouseLeave}
           >
             {/* Selection indicator */}
             <div className={clsx(
@@ -118,10 +144,7 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
               )}
             </div>
 
-            {/* Preview indicator */}
-            <div className="absolute top-3 left-3 opacity-0 hover:opacity-100 transition-opacity">
-              <Eye className="w-4 h-4 text-gray-500" />
-            </div>
+
 
             {/* Theme header */}
             <div className="mb-3">
@@ -142,7 +165,7 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
             </div>
 
             {/* Features */}
-            <div className="space-y-1">
+            <div className="space-y-1 mb-3">
               {theme.features.map((feature, index) => (
                 <div key={index} className="flex items-center text-xs text-gray-600">
                   <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-2" />
@@ -150,14 +173,32 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
                 </div>
               ))}
             </div>
+
+            {/* Preview button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePreviewClick(theme.id);
+              }}
+              className="w-full flex items-center justify-center gap-2 py-2 px-3 text-xs font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all border border-gray-200 hover:border-blue-300"
+            >
+              <Eye className="w-3.5 h-3.5" />
+              Preview Style
+            </button>
           </div>
         ))}
       </div>
 
       {/* Large Preview Modal */}
       {showPreview && previewTheme && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          onClick={closePreview}
+        >
+          <div 
+            className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* Modal Header */}
             <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 border-b">
               <div className="flex items-center justify-between">
@@ -165,11 +206,20 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
                   <h3 className="text-xl font-bold text-gray-900">{previewTheme.name}</h3>
                   <p className="text-gray-600">{previewTheme.description}</p>
                 </div>
-                <div className={clsx(
-                  'px-4 py-2 rounded-full text-sm font-medium text-white',
-                  `bg-gradient-to-r ${previewTheme.color}`
-                )}>
-                  Preview
+                <div className="flex items-center space-x-3">
+                  <div className={clsx(
+                    'px-4 py-2 rounded-full text-sm font-medium text-white',
+                    `bg-gradient-to-r ${previewTheme.color}`
+                  )}>
+                    Preview
+                  </div>
+                  <button
+                    onClick={closePreview}
+                    className="p-2 hover:bg-gray-200 rounded-full transition-colors"
+                    aria-label="Close preview"
+                  >
+                    <X className="w-5 h-5 text-gray-500" />
+                  </button>
                 </div>
               </div>
             </div>

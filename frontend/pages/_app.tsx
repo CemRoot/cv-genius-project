@@ -5,10 +5,33 @@ import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import EnvironmentIndicator from '@/components/ui/EnvironmentIndicator';
 import '@/styles/globals.css';
+import { useEffect } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function App({ Component, pageProps }: AppProps) {
+  // Suppress browser extension errors
+  useEffect(() => {
+    // Suppress runtime.lastError warnings from browser extensions
+    const originalError = console.error;
+    console.error = (...args) => {
+      if (
+        args[0] && 
+        typeof args[0] === 'string' && 
+        (args[0].includes('runtime.lastError') || 
+         args[0].includes('Could not establish connection') ||
+         args[0].includes('message port closed'))
+      ) {
+        return; // Suppress these specific errors
+      }
+      originalError.apply(console, args);
+    };
+
+    return () => {
+      console.error = originalError;
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -54,8 +77,8 @@ export default function App({ Component, pageProps }: AppProps) {
           }}
         />
         
-        {/* Vercel Analytics */}
-        <Analytics />
+                  {/* Vercel Analytics */}
+          <Analytics />
       </div>
     </>
   );
