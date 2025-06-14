@@ -292,10 +292,13 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
             <div className="bg-gray-50 p-4 border-t">
               <div className="flex justify-between items-center">
                 <div className="text-sm text-gray-600">
-                  Hover over themes to preview • Click to select
+                  Click "Preview Style" to see full example • Select your preferred style
                 </div>
                 <button
-                  onClick={() => onThemeChange(previewTheme.id)}
+                  onClick={() => {
+                    onThemeChange(previewTheme.id);
+                    closePreview();
+                  }}
                   className={clsx(
                     'px-6 py-2 rounded-lg font-medium text-white transition-all',
                     `bg-gradient-to-r ${previewTheme.color} hover:shadow-lg`
