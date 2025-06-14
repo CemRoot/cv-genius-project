@@ -12,7 +12,7 @@ export default function Document() {
 🔒 Privacy-first architecture - no data stored
 ⚡ Lightning-fast generation < 30 seconds
 
-Created by Cem Koyluoglu
+Created voluntarily by Cem Koyluoglu
 Github: https://github.com/cem-koyluoglu
 
 For those who inspect the source - you found our hidden signature! 👨‍💻

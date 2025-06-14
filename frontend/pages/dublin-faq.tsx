@@ -88,60 +88,75 @@ const DublinFAQPage: React.FC = () => {
       `
     },
     {
-      id: 'linkedin-dublin-jobs',
-      question: 'How Can I Use LinkedIn Effectively for Dublin Job Applications?',
+      id: 'cover-letter-dublin',
+      question: 'How Should I Write a Cover Letter for Dublin Job Applications?',
       answer: `
         <div class="space-y-6">
           <div class="bg-blue-50 rounded-lg p-4">
-            <h4 class="font-bold text-blue-800 mb-2">💼 LinkedIn Power in Dublin</h4>
-            <p class="text-blue-700">LinkedIn is the most powerful platform for Dublin job seekers, with 85% of local recruiters actively using it for talent acquisition and networking.</p>
+            <h4 class="font-bold text-blue-800 mb-2">🇮🇪 Dublin Cover Letter Essentials</h4>
+            <p class="text-blue-700">Cover letters are CRITICAL in Dublin job applications. 89% of Dublin hiring managers read cover letters first to decide if they'll review your CV. It's your chance to show cultural fit and genuine interest.</p>
           </div>
           
-          <div class="bg-green-50 rounded-lg p-4">
-            <h4 class="font-bold text-green-800 mb-3">🎯 Profile Optimization</h4>
-            <div class="space-y-2 text-green-700">
-              <p><strong>Headline:</strong> Include your target role and location (e.g., "Software Engineer | Dublin | Full-Stack Developer specializing in React & Node.js")</p>
-              <p><strong>Location:</strong> Set to "Dublin, Ireland" to appear in local searches</p>
-              <p><strong>Open to Work Badge:</strong> Enable "Share with recruiters only" for discreet job searching</p>
-              <p><strong>Summary:</strong> Mention your passion for Dublin's tech/business ecosystem</p>
-            </div>
-          </div>
-          
-          <div class="bg-purple-50 rounded-lg p-4">
-            <h4 class="font-bold text-purple-800 mb-3">📋 Job Application Strategy</h4>
-            <div class="space-y-2 text-purple-700">
-              <div class="flex items-center"><span class="bg-purple-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">1</span><strong>Use Advanced Filters:</strong> Search by "Dublin", "Ireland", and set date filters for recent postings</div>
-              <div class="flex items-center"><span class="bg-purple-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">2</span><strong>Easy Apply:</strong> Your LinkedIn profile auto-populates applications</div>
-              <div class="flex items-center"><span class="bg-purple-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">3</span><strong>Personalized Messages:</strong> Add notes like "Excited to contribute to Dublin's thriving fintech sector"</div>
-              <div class="flex items-center"><span class="bg-purple-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2">4</span><strong>Follow Companies:</strong> Track updates from major Dublin employers (Google Dublin, Accenture, Bank of Ireland)</div>
+          <div class="bg-emerald-50 rounded-lg p-4">
+            <h4 class="font-bold text-emerald-800 mb-3">📋 Perfect Structure for Dublin</h4>
+            <div class="space-y-2 text-emerald-700">
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">1</span><div><strong>Header (Your Details):</strong> Name, Dublin address, +353 phone, email, LinkedIn</div></div>
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">2</span><div><strong>Date & Company Address:</strong> Current date, hiring manager name if known</div></div>
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">3</span><div><strong>Salutation:</strong> "Dear Ms. O'Connor" or "Dear Hiring Manager" (NEVER "To Whom It May Concern")</div></div>
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">4</span><div><strong>Opening Paragraph:</strong> Position, where you saw it, genuine company interest</div></div>
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">5</span><div><strong>Body (1-2 paragraphs):</strong> Relevant experience with quantifiable achievements</div></div>
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">6</span><div><strong>Closing:</strong> Interest reiteration, interview request, appreciation</div></div>
+              <div class="flex items-start"><span class="bg-emerald-200 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-2 mt-0.5">7</span><div><strong>Sign-off:</strong> "Yours sincerely" (name known) or "Yours faithfully" (unknown)</div></div>
             </div>
           </div>
           
           <div class="grid md:grid-cols-2 gap-4">
-            <div class="bg-cyan-50 rounded-lg p-4">
-              <h4 class="font-bold text-cyan-800 mb-2">🤝 Networking in Dublin</h4>
-              <ul class="text-cyan-700 text-sm space-y-1">
-                <li>• Join groups: "Dublin Tech Professionals"</li>
-                <li>• "Irish Tech Community", "Dublin Startups"</li>
-                <li>• Attend virtual events by Dublin companies</li>
-                <li>• Connect with Dublin professionals</li>
-                <li>• Engage with Irish industry leaders</li>
+            <div class="bg-red-50 rounded-lg p-4">
+              <h4 class="font-bold text-red-800 mb-2">❌ Dublin Cover Letter Mistakes</h4>
+              <ul class="text-red-700 text-sm space-y-1">
+                <li>• Using same letter for every application</li>
+                <li>• Mentioning salary expectations (unless asked)</li>
+                <li>• Being too American-direct or British-formal</li>
+                <li>• Using clichés: "team player", "hardworking"</li>
+                <li>• Exceeding one page (A4 format)</li>
+                <li>• Not researching company's Dublin operations</li>
+                <li>• Missing job description keywords</li>
               </ul>
             </div>
             
-            <div class="bg-orange-50 rounded-lg p-4">
-              <h4 class="font-bold text-orange-800 mb-2">🏢 Top Dublin Companies</h4>
-              <ul class="text-orange-700 text-sm space-y-1">
-                <li><strong>Tech:</strong> Google Dublin, Meta Dublin</li>
-                <li><strong>Finance:</strong> Bank of Ireland, AIB, Stripe</li>
-                <li><strong>Pharma:</strong> Pfizer Ireland, J&J Dublin</li>
-                <li><strong>Consulting:</strong> Accenture, Deloitte</li>
+            <div class="bg-green-50 rounded-lg p-4">
+              <h4 class="font-bold text-green-800 mb-2">✅ Dublin Success Formula</h4>
+              <ul class="text-green-700 text-sm space-y-1">
+                <li>• Show genuine company research</li>
+                <li>• Use storytelling (Irish culture loves it)</li>
+                <li>• Include quantifiable achievements</li>
+                <li>• Mention Dublin business context</li>
+                <li>• Balance humility with confidence</li>
+                <li>• Demonstrate multicultural competence</li>
+                <li>• Reference EU work authorization</li>
               </ul>
             </div>
           </div>
           
-          <div class="bg-indigo-50 rounded-lg p-3 text-center">
-            <p class="text-indigo-700 text-sm"><strong>🔍 Pro Tip:</strong> 75% of Dublin tech jobs are filled through LinkedIn networking before being posted publicly</p>
+          <div class="bg-purple-50 rounded-lg p-4">
+            <h4 class="font-bold text-purple-800 mb-3">🏢 Sector-Specific Tips for Dublin</h4>
+            <div class="grid md:grid-cols-2 gap-3 text-purple-700 text-sm">
+              <div><strong>Tech (Silicon Docks):</strong> Mention Dublin's tech hub status, specific technologies, agile experience</div>
+              <div><strong>Finance (IFSC):</strong> Reference regulatory knowledge (GDPR, MiFID II), international experience</div>
+              <div><strong>Healthcare:</strong> Show HSE system understanding, patient care focus, Irish qualifications</div>
+              <div><strong>Sales/Marketing:</strong> Demonstrate Irish market knowledge, B2B/B2C experience, CRM tools</div>
+            </div>
+          </div>
+          
+          <div class="bg-orange-50 rounded-lg p-4">
+            <h4 class="font-bold text-orange-800 mb-3">📝 Sample Opening Paragraph</h4>
+            <div class="bg-white rounded border-l-4 border-orange-400 p-3 text-orange-900 text-sm italic">
+              "I am writing to express my strong interest in the Marketing Coordinator position advertised on LinkedIn. Having followed your company's innovative campaigns in Dublin's competitive fintech market, I am excited about the opportunity to contribute to your dynamic team's continued success in Ireland's thriving financial services sector."
+            </div>
+          </div>
+          
+          <div class="bg-cyan-50 rounded-lg p-3 text-center">
+            <p class="text-cyan-700 text-sm"><strong>📈 Dublin Fact:</strong> Cover letters increase interview chances by 47% in the Dublin job market when properly customized</p>
           </div>
         </div>
       `
