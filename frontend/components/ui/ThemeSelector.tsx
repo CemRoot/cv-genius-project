@@ -176,8 +176,10 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
 
             {/* Preview button */}
             <button
+              type="button"
               onClick={(e) => {
                 e.stopPropagation();
+                e.preventDefault();
                 handlePreviewClick(theme.id);
               }}
               className="w-full flex items-center justify-center gap-2 py-2 px-3 text-xs font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all border border-gray-200 hover:border-blue-300"
@@ -214,7 +216,11 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
                     Preview
                   </div>
                   <button
-                    onClick={closePreview}
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      closePreview();
+                    }}
                     className="p-2 hover:bg-gray-200 rounded-full transition-colors"
                     aria-label="Close preview"
                   >
@@ -295,7 +301,9 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
                   Click "Preview Style" to see full example • Select your preferred style
                 </div>
                 <button
-                  onClick={() => {
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
                     onThemeChange(previewTheme.id);
                     closePreview();
                   }}
