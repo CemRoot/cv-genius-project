@@ -177,7 +177,7 @@ const UpdateCVPage: React.FC = () => {
                   </h2>
                   <p className="text-gray-600 mt-2">Three simple steps to transform your CV</p>
                 </div>
-                <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-8 sm:space-y-10">
+                <form onSubmit={handleSubmit} className="p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8 lg:space-y-10">
                   {/* File Upload Section */}
                   <div className="relative">
                     <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-4 sm:p-6 border border-blue-200/50">
@@ -211,10 +211,10 @@ const UpdateCVPage: React.FC = () => {
                           onChange={(e) => setJobDescription(e.target.value)}
                           placeholder="Paste the complete job description here, including requirements, responsibilities, and qualifications..."
                           className={clsx(
-                            'w-full min-h-[150px] sm:min-h-[200px] p-3 sm:p-4 border rounded-lg resize-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200',
+                            'w-full min-h-[120px] sm:min-h-[150px] lg:min-h-[200px] p-3 sm:p-4 border rounded-lg resize-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base',
                             errors.jobDescription ? 'border-red-500 bg-red-50' : 'border-gray-300 bg-white'
                           )}
-                          rows={8}
+                          rows={6}
                         />
                         
                         {errors.jobDescription && (
@@ -261,19 +261,19 @@ const UpdateCVPage: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="flex justify-center pt-6 sm:pt-8">
-                    <div className="text-center w-full max-w-sm">
+                  <div className="flex justify-center pt-6 sm:pt-8 px-4">
+                    <div className="text-center w-full max-w-md">
                       <Button
                         type="submit"
                         size="lg"
                         loading={loading}
                         disabled={loading || !selectedFile || !jobDescription.trim() || !selectedTheme}
-                        className="w-full px-8 sm:px-16 py-4 text-base sm:text-lg font-bold bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-xl"
+                        className="w-full px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg font-bold bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-xl rounded-xl"
                       >
-                        {loading ? '⚙️ Optimizing Your CV...' : '🚀 Optimize My CV'}
+                        {loading ? 'Optimizing Your CV...' : 'Optimize My CV'}
                       </Button>
                       {selectedFile && jobDescription.trim().length >= 50 && selectedTheme && (
-                        <p className="text-sm text-emerald-600 mt-3 font-medium">✓ Ready for optimization!</p>
+                        <p className="text-xs sm:text-sm text-emerald-600 mt-2 sm:mt-3 font-medium">✓ Ready for optimization!</p>
                       )}
                     </div>
                   </div>
@@ -282,16 +282,13 @@ const UpdateCVPage: React.FC = () => {
 
               {/* Loading State */}
               {loading && (
-                <div className="mt-8 sm:mt-12 text-center">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-blue-400/20 rounded-3xl animate-pulse"></div>
-                    <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-6 sm:p-10 border border-white/30 shadow-2xl">
-                      <LoadingSpinner size="lg" message="Our AI is analyzing your CV and optimizing it for the job..." />
-                      <div className="mt-6 bg-gradient-to-r from-emerald-50 to-blue-50 rounded-2xl p-4 border border-emerald-200/50">
-                        <p className="text-sm text-emerald-700 font-medium">
-                          ⏱️ This usually takes 15-30 seconds
-                        </p>
-                      </div>
+                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+                  <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full mx-4 shadow-2xl">
+                    <LoadingSpinner size="lg" message="Our AI is analyzing your CV and optimizing it for the job..." />
+                    <div className="mt-6 bg-gradient-to-r from-emerald-50 to-blue-50 rounded-2xl p-4 border border-emerald-200/50">
+                      <p className="text-sm text-emerald-700 font-medium">
+                        ⏱️ This usually takes 15-30 seconds
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -299,58 +296,58 @@ const UpdateCVPage: React.FC = () => {
             </>
           ) : (
             /* Results Section */
-            <div className="text-center">
-              <div className="mb-12">
+            <div className="text-center px-4">
+              <div className="mb-8 sm:mb-12">
                 <div className="relative">
-                  <div className="w-24 h-24 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl animate-bounce">
-                    <FileText className="w-12 h-12 text-white" />
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-2xl animate-bounce">
+                    <FileText className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
                   </div>
-                  <div className="absolute -top-2 -right-8 text-3xl animate-pulse">🎉</div>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                   <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
                     Your CV Has Been Optimized!
                   </span>
                 </h1>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                  🎯 Your updated CV and tailored cover letter are ready for download. 
+                <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                  Your updated CV and tailored cover letter are ready for download. 
                   Both documents have been optimized for ATS systems and the specific job requirements.
                 </p>
               </div>
 
               {/* Download Buttons */}
-              <div className="grid md:grid-cols-2 gap-6 max-w-lg mx-auto mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-lg mx-auto mb-8 sm:mb-12 px-4">
                 <Button
                   onClick={() => handleDownload('cv')}
-                  icon={<Download className="w-5 h-5" />}
+                  icon={<Download className="w-4 h-4 sm:w-5 sm:h-5" />}
                   size="lg"
-                  className="w-full"
+                  className="w-full py-3 sm:py-4 text-sm sm:text-base font-semibold"
                 >
                   Download CV
                 </Button>
                 
                 <Button
                   onClick={() => handleDownload('cover_letter')}
-                  icon={<Mail className="w-5 h-5" />}
+                  icon={<Mail className="w-4 h-4 sm:w-5 sm:h-5" />}
                   variant="outline"
                   size="lg"
-                  className="w-full"
+                  className="w-full py-3 sm:py-4 text-sm sm:text-base font-semibold"
                 >
                   Download Cover Letter
                 </Button>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8 px-4">
                 <Button
                   onClick={resetForm}
                   variant="secondary"
+                  className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
                 >
                   Optimize Another CV
                 </Button>
                 
-                <Link href="/create-new-cv">
-                  <Button variant="outline">
+                <Link href="/create-new-cv" className="w-full sm:w-auto">
+                  <Button variant="outline" className="w-full px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base">
                     Create New CV Instead
                   </Button>
                 </Link>

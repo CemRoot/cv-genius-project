@@ -378,7 +378,7 @@ const HomePage: React.FC = () => {
 
             {/* Community Benefits */}
             <div className="mt-12 bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200">
-                             <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">What You'll Get (100% FREE)</h3>
+                             <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">What You&apos;ll Get (100% FREE)</h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="text-center">
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-3">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ChevronDown, ChevronUp, Sparkles, ArrowLeft, ExternalLink, FileText, Users, CheckCircle, Globe } from 'lucide-react';
+import { ChevronDown, ChevronUp, Sparkles, ArrowLeft, ExternalLink, Globe } from 'lucide-react';
 
 interface FAQItem {
   id: string;
@@ -709,12 +709,12 @@ const DublinFAQPage: React.FC = () => {
               </div>
               
               <nav className="hidden md:flex space-x-8">
-                <a href="/#features" className="text-gray-600 hover:text-primary-600 transition-colors">
+                <Link href="/#features" className="text-gray-600 hover:text-primary-600 transition-colors">
                   Features
-                </a>
-                <a href="/#how-it-works" className="text-gray-600 hover:text-primary-600 transition-colors">
+                </Link>
+                <Link href="/#how-it-works" className="text-gray-600 hover:text-primary-600 transition-colors">
                   How It Works
-                </a>
+                </Link>
                 <span className="text-primary-600 font-semibold">
                   FAQ
                 </span>
